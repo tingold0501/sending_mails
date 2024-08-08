@@ -127,8 +127,8 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="layouts-without-menu.html" class="menu-link">
-                    <div data-i18n="Without menu">Without menu</div>
+                  <a href="{{ route('campaign') }}" class="menu-link">
+                    <div data-i18n="Without menu">Campaign Form</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -557,6 +557,7 @@
 
             @yield('Home')
             @yield('Profile')
+            @yield('Form')
             <!-- / Content -->
 
             <!-- Footer -->

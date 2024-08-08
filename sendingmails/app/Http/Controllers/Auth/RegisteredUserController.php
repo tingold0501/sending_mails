@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -42,6 +43,11 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+        $mailData =[
+            'title' => 'Welcome ' . $request->name,
+            'body' => 'Welcome Mail To Bulk Mail',
+        ];
+        Mail::to($request->email)->send(new \App\Mail\WelcomeMail($mailData));
 
         Auth::login($user);
 
