@@ -19,9 +19,6 @@ return new class extends Migration
             $table->string('subject');
             $table->text('content');
             $table->timestamps();
-            $table->foreignId('contract_id')->constrained('contracts')->nullale();
-            $table->foreignId('user_id')->constrained('users')->default(1);
-        
         });
     }
 

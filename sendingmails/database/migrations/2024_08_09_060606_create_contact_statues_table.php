@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->timestamps();
-            $table->foreignId('contract_id')->constrained('contracts')->default(1);
-
         });
     }
 
