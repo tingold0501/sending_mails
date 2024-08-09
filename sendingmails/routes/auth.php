@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\AvatarController;
 use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\ContractController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -66,4 +67,16 @@ Route::middleware('auth')->group(function () {
         ->name('campaign');
 
     Route::post('campaign', [CampaignController::class, 'store'])->name('campaigncreate');
+    
+    Route::get('table', [ContractController::class, 'get_contract'])
+        ->name('table');
+
+    Route::get('contract', [ContractController::class, 'index'])
+        ->name('contract');
+
+    Route::post('contract_store', [ContractController::class, 'store'])->name('contract_store');
+   
+    Route::post('contract_update', [ContractController::class, 'update'])->name('contract_update');
+
+    
 });

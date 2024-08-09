@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campaigns', function (Blueprint $table) {
+        Schema::create('contracts', function (Blueprint $table) {
             $table->id();
-            $table->string('sendto');
-            $table->string('name');
             $table->string('email');
-            $table->string('subject');
-            $table->text('content');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->timestamps();
-            $table->foreignId('contract_id')->constrained('contracts')->nullale();
-            $table->foreignId('user_id')->constrained('users')->default(1);
-        
+
         });
     }
 
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('campaigns');
+        Schema::dropIfExists('contracts');
     }
 };

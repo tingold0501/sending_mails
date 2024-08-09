@@ -132,13 +132,13 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
-                    <div data-i18n="Without navbar">Without navbar</div>
+                  <a href="{{ route('contract') }}" class="menu-link">
+                    <div data-i18n="Without navbar">Contract Form</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="layouts-container.html" class="menu-link">
-                    <div data-i18n="Container">Container</div>
+                  <a href="{{ route('table') }}" class="menu-link">
+                    <div data-i18n="Container">Table</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -553,11 +553,15 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             @yield('Campaign')
+            @yield('Contract-Form')
+
             <!-- Content -->
 
             @yield('Home')
             @yield('Profile')
             @yield('Form')
+            @yield('Table')
+            @yield('Contract')
             <!-- / Content -->
 
             <!-- Footer -->

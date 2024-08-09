@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campaigns', function (Blueprint $table) {
+        Schema::create('contact_statues', function (Blueprint $table) {
             $table->id();
-            $table->string('sendto');
             $table->string('name');
-            $table->string('email');
-            $table->string('subject');
-            $table->text('content');
             $table->timestamps();
-            $table->foreignId('contract_id')->constrained('contracts')->nullale();
-            $table->foreignId('user_id')->constrained('users')->default(1);
-        
+            $table->foreignId('contract_id')->constrained('contracts')->default(1);
+
         });
     }
 
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('campaigns');
+        Schema::dropIfExists('contact_statues');
     }
 };
