@@ -11,8 +11,12 @@ use Illuminate\View\View;
 
 class ContractController extends Controller
 {
-    public function get_contract(){
+    public static function get_contract_(){
         $contracts = DB::table('contracts')->get();
+        return $contracts;
+    }
+    public function get_contract(){
+        $contracts = ContractController::get_contract_();
         return view('components.table', ['contracts' => $contracts]);
     }
     /**
@@ -54,10 +58,6 @@ class ContractController extends Controller
      */
     public function edit(Contract $contract, $id): View
     {
-        // return view('contract.edit', [
-        //     'contract' => $contract, 'id' => $id]);
-        //     dd($contract, $id);
-
         $contract = DB::table('contracts')->where('id', $id)->first();
         return view('contract.edit', ['contract' => $contract, 'id' => $id]);
     }

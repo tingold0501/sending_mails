@@ -63,7 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
-    Route::get('campaign', [CampaignController::class, 'create'])
+    Route::get('campaign', [CampaignController::class, 'get_campaign'])
         ->name('campaign');
 
     Route::post('campaign', [CampaignController::class, 'store'])->name('campaigncreate');

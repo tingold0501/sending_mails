@@ -8,11 +8,16 @@ use App\Models\Campaign;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-
+use App\Http\Controllers\ContractController;
 class CampaignController extends Controller
 {
+    public function get_campaign(){
+        $contracts = ContractController::get_contract_();
+        return view('edit-form', ['contracts' => $contracts]);
+    }
     /**
      * Display a listing of the resource.
      */
