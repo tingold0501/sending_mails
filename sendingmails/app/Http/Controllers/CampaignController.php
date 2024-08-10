@@ -40,7 +40,7 @@ class CampaignController extends Controller
     public function store(Request $request) : RedirectResponse
     {
         $validator = Validator::make($request->all(), [
-            'sendto' => 'required',
+            'sendto' => 'required|email|exists:contracts,email',
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
             'subject' => 'required|max:255',
@@ -48,23 +48,6 @@ class CampaignController extends Controller
         ]);
         if ($validator->fails()) {
             return back()->withInput()->withErrors($validator);
-        }
-        $emails = $request->sendto;
-        preg_match_all('/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?=\.com)/', $emails, $matches);
-        $emails = $matches[0];
-        $mailDataCampaign = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'subject' => $request->subject,
-            'content' => $request->content
-        ];
-        foreach ($emails as $email) {
-            $email = trim($email); 
-            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                Mail::to($email)->send(new CampaignMail($mailDataCampaign));
-            } else {
-                echo "Email khong hop le: " . $email . "<br>";
-            }
         }
         Campaign::create($request->all());
         return redirect( route('campaign', absolute: false) );
