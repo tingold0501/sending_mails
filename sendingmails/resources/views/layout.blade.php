@@ -138,7 +138,7 @@
                 </li>
                 <li class="menu-item">
                   <a href="{{ route('table') }}" class="menu-link">
-                    <div data-i18n="Container">Table</div>
+                    <div data-i18n="Container">Table ConTract</div>
                   </a>
                 </li>
                 <li class="menu-item">
