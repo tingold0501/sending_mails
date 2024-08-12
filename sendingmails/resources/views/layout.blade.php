@@ -24,8 +24,9 @@
      <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
  
      <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
- 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.12.17/css/grapes.min.css" />
      <!-- Page CSS -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.12.17/grapes.min.js"></script>
  
      <!-- Helpers -->
      <script src="/assets/vendor/js/helpers.js"></script>
