@@ -1,26 +1,12 @@
 <div class="card-group gap-4">
-    <div class="card cursor-pointer hover:bg-slate-400">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    @foreach ($gallery_templates as $gallery_template)
+    <div class="card cursor-pointer w-[300px] h-[300px] hover:bg-slate-400">
+        <img class="card-img-top" src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{$gallery_template->title}}</h5>
+          <p class="card-text">{{$gallery_template->content}}</p>
+          <p class="card-text"><small class="text-muted">{{$gallery_template->created_at}}</small></p>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
+    @endforeach
+</div>

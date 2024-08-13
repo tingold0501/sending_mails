@@ -24,12 +24,11 @@
      <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
  
      <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.12.17/css/grapes.min.css" />
      <!-- Page CSS -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.12.17/grapes.min.js"></script>
- 
      <!-- Helpers -->
      <script src="/assets/vendor/js/helpers.js"></script>
+     <link rel="stylesheet" href="//unpkg.com/grapesjs/dist/css/grapes.min.css">
+     <script src="//unpkg.com/grapesjs"></script>
  
      <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
      <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
@@ -565,6 +564,7 @@
             @yield('Contract')
             @yield('Form-Emaim-Template')
             @yield('V-Gallery-Template')
+            @yield('Contract-Template')
             <!-- / Content -->
 
             <!-- Footer -->
@@ -623,6 +623,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+
     <script src="/assets/vendor/libs/jquery/jquery.js"></script>
     <script src="/assets/vendor/libs/popper/popper.js"></script>
     <script src="/assets/vendor/js/bootstrap.js"></script>
@@ -639,8 +640,8 @@
 
     <!-- Page JS -->
     <script src="/assets/js/dashboards-analytics.js"></script>
-
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
   </body>
 </html>

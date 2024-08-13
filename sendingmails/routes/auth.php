@@ -77,6 +77,9 @@ Route::middleware('auth')->group(function () {
         
     Route::get('get_gallery_template', [EmailTemplateController::class, 'index'])
         ->name('get_gallery_template');
+        
+    Route::get('get_email_template_user_design', [EmailTemplateController::class, 'get_email_template_user_design'])
+        ->name('get_email_template_user_design');
 
     Route::get('contract', [ContractController::class, 'index'])
         ->name('contract');

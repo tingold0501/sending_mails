@@ -6,6 +6,7 @@ use App\Http\Requests\StoreEmailTemplateRequest;
 use App\Http\Requests\UpdateEmailTemplateRequest;
 use App\Models\EmailTemplate;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View as View;
 
 class EmailTemplateController extends Controller
 {
@@ -22,6 +23,10 @@ class EmailTemplateController extends Controller
         return view('v-gallery', ['gallery_templates' => $gallery_templates]);
     }
 
+    public function get_email_template_user_design(): View
+    {
+        return view('edit-campaign-template');
+    }
     /**
      * Show the form for creating a new resource.
      */
