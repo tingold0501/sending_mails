@@ -563,6 +563,7 @@
             @yield('Form')
             @yield('Table')
             @yield('Contract')
+            @yield('Form-Emaim-Template')
             <!-- / Content -->
 
             <!-- Footer -->

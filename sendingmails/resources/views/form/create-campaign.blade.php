@@ -86,12 +86,12 @@
         </div>
     </form>
     <section class="flex flex-row mt-4 sm:flex-row items-center justify-center gap-4">
-        <div class=" cursor-pointer hover:bg-gray-100  max-w-sm rounded overflow-hidden shadow-lg">
+        <div  class=" cursor-pointer hover:bg-gray-100  max-w-sm rounded overflow-hidden shadow-lg">
             <img class="w-full" src="https://i.pinimg.com/474x/74/84/75/7484756a6bda8153071ad23f1f098c4d.jpg" alt="Sunset in the mountains">
             <div class="px-6 py-4">
               <div class="font-bold text-xl mb-2">Templates</div>
               <p class="text-gray-700 text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                <a href="/get_emailtemplate_campaign">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</a>
               </p>
             </div>
           </div>
@@ -112,7 +112,8 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
               </p>
             </div>
-          </div>
+        </div>
+        
     </section>
 </section>
 <script>

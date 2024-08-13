@@ -66,6 +66,9 @@ Route::middleware('auth')->group(function () {
     Route::get('campaign', [CampaignController::class, 'get_campaign'])
         ->name('campaign');
 
+    Route::get('get_emailtemplate_campaign', [CampaignController::class, 'get_emailtemplate_campaign'])
+        ->name('emailtemplate_campaign');
+
     Route::post('campaign', [CampaignController::class, 'store'])->name('campaigncreate');
     
     Route::get('table', [ContractController::class, 'get_contract'])

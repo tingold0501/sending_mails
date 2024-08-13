@@ -18,6 +18,11 @@ class CampaignController extends Controller
         $contracts = ContractController::get_contract_();
         return view('edit-form', ['contracts' => $contracts]);
     }
+
+    public function get_emailtemplate_campaign(): View
+    {
+        return view('edit-email-template');
+    }
     /**
      * Display a listing of the resource.
      */
