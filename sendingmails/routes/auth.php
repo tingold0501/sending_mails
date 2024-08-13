@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\AvatarController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContractController;
+use App\Http\Controllers\EmailTemplateController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -73,6 +74,9 @@ Route::middleware('auth')->group(function () {
     
     Route::get('table', [ContractController::class, 'get_contract'])
         ->name('table');
+        
+    Route::get('get_gallery_template', [EmailTemplateController::class, 'index'])
+        ->name('get_gallery_template');
 
     Route::get('contract', [ContractController::class, 'index'])
         ->name('contract');

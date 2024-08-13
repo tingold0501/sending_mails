@@ -564,6 +564,7 @@
             @yield('Table')
             @yield('Contract')
             @yield('Form-Emaim-Template')
+            @yield('V-Gallery-Template')
             <!-- / Content -->
 
             <!-- Footer -->

@@ -5,7 +5,7 @@
              <ul class="md:flex items-center justify-between text-base text-blue-600 ">
                 <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" href="#">My templates</a></li>
                 <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" href="#">Previously sent</a></li>
-                <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" href="#">Gallery</a></li>
+                <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" href="/get_gallery_template">Gallery</a></li>
              </ul>
           </nav>
        </div>
