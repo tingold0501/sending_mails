@@ -1,5 +1,3 @@
-
-
 <div id="gjs"></div>
 
 <script type="text/javascript">
