@@ -22,12 +22,17 @@ class StoreCampaignRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sendto' => ['required', 'string', 'email', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
+            // 'sendto[]' => ['required'],
+            'from_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'subject' => ['required', 'string', 'max:255'],
             'content' => ['required', 'string'],
-            'user_id' => ['required', 'integer'],
+            'campaign_name' => ['required', 'string', 'max:255'],
         ];
     }
+    // public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
+    // {
+
+    //     return response()->json($validator->errors(), 422);
+    // }
 }

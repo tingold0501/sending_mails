@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
      <!-- Fonts -->
+
      <link rel="preconnect" href="https://fonts.googleapis.com" />
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
      <link
@@ -24,8 +26,11 @@
      <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
  
      <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
+
      <!-- Page CSS -->
      <!-- Helpers -->
+      <script src="/js/jquery-3.7.1.js"></script>
+
      <script src="/assets/vendor/js/helpers.js"></script>
      <link rel="stylesheet" href="//unpkg.com/grapesjs/dist/css/grapes.min.css">
      <script src="//unpkg.com/grapesjs"></script>
@@ -33,6 +38,9 @@
      <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
      <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
      <script src="/assets/js/config.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     <title>{{env('APP_NAME')}}</title>
 </head>
 <body>
@@ -624,7 +632,6 @@
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
 
-    <script src="/assets/vendor/libs/jquery/jquery.js"></script>
     <script src="/assets/vendor/libs/popper/popper.js"></script>
     <script src="/assets/vendor/js/bootstrap.js"></script>
     <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>

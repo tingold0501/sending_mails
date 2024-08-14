@@ -10,5 +10,5 @@ class Campaign extends Model
     use HasFactory;
 
     protected $table = 'campaigns';
-    protected $fillable = ['sendto','name', 'email', 'subject', 'content', 'user_id'];
+    protected $fillable = ['sendto','from_name', 'email', 'subject', 'content', 'campaign_name'];
 }

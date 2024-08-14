@@ -17,7 +17,21 @@ class EmailTemplateSeeder extends Seeder
             [
                 'title' => 'Welcome Email',
                 'content' => 'Welcome ',
-                'body' => 'Welcome {{name}}',
+                'body' => 'Welcome',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Welcome Email',
+                'content' => 'Welcome ',
+                'body' => 'Welcome',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Welcome Email',
+                'content' => 'Welcome ',
+                'body' => 'Welcome',
                 'created_at' => now(),
                 'updated_at' => now()
             ],

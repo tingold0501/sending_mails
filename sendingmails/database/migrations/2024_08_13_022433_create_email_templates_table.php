@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->longText('body');
+            $table->string('image')->default('images/email_default.jpg');
             $table->timestamps();
         });
     }

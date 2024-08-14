@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
             $table->string('sendto');
-            $table->string('name');
+            $table->string('from_name');
             $table->string('email');
             $table->string('subject');
             $table->text('content');
+            $table->string('campaign_name');
             $table->timestamps();
-
         });
     }
 

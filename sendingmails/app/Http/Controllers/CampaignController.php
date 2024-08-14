@@ -12,9 +12,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\ContractController;
+use App\Http\Requests\StoreCampaignRequest;
+
 class CampaignController extends Controller
 {
-    public function get_campaign(){
+    public function get_campaign()
+    {
         $contracts = ContractController::get_contract_();
         return view('edit-form', ['contracts' => $contracts]);
     }
@@ -42,20 +45,21 @@ class CampaignController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) : RedirectResponse
+    public function store(Request $validated): RedirectResponse
     {
-        $validator = Validator::make($request->all(), [
-            'sendto' => 'required|email|exists:contracts,email',
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
-            'subject' => 'required|max:255',
-            'content' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return back()->withInput()->withErrors($validator);
-        }
-        Campaign::create($request->all());
-        return redirect( route('campaign', absolute: false) );
+
+
+        // $validated = $request->validated();
+        // dd($request->sendto[]);
+        $campaign = new Campaign();
+        $campaign->sendto = json_encode($validated['sendto']);
+        $campaign->from_name = $validated['from_name'];
+        $campaign->email = $validated['email'];
+        $campaign->subject = $validated['subject'];
+        $campaign->content = $validated['content'];
+        $campaign->campaign_name = $validated['campaign_name'];
+        $campaign->save();
+        return redirect(route('campaign', absolute: false));
     }
 
     /**
