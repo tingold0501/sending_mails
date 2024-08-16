@@ -3,36 +3,22 @@
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Campaign') }}
         </h2>
-
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </header>
-
     <form method="post" action="{{ route('campaigncreate') }}" class="mt-6 w-full">
         @csrf
-        {{-- <div>
-            <x-text-input id="sendto" name="sendto[]" type="email" class="mt-1 block w-full rounded-lg"   data-dropdown="true" data-tags="true" disabled :value="old('sendto')" required autofocus autocomplete="sendto" />
-            <label for="floatingInputValue">Input with value</label>
-            <x-input-error :messages="$errors->get('sendto')" class="mt-2" />
-        </div> --}}
         <x-input-label class="mb-3" for="sendto" :value="__('Send To')" />
         <select id="multiple-select" name="sendto[]"  multiple="multiple"  class="js-example-basic-multiple form-select form-select-lg mb-3 h-[100px] rounded-xl" aria-label="Large select example">
             @foreach ($contracts as $contract)
                 <option class="rounded-lg" value="{{ $contract->email }}">{{ $contract->email }}</option>
             @endforeach
         </select>
-        {{-- <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-            <option value="AL">Alabama</option>
-              ...
-            <option value="WY">Wyoming</option>
-          </select> --}}
         <header>
-
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
                 {{ __('Subject and Content') }}
             </h2>
-
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 {{ __('Ensure your account is using a long, random password to stay secure.') }}
             </p>

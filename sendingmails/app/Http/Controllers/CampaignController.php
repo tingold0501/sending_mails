@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\ContractController;
 use App\Http\Requests\StoreCampaignRequest;
+use Illuminate\Support\Facades\Auth;
 
 class CampaignController extends Controller
 {
+    public static function get_campaign_(){
+        $campaigns = DB::table('campaigns')->get();
+        return $campaigns;
+    }
     public function get_campaign()
     {
         $contracts = ContractController::get_contract_();
@@ -26,6 +31,7 @@ class CampaignController extends Controller
     {
         return view('edit-email-template');
     }
+    
     /**
      * Display a listing of the resource.
      */
@@ -45,29 +51,42 @@ class CampaignController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $validated): RedirectResponse
+    public function sendingmails(StoreCampaignRequest $request){
+        if(!Auth::check()){
+            return; 
+        }
+        $mailDataCampaign = [
+            'from_name' => $request['from_name'],
+            'email' => $request['email'],
+            'subject' => $request['subject'],
+            'content' => $request['content'],
+        ];
+        $data = $request->all();
+        foreach ($data['sendto'] as $key => $value) {
+            Mail::to($value)->send(new CampaignMail($mailDataCampaign));
+        }
+    }
+    public function store(StoreCampaignRequest $request): RedirectResponse
     {
-
-
-        // $validated = $request->validated();
-        // dd($request->sendto[]);
         $campaign = new Campaign();
-        $campaign->sendto = json_encode($validated['sendto']);
-        $campaign->from_name = $validated['from_name'];
-        $campaign->email = $validated['email'];
-        $campaign->subject = $validated['subject'];
-        $campaign->content = $validated['content'];
-        $campaign->campaign_name = $validated['campaign_name'];
+        $campaign->sendto = json_encode($request['sendto']);
+        $campaign->from_name = $request['from_name'];
+        $campaign->email = $request['email'];
+        $campaign->subject = $request['subject'];
+        $campaign->content = $request['content'];
+        $campaign->campaign_name = $request['campaign_name'];
+        $this->sendingmails($request);
         $campaign->save();
+
         return redirect(route('campaign', absolute: false));
     }
-
+ 
     /**
      * Display the specified resource.
      */
     public function show(Campaign $campaign)
     {
-        //
+        
     }
 
     /**

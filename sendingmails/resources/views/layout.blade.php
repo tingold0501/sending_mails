@@ -29,17 +29,22 @@
 
      <!-- Page CSS -->
      <!-- Helpers -->
+
       <script src="/js/jquery-3.7.1.js"></script>
 
      <script src="/assets/vendor/js/helpers.js"></script>
-     <link rel="stylesheet" href="//unpkg.com/grapesjs/dist/css/grapes.min.css">
-     <script src="//unpkg.com/grapesjs"></script>
- 
+     {{-- <link rel="stylesheet" href="//unpkg.com/grapesjs/dist/css/grapes.min.css">
+     <script src="//unpkg.com/grapesjs"></script> --}}
+     <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/grapesjs"></script>
+    <script src="https://unpkg.com/grapesjs-tailwind"></script>
+    
      <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
      <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
      <script src="/assets/js/config.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="/css/campaign-template-user-design.css" />
 
     <title>{{env('APP_NAME')}}</title>
 </head>
@@ -146,7 +151,7 @@
                 </li>
                 <li class="menu-item">
                   <a href="{{ route('table') }}" class="menu-link">
-                    <div data-i18n="Container">Table ConTract</div>
+                    <div data-i18n="Container">Tables</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -634,7 +639,7 @@
 
     <script src="/assets/vendor/libs/popper/popper.js"></script>
     <script src="/assets/vendor/js/bootstrap.js"></script>
-    <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    {{-- <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script> --}}
 
     <script src="/assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
@@ -649,6 +654,7 @@
     <script src="/assets/js/dashboards-analytics.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/js/campaign-template-user-design.js"></script>
     
   </body>
 </html>

@@ -15,9 +15,10 @@ class ContractController extends Controller
         $contracts = DB::table('contracts')->get();
         return $contracts;
     }
-    public function get_contract(){
+    public function get_tables(){
         $contracts = ContractController::get_contract_();
-        return view('components.table', ['contracts' => $contracts]);
+        $campaigns = CampaignController::get_campaign_();
+        return view('components.table', ['contracts' => $contracts, 'campaigns' => $campaigns]);
     }
     /**
      * Display a listing of the resource.
