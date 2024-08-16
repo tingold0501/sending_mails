@@ -33,11 +33,9 @@
       <script src="/js/jquery-3.7.1.js"></script>
 
      <script src="/assets/vendor/js/helpers.js"></script>
-     {{-- <link rel="stylesheet" href="//unpkg.com/grapesjs/dist/css/grapes.min.css">
-     <script src="//unpkg.com/grapesjs"></script> --}}
-     <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/grapesjs"></script>
-    <script src="https://unpkg.com/grapesjs-tailwind"></script>
+     <link rel="stylesheet" href="//unpkg.com/grapesjs/dist/css/grapes.min.css">
+     <script src="//unpkg.com/grapesjs"></script>
+     
     
      <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
      <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
