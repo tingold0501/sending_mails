@@ -6,6 +6,9 @@ use App\Http\Controllers\ContractController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    return view('user.main_layout');
+});
+Route::get('/admin', function () {
     return view('auth.login');
 });
 
