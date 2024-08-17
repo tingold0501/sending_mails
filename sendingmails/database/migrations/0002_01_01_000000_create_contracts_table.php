@@ -17,9 +17,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->timestamps();
-            // $table->foreignId('campaign_id')->constrained()->default(1);
-            // $table->foreignId('user_id')->constrained()->default(1);
-            // $table->foreignId('contact_statue_id')->constrained()->default(1);
+           
         });
     }
 
