@@ -12,6 +12,10 @@ Route::get('/admin', function () {
     return view('auth.login');
 });
 
+Route::get('/my_dashboard', function () {
+    return view('user.page.my_dashboard');
+});
+
 Route::get('/table', function () {
     return view('components.table', ['name' => 'table']);
 });

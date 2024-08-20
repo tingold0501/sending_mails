@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::table('campaigns', function (Blueprint $table) {
-        //     $table->foreignId('user_id')->constrained();
-        // });
+        Schema::create('contract_statues', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->boolean('active')->default(true);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -21,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('contract_statues');
     }
 };
