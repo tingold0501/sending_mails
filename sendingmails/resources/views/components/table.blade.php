@@ -59,7 +59,6 @@
                             <th>Email</th>
                             <th>Subject</th>
                             <th>Content</th>
-                            <th>Campaign Name</th>
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -68,10 +67,9 @@
                                         <td class="cursor-pointer" data-toggle="tooltip" data-placement="top" title={{$campaign->sendto}}>
                                             {{ $campaign->from_name }}
                                         </td>
-                                        <td>{{ $campaign->email }}</td>
+                                        <td>{{ $campaign->from_email }}</td>
                                         <td>{{ $campaign->subject }}</td>
-                                        <td>{{ $campaign->content }}</td>
-                                        <td>{{ $campaign->campaign_name }}</td>
+                                        <td>{{ $campaign->text }}</td>
                                         <td>
                                         <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

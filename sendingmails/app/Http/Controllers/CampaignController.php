@@ -71,10 +71,12 @@ class CampaignController extends Controller
         $campaign = new Campaign();
         $campaign->sendto = json_encode($request['sendto']);
         $campaign->from_name = $request['from_name'];
-        $campaign->email = $request['email'];
+        $campaign->from_email = $request['from_email'];
         $campaign->subject = $request['subject'];
-        $campaign->content = $request['content'];
-        $campaign->campaign_name = $request['campaign_name'];
+        $campaign->text = $request['text'];
+        $campaign->user_id = Auth::user()->id;
+        $campaign->created_at = now();
+        $campaign->updated_at = now();
         $this->sendingmails($request);
         $campaign->save();
 

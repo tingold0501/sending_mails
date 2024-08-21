@@ -6,6 +6,7 @@ use App\Http\Requests\StoreContractRequest;
 use App\Http\Requests\UpdateContractRequest;
 use App\Models\Contract;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -18,14 +19,16 @@ class ContractController extends Controller
     public function get_tables(){
         $contracts = ContractController::get_contract_();
         $campaigns = CampaignController::get_campaign_();
-        return view('components.table', ['contracts' => $contracts, 'campaigns' => $campaigns]);
+        $contract_statues = ConTractstatusController::get_contract_status_();
+        return view('components.table', ['contracts' => $contracts, 'campaigns' => $campaigns, 'contract_statues' => $contract_statues]);
     }
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
-        return view('edit-contract');
+        $contract_statues = ConTractstatusController::get_contract_status_();
+        return view('edit-contract', ['contract_statues' => $contract_statues]);
     }
 
     /**
@@ -41,8 +44,14 @@ class ContractController extends Controller
      */
     public function store(StoreContractRequest $request): RedirectResponse
     {
-        $validated = $request->validated();
-        Contract::create($validated);
+        // dd($request);
+        $contract = new Contract();
+        $contract->email = $request['email'];
+        $contract->first_name = $request['first_name'];
+        $contract->last_name = $request['last_name'];
+        $contract->contract_statue_id = $request['contract_statue_id'];
+        $contract->user_id = Auth::user()->id;
+        $contract->save();
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

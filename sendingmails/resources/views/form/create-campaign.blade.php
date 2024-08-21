@@ -30,7 +30,7 @@
         </div>
         <div class="mt-2">
             <x-input-label for="email" :value="__('From Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email')" required autofocus autocomplete="email" />
+            <x-text-input id="email" name="from_email" type="email" class="mt-1 block w-full" :value="old('email')" required autofocus autocomplete="email" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
         <div class="mt-2">
@@ -40,14 +40,10 @@
         </div>
         <div class="mt-2">
             <x-input-label for="content" :value="__('Privew Text')" />
-            <x-text-input id="content" name="content" type="text" class="mt-1 block w-full" :value="old('content')" required autofocus autocomplete="content" />
+            <x-text-input id="content" name="text" type="text" class="mt-1 block w-full" :value="old('content')" required autofocus autocomplete="content" />
             <x-input-error :messages="$errors->get('content')" class="mt-2" />
         </div>
-        <div class="mt-2">
-            <x-input-label for="campaign_name" :value="__('Campaign Name')" />
-            <x-text-input id="campaign_name" name="campaign_name" type="text" class="mt-1 block w-full" :value="old('campaign_name')" required autofocus autocomplete="campaign_name" />
-            <x-input-error :messages="$errors->get('campaign_name')" class="mt-2" />
-        </div>
+       
         <section class="flex flex-row mt-4 sm:flex-row items-center justify-center gap-4">
             <div  class=" cursor-pointer hover:bg-gray-100  max-w-sm rounded overflow-hidden shadow-lg">
                 <img class="w-full" src="https://i.pinimg.com/474x/74/84/75/7484756a6bda8153071ad23f1f098c4d.jpg" alt="Sunset in the mountains">
@@ -86,7 +82,8 @@
                 x-transition
                 x-init="setTimeout(() => show = false, 2000)"
                 class="text-sm text-gray-600 dark:text-gray-400"
-            >{{ __('Saved.') }}</p>
+            >{{ __('Saved.') }}
+        </p>
         @endif
         </div>
     </form>

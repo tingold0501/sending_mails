@@ -27,6 +27,17 @@
             <x-text-input id="last_name" name="last_name" type="text" class="mt-1 block w-full" :value="old('last_name')" required autofocus autocomplete="last_name" />
             <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
         </div>
+        <div>
+            <x-input-label for="contract_statue_id" :value="__('Contract Status')" />
+            <select class="js-example-basic-single mt-1 block w-full" name="contract_statue_id"  required autofocus autocomplete="contract_statue_id">
+                @foreach ($contract_statues as $contract_statue)
+                    <option  value="{{ $contract_statue->id }}" {{ old('contract_statue_id') == $contract_statue->id ? 'selected' : '' }}>
+                        {{ $contract_statue->name }}
+                    </option>
+                @endforeach
+            </select>
+            <x-input-error :messages="$errors->get('contract_statue_id')" class="mt-2" />
+        </div>
         
         <div class="flex items-center gap-4">
             <x-primary-button type="submit">{{ __('Save') }}</x-primary-button>

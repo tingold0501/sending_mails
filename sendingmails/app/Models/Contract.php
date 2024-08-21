@@ -10,6 +10,6 @@ class Contract extends Model
     use HasFactory;
 
     protected $table = 'contracts';
-    protected $timestap = false;
-    protected $fillable = ['email', 'first_name', 'last_name', 'created_at', 'updated_at'];
+    // protected $timestap = false;
+    protected $fillable = ['id','email', 'first_name', 'last_name','active',',contract_statue_id','user_id', 'created_at', 'updated_at'];
 }

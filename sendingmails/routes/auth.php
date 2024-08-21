@@ -13,7 +13,7 @@ use App\Http\Controllers\Auth\AvatarController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\EmailTemplateController;
-
+use App\Models\ContractStatus;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {

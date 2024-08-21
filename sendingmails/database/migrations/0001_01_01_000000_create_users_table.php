@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('avatar')->default('http://localhost/images/avatar_default.jpg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('active')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

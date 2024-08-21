@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\ContractStatus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ConTractstatusController extends Controller
 {
+    public static function get_contract_status_(){
+        $contract_status = DB::table('contract_statues')->get();
+        return $contract_status;
+    }
+    public function get_contract_status(){
+        $contract_status = ConTractstatusController::get_contract_status_();
+        return view('edit-contract', ['contract_status' => $contract_status]);
+    }
     /**
      * Display a listing of the resource.
      */

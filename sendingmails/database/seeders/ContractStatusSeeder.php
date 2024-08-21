@@ -13,12 +13,12 @@ class ContractStatusSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('contact_statues')->insert([
-            ['name' => 'Transactional'],
-            ['name' => 'Active'],
-            ['name' => 'Inactive'],
-            ['name' => 'Unsubscribed'],
-            ['name' => 'Complaint'],
+        DB::table('contract_statues')->insert([
+            ['name' => 'Transactional', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Active', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Inactive', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Unsubscribed', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Complaint', 'created_at' => now(), 'updated_at' => now()],
     ]);
     }
 }

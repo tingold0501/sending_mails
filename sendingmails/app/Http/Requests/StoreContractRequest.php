@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreContractRequest extends FormRequest
 {
@@ -22,11 +23,10 @@ class StoreContractRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email',
-            'first_name' => 'required', 
-            'last_name' => 'required',
-            'created_at' => now(),
-            'updated_at' => now(),
+            'email' => 'required|email|unique:contracts,email',
+            'first_name' => 'required|string', 
+            'last_name' => 'required|string',
+            'contract_statue_id' => 'required|integer|exists:contract_statues,id',
         ];
     }
 
