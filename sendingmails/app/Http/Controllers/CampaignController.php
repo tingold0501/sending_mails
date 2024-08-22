@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CampaignController extends Controller
 {
+   
     public static function get_campaign_(){
         $campaigns = DB::table('campaigns')->get();
         return $campaigns;
@@ -30,6 +31,11 @@ class CampaignController extends Controller
     public function get_emailtemplate_campaign(): View
     {
         return view('edit-email-template');
+    }
+
+    public static function get_latest_campaign(){
+        $latest_campaign = DB::table('campaigns')->latest()->first();
+        return $latest_campaign;
     }
     
     /**
@@ -77,7 +83,8 @@ class CampaignController extends Controller
         $campaign->user_id = Auth::user()->id;
         $campaign->created_at = now();
         $campaign->updated_at = now();
-        $this->sendingmails($request);
+        // $this->sendingmails($request);
+        EmailTemplateController::get_email_template_with_user($request);
         $campaign->save();
 
         return redirect(route('campaign', absolute: false));

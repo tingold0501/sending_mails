@@ -18,6 +18,7 @@
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
+                           
                             @foreach ($contracts as $contract)
                                     <tr>
                                         <td>{{ $contract->email }}</td>

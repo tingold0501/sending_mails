@@ -11,7 +11,7 @@ class StoreEmailTemplateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class StoreEmailTemplateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            
+            // 'name' => 'required|string',
+            // 'content' => 'required|string',
+            'body' => 'required|string',
+            'css_text' => 'required|string',
+            // 'campaign_id' => 'required|integer',
         ];
     }
 }

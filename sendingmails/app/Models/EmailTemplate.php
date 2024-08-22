@@ -12,8 +12,13 @@ class EmailTemplate extends Model
     protected $table = 'email_templates';
     protected $fillble = [
         'id',
-        'title',
+        'name',
         'content',
+        'active',
         'body',
+        'css_text',
+        'campaign_id',
+        'created_at',
+        'updated_at',
     ];
 }

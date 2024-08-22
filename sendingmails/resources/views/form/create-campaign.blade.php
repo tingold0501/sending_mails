@@ -15,6 +15,7 @@
                 <option class="rounded-lg" value="{{ $contract->email }}">{{ $contract->email }}</option>
             @endforeach
         </select>
+        
         <header>
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
                 {{ __('Subject and Content') }}

@@ -81,12 +81,16 @@ Route::middleware('auth')->group(function () {
     Route::get('get_email_template_user_design', [EmailTemplateController::class, 'get_email_template_user_design'])
         ->name('get_email_template_user_design');
 
+    Route::post('email_template_store', [EmailTemplateController::class, 'store'])
+        ->name('email_template_store');
+
+    Route::post('update_template_user_design', [EmailTemplateController::class, 'update_template_user_design'])
+        ->name('update_template_user_design');
+
     Route::get('contract', [ContractController::class, 'index'])
         ->name('contract');
 
     Route::post('contract_store', [ContractController::class, 'store'])->name('contract_store');
    
     Route::post('contract_update', [ContractController::class, 'update'])->name('contract_update');
-
-    
 });

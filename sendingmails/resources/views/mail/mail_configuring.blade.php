@@ -1,0 +1,1 @@
+{!!$mail_configuring_data['body']!!}

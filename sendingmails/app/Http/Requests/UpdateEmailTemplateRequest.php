@@ -11,7 +11,7 @@ class UpdateEmailTemplateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class UpdateEmailTemplateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'body' => 'required|string',
+            'css_text' => 'required|string',
         ];
     }
 }
