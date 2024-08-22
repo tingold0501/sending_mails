@@ -13,12 +13,21 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\ContractController;
 use App\Http\Requests\StoreCampaignRequest;
+use App\Mail\MailConfiguring;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class CampaignController extends Controller
 {
-   
-    public static function get_campaign_(){
+    public function __construct()
+    {
+        if (!Auth::check()) {
+            return;
+        }
+    }
+
+    public static function get_campaign_()
+    {
         $campaigns = DB::table('campaigns')->get();
         return $campaigns;
     }
@@ -33,11 +42,12 @@ class CampaignController extends Controller
         return view('edit-email-template');
     }
 
-    public static function get_latest_campaign(){
+    public static function get_latest_campaign()
+    {
         $latest_campaign = DB::table('campaigns')->latest()->first();
         return $latest_campaign;
     }
-    
+
     /**
      * Display a listing of the resource.
      */
@@ -57,10 +67,8 @@ class CampaignController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function sendingmails(StoreCampaignRequest $request){
-        if(!Auth::check()){
-            return; 
-        }
+    public static function sendingmails(StoreCampaignRequest $request)
+    {
         $mailDataCampaign = [
             'from_name' => $request['from_name'],
             'email' => $request['email'],
@@ -72,6 +80,7 @@ class CampaignController extends Controller
             Mail::to($value)->send(new CampaignMail($mailDataCampaign));
         }
     }
+
     public function store(StoreCampaignRequest $request): RedirectResponse
     {
         $campaign = new Campaign();
@@ -83,20 +92,14 @@ class CampaignController extends Controller
         $campaign->user_id = Auth::user()->id;
         $campaign->created_at = now();
         $campaign->updated_at = now();
-        // $this->sendingmails($request);
-        EmailTemplateController::get_email_template_with_user($request);
         $campaign->save();
-
-        return redirect(route('campaign', absolute: false));
+        return redirect(route('get_email_template_user_design', absolute: false));
     }
- 
+
     /**
      * Display the specified resource.
      */
-    public function show(Campaign $campaign)
-    {
-        
-    }
+    public function show(Campaign $campaign) {}
 
     /**
      * Show the form for editing the specified resource.

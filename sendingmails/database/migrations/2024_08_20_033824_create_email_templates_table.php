@@ -14,12 +14,12 @@ return new class extends Migration
     {
         Schema::create('email_templates', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default(Campaign::get_latest_campaign()->name);
-            $table->text('content')->default(Campaign::get_latest_campaign()->subject);
+            $table->string('name');
+            $table->text('content');
             $table->boolean('active')->default(true);
-            $table->string('body');
+            $table->longText('body');
             $table->string('css_text');
-            $table->foreignId('campaign_id')->constrained()->default(Campaign::get_latest_campaign()->id);
+            $table->foreignId('campaign_id')->constrained();
             $table->timestamps();
         });
     }

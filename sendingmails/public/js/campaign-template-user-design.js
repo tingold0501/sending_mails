@@ -193,13 +193,6 @@ editor.Panels.addPanel({
     el: ".panel__basic-actions",
     buttons: [
         {
-            id: "btn_save",
-            active: true, // active by default
-            className: "btn btn-success",
-            label: '<i class="fa-regular fa-floppy-disk"></i>',
-            command: "sw-visibility", // Built-in command
-        },
-        {
             id: "visibility",
             active: true, // active by default
             className: "btn-toggle-borders",

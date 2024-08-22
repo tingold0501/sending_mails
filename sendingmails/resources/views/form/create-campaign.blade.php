@@ -7,7 +7,7 @@
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </header>
-    <form method="post" action="{{ route('campaigncreate') }}" class="mt-6 w-full">
+    <form method="post" action="{{ route('campaign_store') }}" class="mt-6 w-full">
         @csrf
         <x-input-label class="mb-3" for="sendto" :value="__('Send To')" />
         <select id="multiple-select" name="sendto[]"  multiple="multiple"  class="js-example-basic-multiple form-select form-select-lg mb-3 h-[100px] rounded-xl" aria-label="Large select example">
@@ -60,7 +60,20 @@
                 <div class="px-6 py-4">
                   <div class="font-bold text-xl mb-2">Drag & drop editor</div>
                   <p class="text-gray-700 text-base">
-                    <a href="/get_email_template_user_design">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</a>
+                    <div class="flex items-center gap-4 mt-3">
+                        <x-primary-button class=" text-black" type="submit">{{ __('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.') }}</x-primary-button>
+                        @if (session('status') === 'campaign-created')
+                        <p
+                            x-data="{ show: true }"
+                            x-show="show"
+                            x-transition
+                            x-init="setTimeout(() => show = false, 2000)"
+                            class="text-sm "
+                        >{{ __('Saved.') }}
+                    </p>
+                    @endif
+                    </div>
+                    {{-- <a href="{{ route('campaign_store')}}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</a> --}}
                   </p>
                 </div>
               </div>
@@ -74,19 +87,7 @@
                 </div>
             </div>
         </section>
-        <div class="flex items-center gap-4 mt-3">
-            <x-primary-button type="submit">{{ __('Save Campaign Data') }}</x-primary-button>
-            @if (session('status') === 'campaign-created')
-            <p
-                x-data="{ show: true }"
-                x-show="show"
-                x-transition
-                x-init="setTimeout(() => show = false, 2000)"
-                class="text-sm text-gray-600 dark:text-gray-400"
-            >{{ __('Saved.') }}
-        </p>
-        @endif
-        </div>
+        
     </form>
   
 </section>
@@ -94,16 +95,4 @@
     $(document).ready(function() {
     $('.js-example-basic-multiple').select2();
 });
-
-    // let selectedEmails = [];
-    // document.getElementById('multiple-select').addEventListener('change', function() {
-    //     Array.from(this.selectedOptions).forEach(option => {
-    //         if (!selectedEmails.includes(option.value)) {
-    //             selectedEmails.push(option.value);
-    //         }
-    //     });
-        
-    //     document.getElementById('sendto').value = JSON.stringify(selectedEmails);
-    //     console.log(document.getElementById('sendto').value);
-    // });
 </script>

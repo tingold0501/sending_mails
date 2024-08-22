@@ -36,10 +36,10 @@ class MailConfiguring extends Mailable
      */
     public function content()
     {
-        // return new Content(
-        //     view: 'mail.mail_configuring',
-        // );
-        return $this->view('mail.mail_configuring')->with('mail_configuring_data', $this->mail_configuring_data);
+        return new Content(
+            view: 'mail.mail_configuring',
+        );
+        // return $this->view('mail.mail_configuring')->with('mail_configuring_data', $this->mail_configuring_data);
     }
 
     /**

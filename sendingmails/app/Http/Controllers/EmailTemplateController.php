@@ -8,13 +8,15 @@ use App\Http\Requests\UpdateEmailTemplateRequest;
 use App\Mail\MailConfiguring;
 use App\Models\EmailTemplate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View as View;
 
 class EmailTemplateController extends Controller
 {
-    public static function get_gallery(){
+    public static function get_gallery()
+    {
         $gallery_templates = DB::table('email_templates')->get();
         return $gallery_templates;
     }
@@ -32,37 +34,29 @@ class EmailTemplateController extends Controller
         return view('edit-campaign-template');
     }
 
-    public function get_data_campaign_id(){
+    public static function get_data_campaign_id()
+    {
         $inner_join_campaign = DB::table('campaigns')
-        ->join('email_templates', 'campaigns.id', '=', 'email_templates.campaign_id')
-        ->select('campaigns.*')
-        ->get();
+            ->join('email_templates', 'campaigns.id', '=', 'email_templates.campaign_id')
+            ->select('campaigns.*', 'email_templates.*')
+            ->get();
         return $inner_join_campaign;
     }
 
 
-    
+
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        
-    }
+    public function create() {}
 
-    public static  function get_email_template_with_user(StoreCampaignRequest $request)
-    {
-        $email_template = DB::table('email_templates')->latest()->first();
-        $latest_campaign = CampaignController::get_latest_campaign();
-        $data = $request->all();
-        foreach ($data['sendto'] as $key => $value) {
-            Mail::to($value)->send(new MailConfiguring($email_template));
-        }
-    }
+    
 
     /**
      * Store a newly created resource in storage.
      */
+   
+   
     public function store(StoreEmailTemplateRequest $request)
     {
         $latest_campaign = CampaignController::get_latest_campaign();
@@ -74,11 +68,22 @@ class EmailTemplateController extends Controller
         $email_template->campaign_id = $latest_campaign->id;
         $email_template->created_at = now();
         $email_template->updated_at = now();
+
+        $mailDataConfiguring = [
+            'content' => $request['content'],
+            'css_text' => $request['css_text'],
+            'body' => $request['body'],
+        ];
+        $data = $latest_campaign;
+
+        foreach ($latest_campaign['sendto'] as $key => $value) {
+            Mail::to($value)->send(new MailConfiguring($mailDataConfiguring));
+        }
         $email_template->save();
         return redirect(route('dashboard', absolute: false));
     }
 
-   
+
 
     /**
      * Display the specified resource.
@@ -96,19 +101,17 @@ class EmailTemplateController extends Controller
         //
     }
 
-    public function update_template_user_design(UpdateEmailTemplateRequest $request){
+    public function update_template_user_design(UpdateEmailTemplateRequest $request)
+    {
         EmailTemplate::where('active', 1)->update(['body' => $request->body, 'css_text' => $request->css_text]);
         return redirect(route('dashboard', absolute: false));
     }
-        
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateEmailTemplateRequest $request, EmailTemplate $emailTemplate)
-    {
-        
-    }
+    public function update(UpdateEmailTemplateRequest $request, EmailTemplate $emailTemplate) {}
 
     /**
      * Remove the specified resource from storage.
