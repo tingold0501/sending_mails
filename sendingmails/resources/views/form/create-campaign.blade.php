@@ -41,7 +41,7 @@
         </div>
         <div class="mt-2">
             <x-input-label for="content" :value="__('Privew Text')" />
-            <x-text-input id="content" name="text" type="text" class="mt-1 block w-full" :value="old('content')" required autofocus autocomplete="content" />
+            <x-text-input id="text" name="text" type="text" class="mt-1 block w-full" :value="old('text')" required autofocus autocomplete="text" />
             <x-input-error :messages="$errors->get('content')" class="mt-2" />
         </div>
        

@@ -69,16 +69,14 @@ class EmailTemplateController extends Controller
         $email_template->created_at = now();
         $email_template->updated_at = now();
 
-        $mailDataConfiguring = [
-            'content' => $request['content'],
+        $mail_configuring_data = [
+            'content' => $latest_campaign->subject,
             'css_text' => $request['css_text'],
             'body' => $request['body'],
         ];
-        $data = $latest_campaign;
+        // dd($mail_configuring_data);
 
-        foreach ($latest_campaign['sendto'] as $key => $value) {
-            Mail::to($value)->send(new MailConfiguring($mailDataConfiguring));
-        }
+        Mail::to($latest_campaign->from_email)->send(new MailConfiguring($mail_configuring_data));
         $email_template->save();
         return redirect(route('dashboard', absolute: false));
     }

@@ -18,7 +18,7 @@ class MailConfiguring extends Mailable
      */
     public function __construct($mail_configuring_data)
     {
-        $this->mail_configuring_data;
+        $this->mail_configuring_data = $mail_configuring_data;
     }
 
     /**
