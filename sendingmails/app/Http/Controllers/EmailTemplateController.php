@@ -50,13 +50,13 @@ class EmailTemplateController extends Controller
      */
     public function create() {}
 
-    
+
 
     /**
      * Store a newly created resource in storage.
      */
-   
-   
+
+
     public function store(StoreEmailTemplateRequest $request)
     {
         $latest_campaign = CampaignController::get_latest_campaign();
@@ -74,9 +74,11 @@ class EmailTemplateController extends Controller
             'css_text' => $request['css_text'],
             'body' => $request['body'],
         ];
-        // dd($mail_configuring_data);
 
-        Mail::to($latest_campaign->from_email)->send(new MailConfiguring($mail_configuring_data));
+        $sendToData = json_decode($latest_campaign->sendto, true);
+        foreach ($sendToData as $key => $value) {
+            Mail::to($value)->send(new MailConfiguring($mail_configuring_data));
+        }
         $email_template->save();
         return redirect(route('dashboard', absolute: false));
     }

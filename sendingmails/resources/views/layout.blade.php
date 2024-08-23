@@ -33,9 +33,10 @@
       <script src="/js/jquery-3.7.1.js"></script>
 
      <script src="/assets/vendor/js/helpers.js"></script>
-     <link rel="stylesheet" href="//unpkg.com/grapesjs/dist/css/grapes.min.css">
-     <script src="//unpkg.com/grapesjs"></script>
-     
+     {{-- <link rel="stylesheet" href="//unpkg.com/grapesjs/dist/css/grapes.min.css"> --}}
+     {{-- <script src="//unpkg.com/grapesjs"></script> --}}
+     <script src="https://unpkg.com/@grapesjs/studio-sdk/dist/index.umd.js"></script>
+     <link rel="stylesheet" href="https://unpkg.com/@grapesjs/studio-sdk/dist/style.css"/>
     
      <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
      <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
@@ -43,7 +44,7 @@
      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-     <link rel="stylesheet" href="/css/campaign-template-user-design.css" />
+     {{-- <link rel="stylesheet" href="/css/campaign-template-user-design.css" /> --}}
 
     <title>{{env('APP_NAME')}}</title>
 </head>
@@ -653,7 +654,7 @@
     <script src="/assets/js/dashboards-analytics.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="/js/campaign-template-user-design.js"></script>
+    {{-- <script src="/js/campaign-template-user-design.js"></script> --}}
     <script src="/js/service-email-template-user-design.js"></script>
     
   </body>
