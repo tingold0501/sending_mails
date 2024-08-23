@@ -5,7 +5,7 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContractController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/sending-mails', function () {
+Route::get('/', function () {
     return view('user.main_layout');
 });
 Route::get('/admin', function () {
