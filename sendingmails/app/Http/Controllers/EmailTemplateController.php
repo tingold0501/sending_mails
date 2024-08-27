@@ -31,7 +31,7 @@ class EmailTemplateController extends Controller
 
     public function get_email_template_user_design(): View
     {
-        return view('edit-campaign-template');
+        return view('page.grapesjs_user_design');
     }
 
     public static function get_data_campaign_id()

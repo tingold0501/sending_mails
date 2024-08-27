@@ -17,6 +17,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "@grapesjs/studio-sdk": "^1.0.11"
+        "@grapesjs/studio-sdk": "^1.0.11",
+        "juice": "^11.0.0"
     }
 }
