@@ -1,4 +1,4 @@
-{{-- <div class="panel__top">
+<div class="panel__top">
   <div class="panel__basic-actions">
 
 
@@ -18,10 +18,10 @@
     <div class="traits-container"></div>
     <div id="blocks"></div>
   </div>
-</div> --}}
+</div>
 
 
-    <div id="studio-editor"></div>
+    {{-- <div id="studio-editor"></div>
     <script>
       GrapesJsStudioSDK.createStudioEditor({
         root: '#studio-editor',
@@ -72,5 +72,5 @@
           autosaveIntervalMs: 10000
         }
       });
-    </script>
+    </script> --}}
  
