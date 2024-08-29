@@ -14,8 +14,6 @@
                     @include('contract.partials.update-contract-information-form')
                 </div>
             </div>
-
-            
         </div>
     </div>
 </x-app-layout>

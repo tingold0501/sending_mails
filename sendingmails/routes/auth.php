@@ -72,8 +72,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('campaign_store', [CampaignController::class, 'store'])->name('campaign_store');
     
-    Route::get('table', [ContractController::class, 'get_tables'])
-        ->name('table');
+    // Route::get('table', [ContractController::class, 'get_tables'])
+    //     ->name('table');
         
     Route::get('get_gallery_template', [EmailTemplateController::class, 'index'])
         ->name('get_gallery_template');
