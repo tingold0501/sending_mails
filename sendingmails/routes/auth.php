@@ -87,8 +87,8 @@ Route::middleware('auth')->group(function () {
     Route::post('update_template_user_design', [EmailTemplateController::class, 'update_template_user_design'])
         ->name('update_template_user_design');
 
-    Route::get('contract', [ContractController::class, 'index'])
-        ->name('contract');
+    // Route::get('contract', [ContractController::class, 'index'])
+    //     ->name('contract');
 
     Route::post('contract_store', [ContractController::class, 'store'])->name('contract_store');
    

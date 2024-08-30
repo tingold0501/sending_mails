@@ -18,6 +18,10 @@ Route::get('/dashboard', function () {
     return view('components.dashboard.start');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/contract', function () {
+    return view('components.contract.start');
+})->middleware(['auth', 'verified'])->name('contract');
+
 
 
 Route::middleware('auth')->group(function () {
