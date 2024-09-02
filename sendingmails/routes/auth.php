@@ -72,20 +72,23 @@ Route::middleware('auth')->group(function () {
 
     Route::post('campaign_store', [CampaignController::class, 'store'])->name('campaign_store');
     
-    // Route::get('table', [ContractController::class, 'get_tables'])
-    //     ->name('table');
-        
-    Route::get('get_gallery_template', [EmailTemplateController::class, 'index'])
-        ->name('get_gallery_template');
-        
-    Route::get('get_email_template_user_design', [EmailTemplateController::class, 'get_email_template_user_design'])
-        ->name('get_email_template_user_design');
+    Route::get('/contract', [ContractController::class, 'index'])
+        ->name('contract');
 
-    Route::post('email_template_store', [EmailTemplateController::class, 'store'])
-        ->name('email_template_store');
+    Route::get('/email-template-option', [EmailTemplateController::class, 'get_v_email_template'])
+        ->name('email-template-option');
+        
+    // Route::get('get_gallery_template', [EmailTemplateController::class, 'index'])
+    //     ->name('get_gallery_template');
+        
+    // Route::get('get_email_template_user_design', [EmailTemplateController::class, 'get_email_template_user_design'])
+    //     ->name('get_email_template_user_design');
 
-    Route::post('update_template_user_design', [EmailTemplateController::class, 'update_template_user_design'])
-        ->name('update_template_user_design');
+    // Route::post('email_template_store', [EmailTemplateController::class, 'store'])
+    //     ->name('email_template_store');
+
+    // Route::post('update_template_user_design', [EmailTemplateController::class, 'update_template_user_design'])
+    //     ->name('update_template_user_design');
 
     // Route::get('contract', [ContractController::class, 'index'])
     //     ->name('contract');

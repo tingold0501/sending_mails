@@ -28,7 +28,8 @@ class ContractController extends Controller
     public function index(): View
     {
         $contract_statues = ConTractstatusController::get_contract_status_();
-        return view('contract.edit-contract', ['contract_statues' => $contract_statues]);
+        $contracts = ContractController::get_contract_();
+        return view('components.contract.start', ['contract_statues' => $contract_statues, 'contracts' => $contracts]);
     }
 
     /**

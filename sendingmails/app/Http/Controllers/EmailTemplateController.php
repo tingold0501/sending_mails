@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\View as FacadesView;
 use Illuminate\View\View as View;
 
 class EmailTemplateController extends Controller
@@ -23,6 +24,9 @@ class EmailTemplateController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function get_v_email_template(): View{
+        return view('components.email-template.option');
+    }
     public function index()
     {
         $gallery_templates = EmailTemplateController::get_gallery();
