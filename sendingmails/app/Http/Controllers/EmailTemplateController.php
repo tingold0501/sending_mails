@@ -27,6 +27,10 @@ class EmailTemplateController extends Controller
     public function get_v_email_template(): View{
         return view('components.email-template.option');
     }
+
+    public function get_v_email_template_raw(): View{
+        return view('components.email-template.page.grapesjs_user_design');
+    }
     public function index()
     {
         $gallery_templates = EmailTemplateController::get_gallery();

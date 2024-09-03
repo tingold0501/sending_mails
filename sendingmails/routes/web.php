@@ -18,12 +18,6 @@ Route::get('/dashboard', function () {
     return view('components.dashboard.start');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/contract', function () {
-//     return view('components.contract.start');
-// })->middleware(['auth', 'verified'])->name('contract');
-
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -33,7 +27,6 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/contract_modifier/{id}', [ContractController::class, 'edit'])->name('contract.edit');
     Route::patch('/contract_modifier', [ContractController::class, 'update'])->name('contract.update');
-    // Route::delete('/contract_modifier', [ContractController::class, 'destroy'])->name('contract.destroy');
 
 });
 
