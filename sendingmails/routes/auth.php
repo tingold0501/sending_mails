@@ -64,14 +64,11 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
-    Route::get('campaign', [CampaignController::class, 'get_campaign'])
-        ->name('campaign');
+    Route::controller(CampaignController::class)->group(function () {
+        Route::get('/campaign', 'get_campaign')->name('campaign');
+        Route::post('/campaign_create', 'store')->name('campaign_create');
+    });
 
-    Route::get('get_emailtemplate_campaign', [CampaignController::class, 'get_emailtemplate_campaign'])
-        ->name('emailtemplate_campaign');
-
-    Route::post('campaign_store', [CampaignController::class, 'store'])->name('campaign_store');
-    
     Route::controller(ContractController::class)->group(function () {
         Route::get('/contract', 'index')->name('contract');
         Route::post('/contract_store', 'store')->name('contract_store');

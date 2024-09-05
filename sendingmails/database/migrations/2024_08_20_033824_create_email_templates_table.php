@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('content');
             $table->boolean('active')->default(true);
             $table->longText('body');
-            $table->string('css_text');
+            $table->longText('css_text');
             $table->foreignId('campaign_id')->constrained();
             $table->timestamps();
         });

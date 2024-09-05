@@ -28,8 +28,8 @@ class EmailTemplateController extends Controller
         return view('components.email-template.option');
     }
 
-    public function get_v_email_template_raw(): View{
-        return view('components.email-template.page.grapesjs_user_design');
+    public function get_v_email_template_raw() {
+        return redirect()->to('http://localhost:8080');
     }
     public function index()
     {

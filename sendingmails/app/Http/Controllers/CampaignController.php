@@ -33,8 +33,9 @@ class CampaignController extends Controller
     }
     public function get_campaign()
     {
+        $campaigns = $this->get_campaign_();
         $contracts = ContractController::get_contract_();
-        return view('edit-form', ['contracts' => $contracts]);
+        return view('components.campaign.start', ['campaigns' => $campaigns, 'contracts' => $contracts]);
     }
 
     public function get_emailtemplate_campaign(): View
@@ -93,7 +94,7 @@ class CampaignController extends Controller
         $campaign->created_at = now();
         $campaign->updated_at = now();
         $campaign->save();
-        return redirect(route('get_email_template_user_design', absolute: false));
+        return redirect(route('campaign', absolute: false));
     }
 
     /**

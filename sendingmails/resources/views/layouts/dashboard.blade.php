@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/soft-ui-dashboard/assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="/soft-ui-dashboard/assets/img/favicon.png" />
     <title>Soft UI Dashboard Tailwind</title>
-
+    
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Font Awesome Icons -->
@@ -52,6 +52,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+   
 </head>
 
 <body class="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500">
@@ -237,7 +240,7 @@
 
                 <li class="mt-0.5 w-full">
                     <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
-                        href="./pages/profile.html">
+                        href="{{ route('campaign') }}">
                         <div
                             class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                             <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
@@ -269,7 +272,7 @@
 
                 <li class="mt-0.5 w-full">
                     <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
-                        href={{route('email-template-option')}}>
+                        href={{ route('email-template-option') }}>
                         <div
                             class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1"
@@ -470,6 +473,7 @@
         @yield('Tables')
         @yield('Contract')
         @yield('Option-Template')
+        @yield('Campaign')
         <!-- end cards -->
     </main>
     <div fixed-plugin>
@@ -570,6 +574,7 @@
         </div>
     </div>
 </body>
+
 <!-- plugin for charts  -->
 <script src="/soft-ui-dashboard/assets/js/plugins/chartjs.min.js" async></script>
 <!-- plugin for scrollbar  -->
