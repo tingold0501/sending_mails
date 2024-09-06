@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Address;
 
 class MailConfiguring extends Mailable
 {
@@ -27,6 +28,10 @@ class MailConfiguring extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
+            from: new Address('supportgoldbulkmail@gmail.com', 'Gold - Bulk Mail'),
+            replyTo: [
+                new Address('supportgoldbulkmail@gmail.com', 'Gold - Bulk Mail'),
+            ],
             subject: 'Mail Configuring',
         );
     }

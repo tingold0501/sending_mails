@@ -16,6 +16,12 @@ use Illuminate\View\View as View;
 
 class EmailTemplateController extends Controller
 {
+    public function __construct()
+    {
+        if (!Auth::check()) {
+            return;
+        }
+    }
     public static function get_gallery()
     {
         $gallery_templates = DB::table('email_templates')->get();
@@ -24,11 +30,14 @@ class EmailTemplateController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function get_v_email_template(): View{
+    public function get_v_email_template(): View
+    {
         return view('components.email-template.option');
     }
 
-    public function get_v_email_template_raw() {
+    public function get_v_email_template_raw()
+    {
+        
         return redirect()->to('http://localhost:8080');
     }
     public function index()
