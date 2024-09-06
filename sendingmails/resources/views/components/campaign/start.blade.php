@@ -92,105 +92,116 @@
                                             data-target="#exampleModal">
                                             Add Campaign
                                         </button> --}}
-                                        <li class="z-30 flex-auto text-center" data-toggle="modal"
-                                            data-target="#exampleModal">
-                                            <a class="z-30 block w-full px-0 py-1 mb-0 transition-colors border-0 rounded-lg ease-soft-in-out bg-inherit text-slate-700"
-                                                nav-link href="javascript:;" role="tab" aria-selected="false">
-                                                <svg class="text-slate-700" width="16px" height="16px" viewBox="0 0 40 40"
-                                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <title>add campaign</title>
-                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                        <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF"
-                                                            fill-rule="nonzero">
-                                                            <g transform="translate(1716.000000, 291.000000)">
-                                                                <g transform="translate(304.000000, 151.000000)">
-                                                                    <polygon class="fill-slate-800" opacity="0.596981957"
-                                                                        points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667">
-                                                                    </polygon>
-                                                                    <path class="fill-slate-800"
-                                                                        d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z"
-                                                                        opacity="0.596981957"></path>
-                                                                    <path class="fill-slate-800"
-                                                                        d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z">
-                                                                    </path>
-                                                                </g>
+                                    <li class="z-30 flex-auto text-center" data-toggle="modal" data-target="#exampleModal">
+                                        <a class="z-30 block w-full px-0 py-1 mb-0 transition-colors border-0 rounded-lg ease-soft-in-out bg-inherit text-slate-700"
+                                            nav-link href="javascript:;" role="tab" aria-selected="false">
+                                            <svg class="text-slate-700" width="16px" height="16px" viewBox="0 0 40 40"
+                                                version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <title>add campaign</title>
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF"
+                                                        fill-rule="nonzero">
+                                                        <g transform="translate(1716.000000, 291.000000)">
+                                                            <g transform="translate(304.000000, 151.000000)">
+                                                                <polygon class="fill-slate-800" opacity="0.596981957"
+                                                                    points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667">
+                                                                </polygon>
+                                                                <path class="fill-slate-800"
+                                                                    d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z"
+                                                                    opacity="0.596981957"></path>
+                                                                <path class="fill-slate-800"
+                                                                    d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z">
+                                                                </path>
                                                             </g>
                                                         </g>
                                                     </g>
-                                                </svg>
-                                                <span class="ml-1">Add Campaign</span>
-                                            </a>
-                                        </li>
+                                                </g>
+                                            </svg>
+                                            <span class="ml-1">Add Campaign</span>
+                                        </a>
+                                    </li>
 
-                                        <!-- Modal -->
-                                        <div class="modal fade z-auto w-[1000px] " id="exampleModal" role="dialog"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Modal Campaign</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                      <section class="space-y-6 text-start ">
+                                    <!-- Modal -->
+                                    <div class="modal fade z-auto w-[1000px] " id="exampleModal" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modal Campaign</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <section class="space-y-6 text-start ">
                                                         <header>
-                                                            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                                                            <h2
+                                                                class="text-lg font-medium text-gray-900 dark:text-gray-100">
                                                                 {{ __('Campaign') }}
                                                             </h2>
-                                                    
+
                                                             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
                                                                 {{ __('Ensure your account is using a long, random password to stay secure.') }}
                                                             </p>
                                                         </header>
-                                                    
-                                                        <form method="post" action="{{ route('campaign_create') }}" class="mt-6 space-y-6">
+
+                                                        <form method="post" action="{{ route('campaign_create') }}"
+                                                            class="mt-6 space-y-6">
                                                             @csrf
                                                             <div>
                                                                 <x-input-label for="from_email" :value="__('From Email')" />
-                                                                <x-text-input id="from_email" name="from_email" type="text" class="form-control" :value="old('from_email')" required autofocus autocomplete="from_email" />
+                                                                <x-text-input id="from_email" name="from_email"
+                                                                    type="text" class="form-control" :value="old('from_email')"
+                                                                    required autofocus autocomplete="from_email" />
                                                                 <x-input-error :messages="$errors->get('from_email')" class="mt-2" />
                                                             </div>
-                                                           
+
                                                             <div>
                                                                 <x-input-label for="from_name" :value="__('From Name')" />
-                                                                <x-text-input id="from_name" name="from_name" type="text" class="form-control" :value="old('from_name')" required autofocus autocomplete="from_name" />
+                                                                <x-text-input id="from_name" name="from_name"
+                                                                    type="text" class="form-control" :value="old('from_name')"
+                                                                    required autofocus autocomplete="from_name" />
                                                                 <x-input-error :messages="$errors->get('from_name')" class="mt-2" />
                                                             </div>
                                                             <div>
                                                                 <x-input-label for="subject" :value="__('Subject')" />
-                                                                <x-text-input id="subject" name="subject" type="text" class="form-control" :value="old('subject')" required autofocus autocomplete="subject" />
+                                                                <x-text-input id="subject" name="subject"
+                                                                    type="text" class="form-control" :value="old('subject')"
+                                                                    required autofocus autocomplete="subject" />
                                                                 <x-input-error :messages="$errors->get('subject')" class="mt-2" />
                                                             </div>
                                                             <div>
-                                                              <x-input-label for="text" :value="__('Text')" />
-                                                              <x-text-input id="text" name="text" type="text" class="form-control" :value="old('text')" required autofocus autocomplete="text" />
-                                                              <x-input-error :messages="$errors->get('text')" class="mt-2" />
-                                                          </div>
+                                                                <x-input-label for="text" :value="__('Text')" />
+                                                                <x-text-input id="text" name="text"
+                                                                    type="text" class="form-control" :value="old('text')"
+                                                                    required autofocus autocomplete="text" />
+                                                                <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                                                            </div>
                                                             <div>
-                                                                <x-input-label for="contract_statue_id" :value="__('Send To')" />
-                                                                <select class="js-example-basic-multiple form-control" name="sendto[]" >
+                                                                <x-input-label for="contract_statue_id"
+                                                                    :value="__('Send To')" />
+                                                                <select class="js-example-basic-multiple form-control"
+                                                                    multiple ="multiple" name="sendto[]">
                                                                     @foreach ($contracts as $item)
-
-                                                                    <option value="{{ $item->email }}">{{ $item->email }}</option>
-
+                                                                        <option value="{{ $item->email }}">
+                                                                            {{ $item->email }}</option>
                                                                     @endforeach
-                                                                  </select>
+                                                                </select>
                                                                 <x-input-error :messages="$errors->get('contract_statue_id')" class="mt-2" />
                                                             </div>
                                                             <div class="btn btn-success mt-4">
-                                                              <x-primary-button class="border-0" type="submit">{{ __('Save') }}</x-primary-button>
-                                                          </div>
+                                                                <x-primary-button class="border-0"
+                                                                    type="submit">{{ __('Save') }}</x-primary-button>
+                                                            </div>
                                                         </form>
                                                     </section>
-                                                    </div>
-                                                  
                                                 </div>
+
                                             </div>
                                         </div>
+                                    </div>
                                     </li>
                                 </ul>
                             </div>
@@ -198,107 +209,149 @@
                     </div>
                 </div>
             </div>
-          
+
             <div class="w-full px-6 py-6 mx-auto">
-              <!-- table 1 -->
-      
-              <div class="flex flex-wrap -mx-3">
-                <div class="flex-none w-full max-w-full px-3">
-                  <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
-                    <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                      <h6>Campaign table</h6>
-                    </div>
-                    <div class="flex-auto px-0 pt-0 pb-2">
-                      <div class="p-0 overflow-x-auto">
-                        <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
-                          <thead class="align-bottom">
-                            <tr>
-                              <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Email</th>
-                              <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Campaign Status</th>
-                              <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Active</th>
-                              <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Employed</th>
-                              <th class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-gray-200 border-solid shadow-none tracking-none whitespace-nowrap text-slate-400 opacity-70"></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            @foreach ($campaigns as $item)
-                            <tr>
-                              <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                <p class="mb-0 text-xs font-semibold leading-tight">{{$item->from_email}}</p>
-                              </td>
-                              <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                <p class="mb-0 text-xs leading-tight text-slate-400">{{$item->from_email}}</p>
-                              </td>
-                              <td class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                @if ($item->active == 1)
-                                <span class="bg-gradient-to-tl from-green-600 to-lime-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Opening</span>
-                                @else
-                                <span class="bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Closing</span>
-                                @endif
-                              </td>
-                              <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                <span class="text-xs font-semibold leading-tight text-slate-400">{{$item->created_at}}</span>
-                              </td>
-                              <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                <a href="javascript:;" class="text-xs font-semibold leading-tight text-slate-400"> Edit </a>
-                              </td>
-                            </tr>
-                            @endforeach
-                         
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-      
-      
-              
-        </div>
-        <footer class="pt-4">
-            <div class="w-full px-6 mx-auto">
-                <div class="flex flex-wrap items-center -mx-3 lg:justify-between">
-                    <div class="w-full max-w-full px-3 mt-0 mb-6 shrink-0 lg:mb-0 lg:w-1/2 lg:flex-none">
-                        <div class="leading-normal text-center text-sm text-slate-500 lg:text-left">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear() + ",");
-                            </script>
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="https://www.creative-tim.com" class="font-semibold text-slate-700"
-                                target="_blank">Creative Tim</a>
-                            for a better web.
+                <!-- table 1 -->
+
+                <div class="flex flex-wrap -mx-3">
+                    <div class="flex-none w-full max-w-full px-3">
+                        <div
+                            class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+                            <div
+                                class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                                <h6>Campaign table</h6>
+                            </div>
+                            <div class="flex-auto px-0 pt-0 pb-2">
+                                <div class="p-0 overflow-x-auto">
+                                    <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
+                                        <thead class="align-bottom">
+                                            <tr>
+                                                <th
+                                                    class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                    Email</th>
+                                                <th
+                                                    class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                    Campaign Status</th>
+                                                <th
+                                                    class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                    Active</th>
+                                                <th
+                                                    class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                    Employed</th>
+                                                <th
+                                                    class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-gray-200 border-solid shadow-none tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($campaigns as $item)
+                                                <tr>
+                                                    <td
+                                                        class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                        <p class="mb-0 text-xs font-semibold leading-tight">
+                                                            {{ $item->from_email }}</p>
+                                                    </td>
+                                                    <td
+                                                        class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                        <p class="mb-0 text-xs leading-tight text-slate-400">
+                                                            {{ $item->from_email }}</p>
+                                                    </td>
+                                                    <td
+                                                        class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                        @if ($item->active == 1)
+                                                            <span
+                                                                class="bg-gradient-to-tl from-green-600 to-lime-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Opening</span>
+                                                        @else
+                                                            <span
+                                                                class="bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Closing</span>
+                                                        @endif
+                                                    </td>
+                                                    <td
+                                                        class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                        <span
+                                                            class="text-xs font-semibold leading-tight text-slate-400">{{ $item->created_at }}</span>
+                                                    </td>
+                                                    <td
+                                                        class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                        <a href="javascript:;"
+                                                            class="text-xs font-semibold leading-tight text-slate-400">
+                                                            Edit </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">
-                        <ul class="flex flex-wrap justify-center pl-0 mb-0 list-none lg:justify-end">
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com"
-                                    class="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-sm text-slate-500"
+                </div>
+
+
+
+            </div>
+            {{-- <nav aria-label="Page navigation example" class=" ml-6">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link text-gray-400" href="#">{{ $campaigns->links() }}</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul> --}}
+            <div class="ml-6">
+                {{ $campaigns->links() }}
+            </div>
+            </nav>
+            <footer class="pt-4">
+                <div class="w-full px-6 mx-auto">
+                    <div class="flex flex-wrap items-center -mx-3 lg:justify-between">
+                        <div class="w-full max-w-full px-3 mt-0 mb-6 shrink-0 lg:mb-0 lg:w-1/2 lg:flex-none">
+                            <div class="leading-normal text-center text-sm text-slate-500 lg:text-left">
+                                ©
+                                <script>
+                                    document.write(new Date().getFullYear() + ",");
+                                </script>
+                                made with <i class="fa fa-heart"></i> by
+                                <a href="https://www.creative-tim.com" class="font-semibold text-slate-700"
                                     target="_blank">Creative Tim</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation"
-                                    class="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-sm text-slate-500"
-                                    target="_blank">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://creative-tim.com/blog"
-                                    class="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-sm text-slate-500"
-                                    target="_blank">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/license"
-                                    class="block px-4 pt-0 pb-1 pr-0 font-normal transition-colors ease-soft-in-out text-sm text-slate-500"
-                                    target="_blank">License</a>
-                            </li>
-                        </ul>
+                                for a better web.
+                            </div>
+                        </div>
+                        <div class="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">
+                            <ul class="flex flex-wrap justify-center pl-0 mb-0 list-none lg:justify-end">
+                                <li class="nav-item">
+                                    <a href="https://www.creative-tim.com"
+                                        class="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-sm text-slate-500"
+                                        target="_blank">Creative Tim</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://www.creative-tim.com/presentation"
+                                        class="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-sm text-slate-500"
+                                        target="_blank">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://creative-tim.com/blog"
+                                        class="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-sm text-slate-500"
+                                        target="_blank">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://www.creative-tim.com/license"
+                                        class="block px-4 pt-0 pb-1 pr-0 font-normal transition-colors ease-soft-in-out text-sm text-slate-500"
+                                        target="_blank">License</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-    </div>
+            </footer>
+        </div>
     </div>
     <div fixed-plugin>
         <a fixed-plugin-button
@@ -397,4 +450,5 @@
         </div>
     </div>
     </div>
+   
 @endsection

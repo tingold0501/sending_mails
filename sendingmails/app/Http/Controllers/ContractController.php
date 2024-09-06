@@ -28,7 +28,7 @@ class ContractController extends Controller
     public function index(): View
     {
         $contract_statues = ConTractstatusController::get_contract_status_();
-        $contracts = ContractController::get_contract_();
+        $contracts = DB::table('contracts')->where('user_id', Auth::user()->id)->latest()->paginate(5);
         return view('components.contract.start', ['contract_statues' => $contract_statues, 'contracts' => $contracts]);
     }
 
@@ -53,7 +53,7 @@ class ContractController extends Controller
         $contract->contract_statue_id = $request['contract_statue_id'];
         $contract->user_id = Auth::user()->id;
         $contract->save();
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->intended(route('contract', absolute: false));
     }
 
     /**

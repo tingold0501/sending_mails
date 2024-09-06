@@ -18,9 +18,9 @@ class EmailTemplateController extends Controller
 {
     public function __construct()
     {
-        if (!Auth::check()) {
-            return;
-        }
+        // if (!Auth::check()) {
+        //     return;
+        // }
     }
     public static function get_gallery()
     {

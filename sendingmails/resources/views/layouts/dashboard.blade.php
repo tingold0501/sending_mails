@@ -26,24 +26,27 @@
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Font Awesome Icons -->
-    {{-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> --}}
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Nucleo Icons -->
     <link href="/soft-ui-dashboard/assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="/soft-ui-dashboard/assets/css/nucleo-svg.css" rel="stylesheet" />
 
     <!-- Popper -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="/js/jquery-3.7.1.min.js"></script>
+
     <!-- Main Styling -->
     <link href="/soft-ui-dashboard/assets/css/soft-ui-dashboard-tailwind.css?v=1.0.5" rel="stylesheet" />
     <link href="/soft-ui-dashboard/assets/css/perfect-scrollbar.css" rel="stylesheet" />
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+    {{-- <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
+    </script> --}}
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
@@ -53,8 +56,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $.ajaxSetup({
@@ -590,8 +592,14 @@
 <script src="/soft-ui-dashboard/assets/js/plugins/perfect-scrollbar.min.js" async></script>
 <!-- github button -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <!-- main script file  -->
 {{-- <script src="/soft-ui-dashboard/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.5" async></script> --}}
-
+<script> 
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+</script>
 
 </html>

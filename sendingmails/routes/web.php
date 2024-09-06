@@ -9,6 +9,9 @@ Route::get('/', function () {
     return view('layouts.home');
 });
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/table', function () {
     return view('components.dashboard.table');
 })->middleware(['auth', 'verified'])->name('table');

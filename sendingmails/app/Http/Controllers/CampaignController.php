@@ -28,13 +28,17 @@ class CampaignController extends Controller
 
     public static function get_campaign_()
     {
-        $campaigns = DB::table('campaigns')->get();
+        $campaigns = DB::table('campaigns')
+        ->where('user_id', Auth::user()->id)
+        ->latest()
+        ->paginate(5);
         return $campaigns;
     }
     public function get_campaign()
     {
         $campaigns = $this->get_campaign_();
         $contracts = ContractController::get_contract_();
+        // dd($campaigns);
         return view('components.campaign.start', ['campaigns' => $campaigns, 'contracts' => $contracts]);
     }
 
