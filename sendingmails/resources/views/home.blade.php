@@ -1,541 +1,749 @@
-@extends('layout')
-@section('Home')
-<div class="container-xxl flex-grow-1 container-p-y">
-    <div class="row">
-      <div class="col-lg-8 mb-4 order-0">
-        <div class="card">
-          <div class="d-flex align-items-end row">
-            <div class="col-sm-7">
-              <div class="card-body">
-                <h5 class="card-title text-primary">Congratulations John! 🎉</h5>
-                <p class="mb-4">
-                  You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
-                  your profile.
-                </p>
+<!DOCTYPE html>
+<html lang="en">
 
-                <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
-              </div>
-            </div>
-            <div class="col-sm-5 text-center text-sm-left">
-              <div class="card-body pb-0 px-0 px-md-4">
-                <img
-                  src="/assets/img/illustrations/man-with-laptop-light.png"
-                  height="140"
-                  alt="View Badge User"
-                  data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                  data-app-light-img="illustrations/man-with-laptop-light.png"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 order-1">
-        <div class="row">
-          <div class="col-lg-6 col-md-12 col-6 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <div class="card-title d-flex align-items-start justify-content-between">
-                  <div class="avatar flex-shrink-0">
-                    <img
-                      src="/assets/img/icons/unicons/chart-success.png"
-                      alt="chart success"
-                      class="rounded"
-                    />
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn p-0"
-                      type="button"
-                      id="cardOpt3"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i class="bx bx-dots-vertical-rounded"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                      <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                      <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                    </div>
-                  </div>
-                </div>
-                <span class="fw-semibold d-block mb-1">Profit</span>
-                <h3 class="card-title mb-2">$12,628</h3>
-                <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12 col-6 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <div class="card-title d-flex align-items-start justify-content-between">
-                  <div class="avatar flex-shrink-0">
-                    <img
-                      src="/assets/img/icons/unicons/wallet-info.png"
-                      alt="Credit Card"
-                      class="rounded"
-                    />
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn p-0"
-                      type="button"
-                      id="cardOpt6"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i class="bx bx-dots-vertical-rounded"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
-                      <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                      <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                    </div>
-                  </div>
-                </div>
-                <span>Sales</span>
-                <h3 class="card-title text-nowrap mb-1">$4,679</h3>
-                <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Total Revenue -->
-      <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
-        <div class="card">
-          <div class="row row-bordered g-0">
-            <div class="col-md-8">
-              <h5 class="card-header m-0 me-2 pb-3">Total Revenue</h5>
-              <div id="totalRevenueChart" class="px-2"></div>
-            </div>
-            <div class="col-md-4">
-              <div class="card-body">
-                <div class="text-center">
-                  <div class="dropdown">
-                    <button
-                      class="btn btn-sm btn-outline-primary dropdown-toggle"
-                      type="button"
-                      id="growthReportId"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      2022
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId">
-                      <a class="dropdown-item" href="javascript:void(0);">2021</a>
-                      <a class="dropdown-item" href="javascript:void(0);">2020</a>
-                      <a class="dropdown-item" href="javascript:void(0);">2019</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="growthChart"></div>
-              <div class="text-center fw-semibold pt-3 mb-2">62% Company Growth</div>
+    <head>
+        <meta charset="utf-8">
+        <title>Mailler - SaaS Website Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
 
-              <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between">
-                <div class="d-flex">
-                  <div class="me-2">
-                    <span class="badge bg-label-primary p-2"><i class="bx bx-dollar text-primary"></i></span>
-                  </div>
-                  <div class="d-flex flex-column">
-                    <small>2022</small>
-                    <h6 class="mb-0">$32.5k</h6>
-                  </div>
-                </div>
-                <div class="d-flex">
-                  <div class="me-2">
-                    <span class="badge bg-label-info p-2"><i class="bx bx-wallet text-info"></i></span>
-                  </div>
-                  <div class="d-flex flex-column">
-                    <small>2021</small>
-                    <h6 class="mb-0">$41.2k</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--/ Total Revenue -->
-      <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
-        <div class="row">
-          <div class="col-6 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <div class="card-title d-flex align-items-start justify-content-between">
-                  <div class="avatar flex-shrink-0">
-                    <img src="/assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn p-0"
-                      type="button"
-                      id="cardOpt4"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i class="bx bx-dots-vertical-rounded"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
-                      <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                      <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                    </div>
-                  </div>
-                </div>
-                <span class="d-block mb-1">Payments</span>
-                <h3 class="card-title text-nowrap mb-2">$2,456</h3>
-                <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <div class="card-title d-flex align-items-start justify-content-between">
-                  <div class="avatar flex-shrink-0">
-                    <img src="/assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn p-0"
-                      type="button"
-                      id="cardOpt1"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i class="bx bx-dots-vertical-rounded"></i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="cardOpt1">
-                      <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                      <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                    </div>
-                  </div>
-                </div>
-                <span class="fw-semibold d-block mb-1">Transactions</span>
-                <h3 class="card-title mb-2">$14,857</h3>
-                <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
-              </div>
-            </div>
-          </div>
-          <!-- </div>
-          <div class="row"> -->
-          <div class="col-12 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
-                  <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
-                    <div class="card-title">
-                      <h5 class="text-nowrap mb-2">Profile Report</h5>
-                      <span class="badge bg-label-warning rounded-pill">Year 2021</span>
-                    </div>
-                    <div class="mt-sm-auto">
-                      <small class="text-success text-nowrap fw-semibold"
-                        ><i class="bx bx-chevron-up"></i> 68.2%</small
-                      >
-                      <h3 class="mb-0">$84,686k</h3>
-                    </div>
-                  </div>
-                  <div id="profileReportChart"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <!-- Order Statistics -->
-      <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-        <div class="card h-100">
-          <div class="card-header d-flex align-items-center justify-content-between pb-0">
-            <div class="card-title mb-0">
-              <h5 class="m-0 me-2">Order Statistics</h5>
-              <small class="text-muted">42.82k Total Sales</small>
-            </div>
-            <div class="dropdown">
-              <button
-                class="btn p-0"
-                type="button"
-                id="orederStatistics"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i class="bx bx-dots-vertical-rounded"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
-                <a class="dropdown-item" href="javascript:void(0);">Select All</a>
-                <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                <a class="dropdown-item" href="javascript:void(0);">Share</a>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <div class="d-flex flex-column align-items-center gap-1">
-                <h2 class="mb-2">8,258</h2>
-                <span>Total Orders</span>
-              </div>
-              <div id="orderStatisticsChart"></div>
-            </div>
-            <ul class="p-0 m-0">
-              <li class="d-flex mb-4 pb-1">
-                <div class="avatar flex-shrink-0 me-3">
-                  <span class="avatar-initial rounded bg-label-primary"
-                    ><i class="bx bx-mobile-alt"></i
-                  ></span>
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <h6 class="mb-0">Electronic</h6>
-                    <small class="text-muted">Mobile, Earbuds, TV</small>
-                  </div>
-                  <div class="user-progress">
-                    <small class="fw-semibold">82.5k</small>
-                  </div>
-                </div>
-              </li>
-              <li class="d-flex mb-4 pb-1">
-                <div class="avatar flex-shrink-0 me-3">
-                  <span class="avatar-initial rounded bg-label-success"><i class="bx bx-closet"></i></span>
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <h6 class="mb-0">Fashion</h6>
-                    <small class="text-muted">T-shirt, Jeans, Shoes</small>
-                  </div>
-                  <div class="user-progress">
-                    <small class="fw-semibold">23.8k</small>
-                  </div>
-                </div>
-              </li>
-              <li class="d-flex mb-4 pb-1">
-                <div class="avatar flex-shrink-0 me-3">
-                  <span class="avatar-initial rounded bg-label-info"><i class="bx bx-home-alt"></i></span>
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <h6 class="mb-0">Decor</h6>
-                    <small class="text-muted">Fine Art, Dining</small>
-                  </div>
-                  <div class="user-progress">
-                    <small class="fw-semibold">849k</small>
-                  </div>
-                </div>
-              </li>
-              <li class="d-flex">
-                <div class="avatar flex-shrink-0 me-3">
-                  <span class="avatar-initial rounded bg-label-secondary"
-                    ><i class="bx bx-football"></i
-                  ></span>
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <h6 class="mb-0">Sports</h6>
-                    <small class="text-muted">Football, Cricket Kit</small>
-                  </div>
-                  <div class="user-progress">
-                    <small class="fw-semibold">99</small>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!--/ Order Statistics -->
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet"> 
 
-      <!-- Expense Overview -->
-      <div class="col-md-6 col-lg-4 order-1 mb-4">
-        <div class="card h-100">
-          <div class="card-header">
-            <ul class="nav nav-pills" role="tablist">
-              <li class="nav-item">
-                <button
-                  type="button"
-                  class="nav-link active"
-                  role="tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#navs-tabs-line-card-income"
-                  aria-controls="navs-tabs-line-card-income"
-                  aria-selected="true"
-                >
-                  Income
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="/mailler/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="/mailler/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="/mailler/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="/mailler/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="/mailler/css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid header position-relative overflow-hidden p-0">
+            <nav class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="index.html" class="navbar-brand p-0">
+                    <h1 class="display-6 text-primary m-0"><i class="fas fa-envelope me-3"></i>Mailler</h1>
+                    <!-- <img src="/mailler/img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
                 </button>
-              </li>
-              <li class="nav-item">
-                <button type="button" class="nav-link" role="tab">Expenses</button>
-              </li>
-              <li class="nav-item">
-                <button type="button" class="nav-link" role="tab">Profit</button>
-              </li>
-            </ul>
-          </div>
-          <div class="card-body px-0">
-            <div class="tab-content p-0">
-              <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
-                <div class="d-flex p-4 pt-3">
-                  <div class="avatar flex-shrink-0 me-3">
-                      @if(session('avatar'))
-                        <img src= "{{ asset('storage/' . session('avatar')) }}" alt="User Avatar">
-                      @else
-                        <img src="{{ asset('images/avatar_default.jpg') }}" alt="Default Avatar"> 
-                      @endif
-                   <img src="/assets/img/icons/unicons/wallet.png" alt="User" /> 
-                  </div>
-                  <div>
-                    <small class="text-muted d-block">Total Balance</small>
-                    <div class="d-flex align-items-center">
-                      <h6 class="mb-0 me-1">$459.10</h6>
-                      <small class="text-success fw-semibold">
-                        <i class="bx bx-chevron-up"></i>
-                        42.9%
-                      </small>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        {{-- <a href={{ route('dashboard') }} class="nav-item nav-link">My Dashboard</a> --}}
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="feature.html" class="dropdown-item">Features</a>
+                                <a href="pricing.html" class="dropdown-item">Pricing</a>
+                                <a href="blog.html" class="dropdown-item">Blog</a>
+                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                <a href="404.html" class="dropdown-item">404 Page</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                     </div>
-                  </div>
+                    <a href="#" class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4">Log In</a>
+                    <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4">Sign Up</a>
                 </div>
-                <div id="incomeChart"></div>
-                <div class="d-flex justify-content-center pt-4 gap-2">
-                  <div class="flex-shrink-0">
-                    <div id="expensesOfWeek"></div>
-                  </div>
-                  <div>
-                    <p class="mb-n1 mt-1">Expenses This Week</p>
-                    <small class="text-muted">$39 less than last week</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--/ Expense Overview -->
+            </nav>
 
-      <!-- Transactions -->
-      <div class="col-md-6 col-lg-4 order-2 mb-4">
-        <div class="card h-100">
-          <div class="card-header d-flex align-items-center justify-content-between">
-            <h5 class="card-title m-0 me-2">Transactions</h5>
-            <div class="dropdown">
-              <button
-                class="btn p-0"
-                type="button"
-                id="transactionID"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i class="bx bx-dots-vertical-rounded"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
-                <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
-                <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
-                <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
-              </div>
+
+            <!-- Hero Header Start -->
+            <div class="hero-header overflow-hidden px-5">
+                <div class="rotate-img">
+                    <img src="/mailler/img/sty-1.png" class="img-fluid w-100" alt="">
+                    <div class="rotate-sty-2"></div>
+                </div>
+                <div class="row gy-5 align-items-center">
+                    <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+                        <h1 class="display-4 text-dark mb-4 wow fadeInUp" data-wow-delay="0.3s">Turn Emails into Revenue</h1>
+                        <p class="fs-4 mb-4 wow fadeInUp" data-wow-delay="0.5s">Win new customers with the #1 email marketing and automations brand* that recommends ways to get more opens, clicks, and sales.</p>
+                        <a href={{ route('dashboard') }} class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.7s">Get Started</a>
+                    </div>
+                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
+                        <img src="/mailler/img/hero-img-1.png" class="img-fluid w-100 h-100" alt="">
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="card-body">
-            <ul class="p-0 m-0">
-              <li class="d-flex mb-4 pb-1">
-                <div class="avatar flex-shrink-0 me-3">
-                  <img src="/assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <small class="text-muted d-block mb-1">Paypal</small>
-                    <h6 class="mb-0">Send money</h6>
-                  </div>
-                  <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">+82.6</h6>
-                    <span class="text-muted">USD</span>
-                  </div>
-                </div>
-              </li>
-              <li class="d-flex mb-4 pb-1">
-                <div class="avatar flex-shrink-0 me-3">
-                  <img src="/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <small class="text-muted d-block mb-1">Wallet</small>
-                    <h6 class="mb-0">Mac'D</h6>
-                  </div>
-                  <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">+270.69</h6>
-                    <span class="text-muted">USD</span>
-                  </div>
-                </div>
-              </li>
-              <li class="d-flex mb-4 pb-1">
-                <div class="avatar flex-shrink-0 me-3">
-                  <img src="/assets/img/icons/unicons/chart.png" alt="User" class="rounded" />
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <small class="text-muted d-block mb-1">Transfer</small>
-                    <h6 class="mb-0">Refund</h6>
-                  </div>
-                  <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">+637.91</h6>
-                    <span class="text-muted">USD</span>
-                  </div>
-                </div>
-              </li>
-              <li class="d-flex mb-4 pb-1">
-                <div class="avatar flex-shrink-0 me-3">
-                  <img src="/assets/img/icons/unicons/cc-success.png" alt="User" class="rounded" />
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <small class="text-muted d-block mb-1">Credit Card</small>
-                    <h6 class="mb-0">Ordered Food</h6>
-                  </div>
-                  <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">-838.71</h6>
-                    <span class="text-muted">USD</span>
-                  </div>
-                </div>
-              </li>
-              <li class="d-flex mb-4 pb-1">
-                <div class="avatar flex-shrink-0 me-3">
-                  <img src="/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <small class="text-muted d-block mb-1">Wallet</small>
-                    <h6 class="mb-0">Starbucks</h6>
-                  </div>
-                  <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">+203.33</h6>
-                    <span class="text-muted">USD</span>
-                  </div>
-                </div>
-              </li>
-              <li class="d-flex">
-                <div class="avatar flex-shrink-0 me-3">
-                  <img src="/assets/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <small class="text-muted d-block mb-1">Mastercard</small>
-                    <h6 class="mb-0">Ordered Food</h6>
-                  </div>
-                  <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">-92.45</h6>
-                    <span class="text-muted">USD</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
+            <!-- Hero Header End -->
         </div>
-      </div>
-      <!--/ Transactions -->
-    </div>
-  </div>
-@endsection
+        <!-- Navbar & Hero End -->
+
+
+        <!-- About Start -->
+        <div class="container-fluid overflow-hidden py-5"  style="margin-top: 6rem;">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="RotateMoveLeft">
+                            <img src="/mailler/img/about-1.png" class="img-fluid w-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <h4 class="mb-1 text-primary">About Us</h4>
+                        <h1 class="display-5 mb-4">Get Started Easily With a Personalized Product Tour</h1>
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, suscipit itaque quaerat dicta porro illum, autem, molestias ut animi ab aspernatur dolorum officia nam dolore. Voluptatibus aliquam earum labore atque.
+                        </p>
+                        <a href="#" class="btn btn-primary rounded-pill py-3 px-5">About More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Service Start -->
+        <div class="container-fluid service py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                    <h4 class="mb-1 text-primary">Our Service</h4>
+                    <h1 class="display-5 mb-4">What We Can Do For You</h1>
+                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    </p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item text-center rounded p-4">
+                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-mail-bulk fa-5x text-secondary"></i></div>
+                            <div class="service-content">
+                                <h4 class="mb-4">Email Newsletters</h4>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item text-center rounded p-4">
+                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-thumbs-up fa-5x text-secondary"></i></div>
+                            <div class="service-content">
+                                <h4 class="mb-4">Acquistion Emails </h4>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item text-center rounded p-4">
+                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fa fa-subway fa-5x text-secondary"></i></div>
+                            <div class="service-content">
+                                <h4 class="mb-4">Retention Emails</h4>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="service-item text-center rounded p-4">
+                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-sitemap fa-5x text-secondary"></i></div>
+                            <div class="service-content">
+                                <h4 class="mb-4">Promotional Emails</h4>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item text-center rounded p-4">
+                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-mail-bulk fa-5x text-secondary"></i></div>
+                            <div class="service-content">
+                                <h4 class="mb-4">Email Newsletters</h4>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item text-center rounded p-4">
+                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-thumbs-up fa-5x text-secondary"></i></div>
+                            <div class="service-content">
+                                <h4 class="mb-4">Acquistion Emails </h4>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item text-center rounded p-4">
+                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fa fa-subway fa-5x text-secondary"></i></div>
+                            <div class="service-content">
+                                <h4 class="mb-4">Retention Emails</h4>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="service-item text-center rounded p-4">
+                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-sitemap fa-5x text-secondary"></i></div>
+                            <div class="service-content">
+                                <h4 class="mb-4">Promotional Emails</h4>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service End -->
+
+
+        <!-- Feature Start -->
+        <div class="container-fluid feature overflow-hidden py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                    <h4 class="text-primary">Our Feature</h4>
+                    <h1 class="display-5 mb-4">Important Features For Email Marketing</h1>
+                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    </p>
+                </div>
+                <div class="row g-4 justify-content-center text-center mb-5">
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="text-center p-4">
+                            <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-envelope fa-5x text-secondary"></i></div>
+                            <div class="feature-content">
+                                <a href="#" class="h4">Email Marketing <i class="fa fa-long-arrow-alt-right"></i></a>
+                                <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="text-center p-4">
+                            <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-mail-bulk fa-5x text-secondary"></i></div>
+                            <div class="feature-content">
+                                <a href="#" class="h4">Email Builder <i class="fa fa-long-arrow-alt-right"></i></a>
+                                <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="text-center rounded p-4">
+                            <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-sitemap fa-5x text-secondary"></i></div>
+                            <div class="feature-content">
+                                <a href="#" class="h4">Customer Builder <i class="fa fa-long-arrow-alt-right"></i></a>
+                                <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="text-center rounded p-4">
+                            <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-tasks fa-5x text-secondary"></i></div>
+                            <div class="feature-content">
+                                <a href="#" class="h4">Campaign Manager <i class="fa fa-long-arrow-alt-right"></i></a>
+                                <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="my-3">
+                            <a href="#" class="btn btn-primary d-inline rounded-pill px-5 py-3">More Features</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-5 pt-5" style="margin-top: 6rem;">
+                    <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+                        <div class="feature-img RotateMoveLeft h-100" style="object-fit: cover;">
+                            <img src="/mailler/img/features-1.png" class="img-fluid w-100 h-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
+                        <h4 class="text-primary">Fearutes</h4>
+                        <h1 class="display-5 mb-4">Push Your Visitors Into Happy Customers</h1>
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, suscipit itaque quaerat dicta porro illum, autem, molestias ut animi ab aspernatur dolorum officia nam dolore. Voluptatibus aliquam earum labore atque.
+                        </p>
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="d-flex">
+                                    <i class="fas fa-newspaper fa-4x text-secondary"></i>
+                                    <div class="d-flex flex-column ms-3">
+                                        <h2 class="mb-0 fw-bold">285</h2>
+                                        <small class="text-dark">Created Projects</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex">
+                                    <i class="fas fa-users fa-4x text-secondary"></i>
+                                    <div class="d-flex flex-column ms-3">
+                                        <h2 class="mb-0 fw-bold">6560</h2>
+                                        <small class="text-dark">Happy Clients</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-4">
+                            <a href="#" class="btn btn-primary rounded-pill py-3 px-5">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Feature End -->
+
+
+        <!-- FAQ Start -->
+        <div class="container-fluid FAQ bg-light overflow-hidden py-5">
+            <div class="container py-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+                       <div class="accordion" id="accordionExample">
+                            <div class="accordion-item border-0 mb-4">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseTOne">
+                                        Why did you choose Our Email Services?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body my-2">
+                                        <h5>Dolor sit amet consectetur adipisicing elit.</h5>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nemo impedit, sapiente quis illo quia nulla atque maxime fuga minima ipsa quae cum consequatur, sit, delectus exercitationem odit officiis maiores! Neque, quidem corrupti modi architecto eos saepe incidunt dignissimos rerum.</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio hic fuga odio excepturi ducimus sequi at. Doloribus, non aspernatur.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-0 mb-4">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Are there any hidden charges? 
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body my-2">
+                                        <h5>Dolor sit amet consectetur adipisicing elit.</h5>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nemo impedit, sapiente quis illo quia nulla atque maxime fuga minima ipsa quae cum consequatur, sit, delectus exercitationem odit officiis maiores! Neque, quidem corrupti modi architecto eos saepe incidunt dignissimos rerum.</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio hic fuga odio excepturi ducimus sequi at. Doloribus, non aspernatur.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-0">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        What are the key challenges of email marketing?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body my-2">
+                                        <h5>Dolor sit amet consectetur adipisicing elit.</h5>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nemo impedit, sapiente quis illo quia nulla atque maxime fuga minima ipsa quae cum consequatur, sit, delectus exercitationem odit officiis maiores! Neque, quidem corrupti modi architecto eos saepe incidunt dignissimos rerum.</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio hic fuga odio excepturi ducimus sequi at. Doloribus, non aspernatur.</p>
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
+                        <div class="FAQ-img RotateMoveRight rounded">
+                            <img src="/mailler/img/about-1.png" class="img-fluid w-100" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FAQ End -->
+
+
+        <!-- Pricing Start -->
+        <div class="container-fluid price py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                    <h4 class="text-primary">Pricing Plan</h4>
+                    <h1 class="display-5 mb-4">Not Sure Which Plan Is For You?</h1>
+                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    </p>
+                </div>
+                <div class="row g-5 justify-content-center">
+                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="price-item bg-light rounded text-center">
+                            <div class="text-center text-dark border-bottom d-flex flex-column justify-content-center p-4" style="width: 100%; height: 160px;">
+                                <p class="fs-2 fw-bold text-uppercase mb-0">BASIC</p>
+                                <div class="d-flex justify-content-center">
+                                    <strong class="align-self-start">$</strong>
+                                    <p class="mb-0"><span class="display-5">00</span>/mo</p>
+                                </div>                        
+                            </div>
+                            <div class="text-start p-5">
+                                <p><i class="fas fa-check text-success me-1"></i> Limited Acess Library</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Customer Support</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Pre-built Email Templates</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Reporting & Analytics</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Forms & Landing Pages</p>
+                                <p><i class="fas fa-check text-success me-1"></i> A/B Testing</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Email Scheduling</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Automated Customer Journeys</p>
+                                <p><i class="fas fa-times text-danger me-1"></i> Creative Assistant</p>
+                                <p class="mb-4"><i class="fas fa-times text-danger me-1"></i> Role-based Access</p>
+                                <button class="btn btn-light rounded-pill py-2 px-5" type="button">Get Started</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="price-item bg-light rounded text-center">
+                            <div class="pice-item-offer">Popular</div>
+                            <div class="text-center text-primary border-bottom d-flex flex-column justify-content-center p-4" style="width: 100%; height: 160px;">
+                                <p class="fs-2 fw-bold text-uppercase mb-0">Standard</p>
+                                <div class="d-flex justify-content-center">
+                                    <strong class="align-self-start">$</strong>
+                                    <p class="mb-0"><span class="display-5">23</span>/mo</p>
+                                </div>                        
+                            </div>
+                            <div class="text-start p-5">
+                                <p><i class="fas fa-check text-success me-1"></i> Limited Acess Library</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Customer Support</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Pre-built Email Templates</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Reporting & Analytics</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Forms & Landing Pages</p>
+                                <p><i class="fas fa-check text-success me-1"></i> A/B Testing</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Email Scheduling</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Automated Customer Journeys</p>
+                                <p><i class="fas fa-times text-danger me-1"></i> Creative Assistant</p>
+                                <p class="mb-4"><i class="fas fa-times text-danger me-1"></i> Role-based Access</p>
+                                <button class="btn btn-light rounded-pill py-2 px-5" type="button">Get Started</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="price-item bg-light rounded text-center">
+                            <div class="text-center text-secondary border-bottom d-flex flex-column justify-content-center p-4" style="width: 100%; height: 160px;">
+                                <p class="fs-2 fw-bold text-uppercase mb-0">Premium</p>
+                                <div class="d-flex justify-content-center">
+                                    <strong class="align-self-start">$</strong>
+                                    <p class="mb-0"><span class="display-5">49</span>/mo</p>
+                                </div>                        
+                            </div>
+                            <div class="text-start p-5">
+                                <p><i class="fas fa-check text-success me-1"></i> Limited Acess Library</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Customer Support</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Pre-built Email Templates</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Reporting & Analytics</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Forms & Landing Pages</p>
+                                <p><i class="fas fa-check text-success me-1"></i> A/B Testing</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Email Scheduling</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Automated Customer Journeys</p>
+                                <p><i class="fas fa-times text-danger me-1"></i> Creative Assistant</p>
+                                <p class="mb-4"><i class="fas fa-times text-danger me-1"></i> Role-based Access</p>
+                                <button class="btn btn-light rounded-pill py-2 px-5" type="button">Get Started</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pricing End -->
+
+
+        <!-- Blog Start -->
+        <div class="container-fluid blog py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                    <h4 class="text-primary">Our Blog</h4>
+                    <h1 class="display-5 mb-4">Join Us For New Blog</h1>
+                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    </p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="/mailler/img/blog-1.png" class="img-fluid w-100" alt="">
+                                <div class="blog-info">
+                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
+                                    <div class="d-flex">
+                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
+                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-content text-dark border p-4 ">
+                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="/mailler/img/blog-2.png" class="img-fluid w-100" alt="">
+                                <div class="blog-info">
+                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
+                                    <div class="d-flex">
+                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
+                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-content text-dark border p-4 ">
+                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="/mailler/img/blog-3.png" class="img-fluid w-100" alt="">
+                                <div class="blog-info">
+                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
+                                    <div class="d-flex">
+                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
+                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-content text-dark border p-4 ">
+                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="/mailler/img/blog-4.png" class="img-fluid w-100" alt="">
+                                <div class="blog-info">
+                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
+                                    <div class="d-flex">
+                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
+                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-content text-dark border p-4 ">
+                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-fluid testimonial py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                    <h4 class="text-primary">Testimonial</h4>
+                    <h1 class="display-5 mb-4">What Our Client Say About Us</h1>
+                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    </p>
+                </div>
+                <div class="testimonial-carousel owl-carousel wow zoomInDown" data-wow-delay="0.2s">
+                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='/mailler/img/testimonial-img-1.jpg' alt=''>">
+                        <div class="testimonial-inner text-center p-5">
+                            <div class="d-flex align-items-center justify-content-center mb-4">
+                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
+                                    <img src="/mailler/img/testimonial-img-1.jpg" class="img-fluid rounded-circle" alt="">
+                                </div>
+                                <div>
+                                    <h5 class="mb-2">John Abraham</h5>
+                                    <p class="mb-0">New York, USA</p>
+                                </div>
+                            </div>
+                            <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
+                            </p>
+                            <div class="text-center">
+                                <div class="d-flex justify-content-center">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='/mailler/img/testimonial-img-2.jpg' alt=''>">
+                        <div class="testimonial-inner text-center p-5">
+                            <div class="d-flex align-items-center justify-content-center mb-4">
+                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
+                                    <img src="/mailler/img/testimonial-img-2.jpg" class="img-fluid rounded-circle" alt="">
+                                </div>
+                                <div>
+                                    <h5 class="mb-2">John Abraham</h5>
+                                    <p class="mb-0">New York, USA</p>
+                                </div>
+                            </div>
+                            <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
+                            </p>
+                            <div class="text-center">
+                                <div class="d-flex justify-content-center">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='/mailler/img/testimonial-img-3.jpg' alt=''>">
+                        <div class="testimonial-inner text-center p-5">
+                            <div class="d-flex align-items-center justify-content-center mb-4">
+                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
+                                    <img src="/mailler/img/testimonial-img-3.jpg" class="img-fluid rounded-circle" alt="">
+                                </div>
+                                <div>
+                                    <h5 class="mb-2">John Abraham</h5>
+                                    <p class="mb-0">New York, USA</p>
+                                </div>
+                            </div>
+                            <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
+                            </p>
+                            <div class="text-center">
+                                <div class="d-flex justify-content-center">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-dark mb-4">Company</h4>
+                            <a href=""> Why Mailler?</a>
+                            <a href=""> Our Features</a>
+                            <a href=""> Our Portfolio</a>
+                            <a href=""> About Us</a>
+                            <a href=""> Our Blog & News</a>
+                            <a href=""> Get In Touch</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-dark">Quick Links</h4>
+                            <a href=""> About Us</a>
+                            <a href=""> Contact Us</a>
+                            <a href=""> Privacy Policy</a>
+                            <a href=""> Terms & Conditions</a>
+                            <a href=""> Our Blog & News</a>
+                            <a href=""> Our Team</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-dark">Services</h4>
+                            <a href=""> All Services</a>
+                            <a href=""> Promotional Emails</a>
+                            <a href=""> Product Updates</a>
+                            <a href=""> Email Marketing</a>
+                            <a href=""> Acquistion Emails</a>
+                            <a href=""> Retention Emails</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-dark">Contact Info</h4>
+                            <a href=""><i class="fa fa-map-marker-alt me-2"></i> 123 Street, New York, USA</a>
+                            <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
+                            <a href=""><i class="fas fa-phone me-2"></i> +012 345 67890</a>
+                            <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-share fa-2x text-secondary me-2"></i>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                        <span class="text-white"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end text-white">
+                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/mailler/lib/wow/wow.min.js"></script>
+    <script src="/mailler/lib/easing/easing.min.js"></script>
+    <script src="/mailler/lib/waypoints/waypoints.min.js"></script>
+    <script src="/mailler/lib/counterup/counterup.min.js"></script>
+    <script src="/mailler/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/mailler/lib/lightbox/js/lightbox.min.js"></script>
+    
+
+    <!-- Template Javascript -->
+    <script src="/mailler/js/main.js"></script>
+    </body>
+
+</html>

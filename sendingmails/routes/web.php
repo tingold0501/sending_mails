@@ -6,20 +6,12 @@ use App\Http\Controllers\ContractController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('layouts.home');
+    return view('home');
 });
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/table', function () {
-    return view('components.dashboard.table');
-})->middleware(['auth', 'verified'])->name('table');
-
-
-Route::get('/dashboard', function () {
-    return view('components.dashboard.start');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',function(){
+    return view('dashboard');
+})->middleware('auth')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
