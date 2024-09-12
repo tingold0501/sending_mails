@@ -38,8 +38,7 @@ class CampaignController extends Controller
     {
         $campaigns = $this->get_campaign_();
         $contracts = ContractController::get_contract_();
-        // dd($campaigns);
-        return view('components.campaign.start', ['campaigns' => $campaigns, 'contracts' => $contracts]);
+        return view('campaign', ['campaigns' => $campaigns, 'contracts' => $contracts]);
     }
 
     public function get_emailtemplate_campaign(): View

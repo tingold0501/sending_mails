@@ -26,10 +26,10 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         $request->session()->regenerate();
-        // dd($request->user()->avatar);
-        $avatar = Auth::user()->avatar;
-        return redirect()->intended(route('dashboard', absolute: false))->with('avatar', $avatar);
+        return redirect()->intended(route('dashboard', absolute: false));
     }
+
+    
 
     /**
      * Destroy an authenticated session.

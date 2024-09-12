@@ -84,7 +84,7 @@
                     <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
                         <h1 class="display-4 text-dark mb-4 wow fadeInUp" data-wow-delay="0.3s">Turn Emails into Revenue</h1>
                         <p class="fs-4 mb-4 wow fadeInUp" data-wow-delay="0.5s">Win new customers with the #1 email marketing and automations brand* that recommends ways to get more opens, clicks, and sales.</p>
-                        <a href={{ route('dashboard') }} class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.7s">Get Started</a>
+                        <a href={{ route('user-dashboard') }} class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.7s">Get Started</a>
                     </div>
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
                         <img src="/mailler/img/hero-img-1.png" class="img-fluid w-100 h-100" alt="">

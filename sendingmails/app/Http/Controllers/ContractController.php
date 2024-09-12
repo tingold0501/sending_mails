@@ -29,7 +29,7 @@ class ContractController extends Controller
     {
         $contract_statues = ConTractstatusController::get_contract_status_();
         $contracts = DB::table('contracts')->where('user_id', Auth::user()->id)->latest()->paginate(5);
-        return view('components.contract.start', ['contract_statues' => $contract_statues, 'contracts' => $contracts]);
+        return view('contract', ['contract_statues' => $contract_statues, 'contracts' => $contracts]);
     }
 
     /**
