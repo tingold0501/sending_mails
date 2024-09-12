@@ -66,7 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::controller(CampaignController::class)->group(function () {
         Route::get('/campaign', 'get_campaign')->name('campaign');
         Route::get('/campaign-create', 'get_campaign_create')->name('get_campaign_create');
-        Route::post('/campaign_create', 'store')->name('campaign_create');
+        Route::post('/create_campaign', 'store')->name('create_campaign');
     });
 
     Route::controller(ContractController::class)->group(function () {
@@ -76,7 +76,6 @@ Route::middleware('auth')->group(function () {
     });
     
     Route::controller(EmailTemplateController::class)->group(function () {
-        Route::get('/email-template-option', 'get_v_email_template')->name('email-template-option');
         Route::get('/email-template-raw', 'get_v_email_template_raw')->name('email-template-raw');
     });
 

@@ -4,14 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>SeoDash Free Bootstrap Admin Template by Adminmart</title>
     <link rel="shortcut icon" type="image/png" href="/dashboard/assets/images/logos/seodashlogo.png" />
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="/dashboard/assets/css/styles.min.css" />
+   
 </head>
-
+<script>
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    });
+</script>
 <body>
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
@@ -48,42 +58,46 @@
                             <span class="hide-menu">OPTIONS</span>
                         </li>
                         <li class="sidebar-item">
-                          <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
-                              <span>
-                                  <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
-                              </span>
-                              <span class="hide-menu">Activity</span>
-                          </a>
-                      </li>
+                            <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Activity</span>
+                            </a>
+                        </li>
                         <li class="sidebar-item">
                             <div class="dropdown">
-                              <a class="sidebar-link dropdown-toggle cursor-pointer "  data-bs-toggle="dropdown" aria-expanded="false">
-                                <span>
-                                    <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
-                                </span>
-                                <span class="hide-menu">Audicence</span>
-                              </a>
-                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="{{ route('contract')}}">Contract</a></li>
-                                <li><a class="dropdown-item" href="#">Form</a></li>
-                                <li><a class="dropdown-item" href="#">Landing Page</a></li>
-                              </ul>
+                                <a class="sidebar-link dropdown-toggle cursor-pointer " data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <span>
+                                        <iconify-icon icon="solar:home-smile-bold-duotone"
+                                            class="fs-6"></iconify-icon>
+                                    </span>
+                                    <span class="hide-menu">Audicence</span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="{{ route('contract') }}">Contract</a></li>
+                                    <li><a class="dropdown-item" href="#">Form</a></li>
+                                    <li><a class="dropdown-item" href="#">Landing Page</a></li>
+                                </ul>
                             </div>
                         </li>
                         <li class="sidebar-item">
-                          <div class="dropdown">
-                            <a class="sidebar-link dropdown-toggle cursor-pointer "  data-bs-toggle="dropdown" aria-expanded="false">
-                              <span>
-                                  <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
-                              </span>
-                              <span class="hide-menu">Campaigns</span>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href={{ route('campaign') }}>All Campaign</a></li>
-                              <li><a class="dropdown-item" href="#">Email Template</a></li>
-                            </ul>
-                          </div>
-                      </li>
+                            <div class="dropdown">
+                                <a class="sidebar-link dropdown-toggle cursor-pointer " data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <span>
+                                        <iconify-icon icon="solar:home-smile-bold-duotone"
+                                            class="fs-6"></iconify-icon>
+                                    </span>
+                                    <span class="hide-menu">Campaigns</span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href={{ route('campaign') }}>All Campaign</a></li>
+                                    <li><a class="dropdown-item" href="#">Email Template</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
                                 <span>
@@ -118,13 +132,14 @@
                                 <span class="hide-menu">Settings</span>
                             </a>
                         </li>
-                      
+
                     </ul>
                     <div class="unlimited-access hide-menu bg-primary-subtle position-relative mb-7 mt-7 rounded-3">
                         <div class="d-flex">
                             <div class="unlimited-access-title me-3">
                                 <h6 class="fw-semibold fs-4 mb-6 text-dark w-75">Upgrade to pro</h6>
-                                <a href={{route('logout')}} target="_blank" class="btn btn-primary fs-2 fw-semibold lh-sm">Log Out</a>
+                                <a href={{ route('logout') }} target="_blank"
+                                    class="btn btn-primary fs-2 fw-semibold lh-sm">Log Out</a>
                             </div>
                             <div class="unlimited-access-img">
                                 <img src="/dashboard/assets/images/backgrounds/rocket.png" alt=""
@@ -168,8 +183,8 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ Auth::user()->avatar }}" alt=""
-                                        width="35" height="35" class="rounded-circle">
+                                    <img src="{{ Auth::user()->avatar }}" alt="" width="35"
+                                        height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -177,7 +192,7 @@
                                         <a href="{{ route('profile.edit') }}"
                                             class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
-                                            <p class="mb-0 fs-3">{{Auth::user()->name}}</p>
+                                            <p class="mb-0 fs-3">{{ Auth::user()->name }}</p>
                                         </a>
                                         <a href="javascript:void(0)"
                                             class="d-flex align-items-center gap-2 dropdown-item">
@@ -222,13 +237,13 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script>
-  $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
-</script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
 </body>
 
 </html>

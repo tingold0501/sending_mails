@@ -34,15 +34,20 @@ class CampaignController extends Controller
         ->paginate(5);
         return $campaigns;
     }
+    public function get_campaign_table(){
+        $campaigns = $this->get_campaign_();
+        return view('campaign', ['campaigns' => $campaigns]);
+    }
     public function get_campaign_create(){
         $contracts = ContractController::get_contract_();
-        return view('layouts.create-campaign', ['contracts' => $contracts]);
+        $campaign = $this->get_campaign_();
+        return view('layouts.campaign.create-campaign', ['contracts' => $contracts, 'campaigns' => $campaign]);
     }
     public function get_campaign()
     {
         $campaigns = $this->get_campaign_();
         $contracts = ContractController::get_contract_();
-        return view('campaign', ['campaigns' => $campaigns, 'contracts' => $contracts]);
+        return view('layouts.campaign.table-campaign', ['campaigns' => $campaigns, 'contracts' => $contracts]);
     }
 
     public function get_emailtemplate_campaign(): View

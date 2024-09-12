@@ -24,10 +24,9 @@ class StoreCampaignRequest extends FormRequest
         return [
             'sendto[]' => ['required'],
             'from_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'from_email' => ['required', 'string', 'email', 'max:255'],
             'subject' => ['required', 'string', 'max:255'],
-            'content' => ['required', 'string'],
-            'campaign_name' => ['required', 'string', 'max:255'],
+            'text' => ['required', 'string'],
         ];
     }
     public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
