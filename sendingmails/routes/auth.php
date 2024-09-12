@@ -65,6 +65,7 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(CampaignController::class)->group(function () {
         Route::get('/campaign', 'get_campaign')->name('campaign');
+        Route::get('/campaign-create', 'get_campaign_create')->name('get_campaign_create');
         Route::post('/campaign_create', 'store')->name('campaign_create');
     });
 

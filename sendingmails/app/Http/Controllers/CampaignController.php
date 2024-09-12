@@ -34,6 +34,10 @@ class CampaignController extends Controller
         ->paginate(5);
         return $campaigns;
     }
+    public function get_campaign_create(){
+        $contracts = ContractController::get_contract_();
+        return view('layouts.create-campaign', ['contracts' => $contracts]);
+    }
     public function get_campaign()
     {
         $campaigns = $this->get_campaign_();

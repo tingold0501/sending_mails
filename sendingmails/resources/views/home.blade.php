@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Mailler - SaaS Website Template</title>
+        <title>G-Mail</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -68,8 +68,8 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                     </div>
-                    <a href="#" class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4">Log In</a>
-                    <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4">Sign Up</a>
+                    <a href={{ route('login') }} class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4">Log In</a>
+                    <a href={{ route('register') }} class="btn btn-primary rounded-pill text-white py-2 px-4">Sign Up</a>
                 </div>
             </nav>
 
