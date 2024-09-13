@@ -30,9 +30,9 @@
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
             <div>
-                <div class="brand-logo d-flex align-items-center justify-content-between">
-                    <a href="" class="{{ route('user-dashboard') }}">
-                        <img src="/dashboard/assets/images/logos/seodashlogo.png" alt="" />
+                <div class="brand-logo d-flex align-items-center justify-content-center">
+                    <a class="" style="width: 100px; height: 100px" href="" class="{{ route('user-dashboard') }}">
+                        <img src="https://moitruongachau.com/vnt_upload/weblink/logo_MTAC_01.svg" alt="" />
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
@@ -138,8 +138,12 @@
                         <div class="d-flex">
                             <div class="unlimited-access-title me-3">
                                 <h6 class="fw-semibold fs-4 mb-6 text-dark w-75">Upgrade to pro</h6>
-                                <a href={{ route('logout') }} target="_blank"
-                                    class="btn btn-primary fs-2 fw-semibold lh-sm">Log Out</a>
+                                <form action="{{ route('logout') }}" method="post" >
+                                    @csrf
+                                    <button class="btn btn-primary fs-2 fw-semibold lh-sm"  type="submit"  target="_blank"
+                                    >Log Out</button>
+                                </form>
+                                
                             </div>
                             <div class="unlimited-access-img">
                                 <img src="/dashboard/assets/images/backgrounds/rocket.png" alt=""
@@ -204,8 +208,11 @@
                                             <i class="ti ti-list-check fs-6"></i>
                                             <p class="mb-0 fs-3">My Task</p>
                                         </a>
-                                        <a href={{ route('logout') }}
-                                            class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button href={{ route('logout') }}
+                                            class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</button>
+                                        </form>
                                     </div>
                                 </div>
                             </li>
