@@ -64,7 +64,7 @@
                                 <img class="card-img-top"
                                     src="https://i.pinimg.com/474x/86/05/cc/8605cc4fa3b97c0ac39e5b76a2eed757.jpg" alt="">
                             </div>
-                            <a href="{{route('email-template-raw')}}">
+                            <a href="{{route('email-template')}}">
                                 <div class="card-body text-success">
                                     <h5 class="card-title">Drag & Drop Email Template</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the

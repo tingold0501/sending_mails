@@ -76,8 +76,6 @@ Route::middleware('auth')->group(function () {
     });
     
     Route::controller(EmailTemplateController::class)->group(function () {
-        Route::get('/email-template-raw', 'get_v_email_template_raw')->name('email-template-raw');
+        Route::get('/email-template', 'index')->name('email-template');
     });
-
-
 });

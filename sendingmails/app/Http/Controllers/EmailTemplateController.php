@@ -22,33 +22,10 @@ class EmailTemplateController extends Controller
         //     return;
         // }
     }
-    public static function get_gallery()
-    {
-        $gallery_templates = DB::table('email_templates')->get();
-        return $gallery_templates;
-    }
-    /**
-     * Display a listing of the resource.
-     */
-    public function get_v_email_template(): View
-    {
-        return view('components.email-template.option');
-    }
 
-    public function get_v_email_template_raw()
-    {
-        
-        return redirect()->to('http://localhost:8080');
-    }
     public function index()
     {
-        $gallery_templates = EmailTemplateController::get_gallery();
-        return view('v-gallery', ['gallery_templates' => $gallery_templates]);
-    }
-
-    public function get_email_template_user_design(): View
-    {
-        return view('page.grapesjs_user_design');
+        return view('email-template');
     }
 
     public static function get_data_campaign_id()
