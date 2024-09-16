@@ -5,6 +5,9 @@
     <title>GrapesJS Preset Webpage</title>
     <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet">
     <script src="https://unpkg.com/grapesjs"></script>
+    <script type="module" src="https://unpkg.com/grapesjs-preset-webpage"></script>
+    <script type="module" src="/js/index.js"></script>
+
     <style>
       body,
       html {
