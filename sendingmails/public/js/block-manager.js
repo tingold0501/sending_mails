@@ -1,3 +1,8 @@
+import { header01 } from "./blocks/headers/header-01";
+
+
+
+
 const editor = grapesjs.init({
     height: "100%",
     container: "#gjs",
