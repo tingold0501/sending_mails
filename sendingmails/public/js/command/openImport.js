@@ -1,19 +1,24 @@
-import { cmdImport } from '../consts.js';
+import { cmdImport } from "../js/js/consts.js";
 export default (editor, config) => {
-    const pfx = editor.getConfig('stylePrefix');
+    const pfx = editor.getConfig("stylePrefix");
     const importLabel = config.modalImportLabel;
     const importCnt = config.modalImportContent;
     editor.Commands.add(cmdImport, {
         codeViewer: null,
         container: null,
         run(editor) {
-            const codeContent = typeof importCnt == 'function' ? importCnt(editor) : importCnt;
+            const codeContent =
+                typeof importCnt == "function" ? importCnt(editor) : importCnt;
             const codeViewer = this.getCodeViewer();
             editor.Modal.open({
                 title: config.modalImportTitle,
                 content: this.getContainer(),
             }).onceClose(() => editor.stopCommand(cmdImport));
-            codeViewer.setContent(codeContent !== null && codeContent !== void 0 ? codeContent : '');
+            codeViewer.setContent(
+                codeContent !== null && codeContent !== void 0
+                    ? codeContent
+                    : ""
+            );
             codeViewer.refresh();
             setTimeout(() => codeViewer.focus(), 0);
         },
@@ -23,19 +28,19 @@ export default (editor, config) => {
         getContainer() {
             if (!this.container) {
                 const codeViewer = this.getCodeViewer();
-                const container = document.createElement('div');
+                const container = document.createElement("div");
                 container.className = `${pfx}import-container`;
                 // Import Label
                 if (importLabel) {
-                    const labelEl = document.createElement('div');
+                    const labelEl = document.createElement("div");
                     labelEl.className = `${pfx}import-label`;
                     labelEl.innerHTML = importLabel;
                     container.appendChild(labelEl);
                 }
                 container.appendChild(codeViewer.getElement());
                 // Import button
-                const btnImp = document.createElement('button');
-                btnImp.type = 'button';
+                const btnImp = document.createElement("button");
+                btnImp.type = "button";
                 btnImp.innerHTML = config.modalImportButton;
                 btnImp.className = `${pfx}btn-prim ${pfx}btn-import`;
                 btnImp.onclick = () => {
@@ -54,7 +59,16 @@ export default (editor, config) => {
          */
         getCodeViewer() {
             if (!this.codeViewer) {
-                this.codeViewer = editor.CodeManager.createViewer(Object.assign({ codeName: 'htmlmixed', theme: 'hopscotch', readOnly: false }, config.importViewerOptions));
+                this.codeViewer = editor.CodeManager.createViewer(
+                    Object.assign(
+                        {
+                            codeName: "htmlmixed",
+                            theme: "hopscotch",
+                            readOnly: false,
+                        },
+                        config.importViewerOptions
+                    )
+                );
             }
             return this.codeViewer;
         },
