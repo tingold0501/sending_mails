@@ -1,4 +1,4 @@
-import { cmdImport } from "../js/js/consts.js";
+import { cmdImport } from "../consts.js";
 export default (editor, config) => {
     const pfx = editor.getConfig("stylePrefix");
     const importLabel = config.modalImportLabel;

@@ -77,5 +77,6 @@ Route::middleware('auth')->group(function () {
     
     Route::controller(EmailTemplateController::class)->group(function () {
         Route::get('/email-template', 'index')->name('email-template');
+        Route::post('/email-template-store', 'store')->name('email-template-store');
     });
 });

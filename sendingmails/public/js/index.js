@@ -1,17 +1,27 @@
-import blocks from "/js/blocks";
-import commands from "../command/index";
-import panels from "./js/js/panels.js";
-import section from "./js/js/section.js";
-
+import blocks from "./blocks.js";
+import commands from "./command/index.js";
+import panels from "./panels.js";
+import headers from "./headers.js";
 const plugin = (editor, opts = {}) => {
-    console.log("Hello");
+    editor = grapesjs.init({
+        height: "100%",
+        showOffsets: true,
+        noticeOnUnload: false,
+        storageManager: false,
+        container: "#gjs",
+        fromElement: true,
 
+        plugins: ["grapesjs-preset-webpage"],
+        pluginsOpts: {
+            "grapesjs-preset-webpage": {},
+        },
+    });
     const config = Object.assign(
         {
-            blocks: ["link-block", "quote", "text-basic"],
+            blocks: ["image","link-block", "quote", "text-basic","sect100", "sect50", "sect30", "sect37"],
             block: () => ({}),
-            sections: ["sect100", "sect50", "sect30", "sect37"],
-            section: () => ({}),
+            headers: ["header-01", "header-02"],
+            header: () => ({}),
             modalImportTitle: "Import",
             modalImportButton: "Import",
             modalImportLabel: "",
@@ -56,11 +66,13 @@ const plugin = (editor, opts = {}) => {
     }
     // Load blocks
     blocks(editor, config);
-    // Load sections
-    section(editor, config);
     // Load commands
     commands(editor, config);
     // Load panels
     panels(editor, config);
+    // Load header
+    headers(editor, config);
 };
 export default plugin;
+
+plugin();

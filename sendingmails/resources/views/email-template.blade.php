@@ -6,7 +6,7 @@
     <title>{{ config('app.name') }}</title>
     {{-- <script src="/js/jquery-3.7.1.min.js"></script> --}}
     <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/grapesjs"></script>
+    <script type="module" src="https://unpkg.com/grapesjs"></script>
 
     <script type="module" src="https://unpkg.com/grapesjs-preset-webpage"></script>
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
@@ -52,6 +52,7 @@
                 color: rgba(255, 255, 255, 0.75);
                 font: caption;
                 font-weight: 100;
+            
             }
 
             .welcome {
@@ -87,26 +88,7 @@
             }
         </style>
     </div>
-
-
-    <script type="text/javascript">
-        window.onload = () => {
-            window.editor = grapesjs.init({
-                height: '100%',
-                showOffsets: true,
-                noticeOnUnload: false,
-                storageManager: false,
-                container: '#gjs',
-                fromElement: true,
-
-                plugins: ['grapesjs-preset-webpage'],
-                pluginsOpts: {
-                    'grapesjs-preset-webpage': {}
-                }
-            });
-        };
-    </script>
-    <script type="text/javascript" src="{{ asset('/js/index.js') }}"></script>
+    <script type="module" src="{{ asset('/js/index.js') }}"></script>
 </body>
 
 </html>
