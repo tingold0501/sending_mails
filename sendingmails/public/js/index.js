@@ -10,6 +10,7 @@ const plugin = (editor, opts = {}) => {
         storageManager: false,
         container: "#gjs",
         fromElement: true,
+        // modal: {custom: true},
 
         plugins: ["grapesjs-preset-webpage"],
         pluginsOpts: {

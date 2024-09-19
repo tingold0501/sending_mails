@@ -12,6 +12,15 @@ use Illuminate\View\View;
 
 class ContractController extends Controller
 {
+    private $contract_statues;
+    public function __construct()
+    {
+        if (!Auth::check()) {
+            return;
+        }
+        $this->contract_statues = ConTractstatusController::get_contract_status_();
+    }
+    
     public static function get_contract_(){
         $contracts = DB::table('contracts')->get();
         return $contracts;
@@ -19,17 +28,15 @@ class ContractController extends Controller
     public function get_tables(){
         $contracts = ContractController::get_contract_();
         $campaigns = CampaignController::get_campaign_();
-        $contract_statues = ConTractstatusController::get_contract_status_();
-        return view('components.table', ['contracts' => $contracts, 'campaigns' => $campaigns, 'contract_statues' => $contract_statues]);
+        return view('components.table', ['contracts' => $contracts, 'campaigns' => $campaigns, 'contract_statues' => $this->contract_statues]);
     }
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
-        $contract_statues = ConTractstatusController::get_contract_status_();
         $contracts = DB::table('contracts')->where('user_id', Auth::user()->id)->latest()->paginate(5);
-        return view('contract', ['contract_statues' => $contract_statues, 'contracts' => $contracts]);
+        return view('contract', ['contract_statues' => $this->contract_statues, 'contracts' => $contracts]);
     }
 
     /**
@@ -39,7 +46,9 @@ class ContractController extends Controller
     {
         //
     }
-    
+    public function get_contract_store(){
+        return view('layouts.contract.create-contract', ['contract_statues' => $this->contract_statues]);
+    }
     /**
      * Store a newly created resource in storage.
      */

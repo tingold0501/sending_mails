@@ -19,11 +19,13 @@ use Illuminate\Support\Facades\Cookie;
 
 class CampaignController extends Controller
 {
+    public $instance;
     public function __construct()
     {
         if (!Auth::check()) {
             return;
         }
+        $this->instance = $this;
     }
 
     public static function get_campaign_()

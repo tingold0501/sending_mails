@@ -5,5 +5,6 @@ export const cmdDeviceMobile = 'set-device-mobile';
 export const cmdClear = 'canvas-clear';
 export const cmdBackToCampaign = 'back-to-campaign';
 export const cmdSave = 'canvas-save';
+export const cmdSend = 'canvas-send';
 
-export const url = 'http://localhost/';
+export const urlApi = 'http://localhost/api/';

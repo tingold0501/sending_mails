@@ -71,6 +71,7 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(ContractController::class)->group(function () {
         Route::get('/contract', 'index')->name('contract');
+        Route::get('/contract-create', 'get_contract_store')->name('get_contract_store');
         Route::post('/contract_store', 'store')->name('contract_store');
         Route::post('/contract_update', 'update')->name('contract_update');
     });

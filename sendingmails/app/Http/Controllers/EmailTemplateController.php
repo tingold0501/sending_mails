@@ -16,11 +16,12 @@ use Illuminate\View\View as View;
 
 class EmailTemplateController extends Controller
 {
+    private $campaign;
     public function __construct()
     {
-        // if (!Auth::check()) {
-        //     return;
-        // }
+        if (!Auth::check()) {
+            return;
+        }
     }
 
     public function index()
@@ -62,13 +63,11 @@ class EmailTemplateController extends Controller
         $email_template->campaign_id = $latest_campaign->id;
         $email_template->created_at = now();
         $email_template->updated_at = now();
-
         $mail_configuring_data = [
             'content' => $latest_campaign->subject,
             'css_text' => $request['css_text'],
             'body' => $request['body'],
         ];
-
         $sendToData = json_decode($latest_campaign->sendto, true);
         foreach ($sendToData as $key => $value) {
             Mail::to($value)->send(new MailConfiguring($mail_configuring_data));
@@ -76,8 +75,6 @@ class EmailTemplateController extends Controller
         $email_template->save();
         return redirect(route('dashboard', absolute: false));
     }
-
-
 
     /**
      * Display the specified resource.

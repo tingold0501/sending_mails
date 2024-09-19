@@ -1,4 +1,4 @@
-import { cmdSave,cmdImport, cmdDeviceDesktop, cmdDeviceTablet, cmdDeviceMobile, cmdClear } from '/js/consts.js';
+import { cmdSend,cmdSave,cmdImport, cmdDeviceDesktop, cmdDeviceTablet, cmdDeviceMobile, cmdClear } from '/js/consts.js';
 export default (editor, opts) => {
     const { Panels } = editor;
     const config = editor.getConfig();
@@ -11,6 +11,7 @@ export default (editor, opts) => {
     const ful = 'fullscreen';
     const prv = 'preview';
     const back_to_campaign = 'back-to-campaign';
+    const send = 'send';
     const iconStyle = 'style="display: block; max-width:22px; "';
     config.showDevices = false;
     Panels.getPanels().reset([
@@ -50,6 +51,12 @@ export default (editor, opts) => {
                     command: back_to_campaign,
                     context: back_to_campaign,
                     label: `<h1 style="margin: 0; font-size: 16px; color: #d983a6;">Back to campaign</h1>`,
+                },
+                {
+                    id: cmdSend,
+                    command: cmdSend,
+                    context: cmdSend,
+                    label: `<h1 style="margin: 0; font-size: 16px; color: #d983a6;">Send Test</h1>`,
                 },
                 {
                     id: cmdSave,
