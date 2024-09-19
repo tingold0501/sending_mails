@@ -16,17 +16,21 @@ use Illuminate\View\View as View;
 
 class EmailTemplateController extends Controller
 {
-    private $campaign;
+    private $campaigns;
+    private $contracts;
+
     public function __construct()
     {
         if (!Auth::check()) {
             return;
-        }
+        } 
+        $this->campaigns = CampaignController::get_campaign_();
+        $this->contracts = ContractController::get_contract_();
     }
 
     public function index()
     {
-        return view('email-template');
+        return view('email-template',[ 'contracts' => $this->contracts, 'campaigns' => $this->campaigns]);
     }
 
     public static function get_data_campaign_id()

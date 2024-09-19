@@ -20,20 +20,27 @@ use Illuminate\Support\Facades\Cookie;
 class CampaignController extends Controller
 {
     public $instance;
+    public $contracts;
     public function __construct()
     {
         if (!Auth::check()) {
             return;
         }
         $this->instance = $this;
+        $this->contracts = ContractController::get_contract_();
+    }
+
+    public static function get_campaign_attribute_(){
+        $campaigns = Campaign::find(Auth::user()->id);
+        // $campaigns->getAttributes();
+        return $campaigns;
     }
 
     public static function get_campaign_()
     {
         $campaigns = DB::table('campaigns')
         ->where('user_id', Auth::user()->id)
-        ->latest()
-        ->paginate(5);
+        ->get();
         return $campaigns;
     }
     public function get_campaign_table(){
@@ -41,15 +48,13 @@ class CampaignController extends Controller
         return view('campaign', ['campaigns' => $campaigns]);
     }
     public function get_campaign_create(){
-        $contracts = ContractController::get_contract_();
         $campaign = $this->get_campaign_();
-        return view('layouts.campaign.create-campaign', ['contracts' => $contracts, 'campaigns' => $campaign]);
+        return view('layouts.campaign.create-campaign', ['contracts' => $this->contracts, 'campaigns' => $campaign]);
     }
     public function get_campaign()
     {
         $campaigns = $this->get_campaign_();
-        $contracts = ContractController::get_contract_();
-        return view('layouts.campaign.table-campaign', ['campaigns' => $campaigns, 'contracts' => $contracts]);
+        return view('layouts.campaign.table-campaign', ['campaigns' => $campaigns, 'contracts' => $this->contracts]);
     }
 
     public function get_emailtemplate_campaign(): View

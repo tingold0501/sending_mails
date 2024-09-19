@@ -13,6 +13,7 @@ use Illuminate\View\View;
 class ContractController extends Controller
 {
     private $contract_statues;
+    private $contracts;
     public function __construct()
     {
         if (!Auth::check()) {
@@ -20,7 +21,12 @@ class ContractController extends Controller
         }
         $this->contract_statues = ConTractstatusController::get_contract_status_();
     }
-    
+
+    public static function get_contract_attribute_() {
+        $contracts = Contract::find(Auth::user()->id);
+        $contracts->getAttributes();
+        return $contracts; 
+    }
     public static function get_contract_(){
         $contracts = DB::table('contracts')->get();
         return $contracts;
