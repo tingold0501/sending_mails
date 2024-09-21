@@ -10,9 +10,11 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\AvatarController;
+use App\Http\Controllers\AWSS3ImageController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\EmailTemplateController;
+use App\Http\Controllers\ImageEmailTemplateController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -79,5 +81,13 @@ Route::middleware('auth')->group(function () {
     Route::controller(EmailTemplateController::class)->group(function () {
         Route::get('/email-template', 'index')->name('email-template');
         Route::post('/email-template-store', 'store')->name('email-template-store');
+    });
+
+    Route::controller(ImageEmailTemplateController::class)->group(function () {
+        Route::post('/image-base64', 'imageBase64')->name('image-base64');
+    });
+
+    Route::controller(AWSS3ImageController::class)->group(function () {
+        Route::post('/awss3-store', 'store')->name('awss3-store');
     });
 });

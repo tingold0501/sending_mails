@@ -6,5 +6,10 @@ export const cmdClear = 'canvas-clear';
 export const cmdBackToCampaign = 'back-to-campaign';
 export const cmdSave = 'canvas-save';
 export const cmdSend = 'canvas-send';
+export const cmdImageBase64 = 'image-base64';
 
 export const urlApi = 'http://localhost/api/';
+
+export const url = 'http://localhost/';
+
+export const attribute = ['fist_name','last_name','email','subject'];

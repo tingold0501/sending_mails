@@ -58,7 +58,7 @@ class ContractController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreContractRequest $request): RedirectResponse
+    public function store(StoreContractRequest $request)
     {
         // dd($request);
         $contract = new Contract();
@@ -68,6 +68,7 @@ class ContractController extends Controller
         $contract->contract_statue_id = $request['contract_statue_id'];
         $contract->user_id = Auth::user()->id;
         $contract->save();
+        // return response()->json($contract);
         return redirect()->intended(route('contract', absolute: false));
     }
 

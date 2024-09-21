@@ -1,15 +1,14 @@
-import { cmdSend, urlApi } from "../consts.js";
+import { cmdSend, url } from "../consts.js";
+
 
 export default (editor, config) => {
     editor.Commands.add(cmdSend, {
         run() {
-            // Tạo các option cho select từ biến emails
             let options = '';
             contract.forEach(item => {
-                options += `<option value="${item.id}">${item.email}</option>`;
+                options += `<option value="${item.email}">${item.email}</option>`;
             });
 
-            // Tạo chuỗi HTML cho modal với CSS nội tuyến
             const modalContent = `
                  <form id="emailForm">
                     <div class="mb-3">
@@ -48,30 +47,24 @@ export default (editor, config) => {
                 </form>
             `;
 
-            // Mở modal với nội dung đã tạo
             editor.Modal.open({
                 title: "Send Test", // string | HTMLElement
                 content: modalContent,
             });
 
-            // Khởi tạo select2 sau khi modal đã được render
             $(document).ready(function() {
                 $('.js-example-basic-multiple').select2();
             });
 
-            // Xử lý form submit qua XMLHttpRequest
             const form = document.getElementById('emailForm');
             form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Ngăn chặn hành vi submit mặc định
+                event.preventDefault(); 
 
-                // Tạo formData để gửi dữ liệu
                 const formData = new FormData(form);
 
-                // Tạo XMLHttpRequest để gửi yêu cầu API
                 const xhr = new XMLHttpRequest();
-                xhr.open('POST', 'http://localhost/create_campaign', true);
+                xhr.open('POST', url + 'create_campaign', true);
                 
-                // Đảm bảo rằng Laravel sẽ xử lý được CSRF token
                 xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
 
                 xhr.onload = function () {
@@ -79,7 +72,7 @@ export default (editor, config) => {
                         const response = JSON.parse(xhr.responseText);
                         console.log('Success:', response);
                         alert('Email sent successfully!');
-                        editor.Modal.close(); // Đóng modal khi gửi thành công
+                        editor.Modal.close(); 
                     } else {
                         console.error('Error:', xhr.responseText);
                         alert('An error occurred while sending the email.');
@@ -89,9 +82,9 @@ export default (editor, config) => {
                 xhr.onerror = function () {
                     console.error('Request failed');
                 };
-
                 // Gửi form data
                 xhr.send(formData);
+                // window.location.reload();
             });
         },
         stop: () => {},

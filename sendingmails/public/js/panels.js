@@ -53,6 +53,12 @@ export default (editor, opts) => {
                     label: `<h1 style="margin: 0; font-size: 16px; color: #d983a6;">Back to campaign</h1>`,
                 },
                 {
+                    id: 'import-image',
+                    command: 'import-image',
+                    context: 'import-image',
+                    label: `<h1 style="margin: 0; font-size: 16px; color: #d983a6;">Import Image</h1>`,
+                },
+                {
                     id: cmdSend,
                     command: cmdSend,
                     context: cmdSend,

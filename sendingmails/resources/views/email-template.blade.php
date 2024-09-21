@@ -33,6 +33,9 @@
 </head>
 
 <body>
+    {{-- <div id="contenteditable" contenteditable="true">Hello, I am a <strong>Container</strong> with <a href="/">a lot of interesting <i>things</i></a> inside.<br />Finding the cursor must be hard<sup>2</sup>, right?</div>
+    <div id="indexHint">
+    </div> --}}
 
     <div id="gjs" style="height:0px; overflow:hidden">
         <div class="panel">
@@ -98,6 +101,7 @@
             }
         </style>
     </div>
+   
     <style>
         .panel {
             width: 90%;
