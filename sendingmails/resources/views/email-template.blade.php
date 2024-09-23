@@ -13,16 +13,22 @@
     <script type="module" src="https://unpkg.com/grapesjs-preset-webpage"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+  
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <script>
-      $(document).ready(function() {
-          $.ajaxSetup({
-              headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-          });
-      });
-  </script>
+        $(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+    </script>
     <style>
         body,
         html {
@@ -101,7 +107,7 @@
             }
         </style>
     </div>
-   
+
     <style>
         .panel {
             width: 90%;
@@ -154,12 +160,13 @@
     <script type="module" src="{{ asset('/js/index.js') }}"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-   
+
     <script>
-    var contract = @json($contracts);
-    var campaign = @json($campaigns);
-    var contract_id = @json($contracts->pluck('id'));
-    console.log(contract , campaign, contract_id);
-  </script>
+        var contract = @json($contracts);
+        var campaign = @json($campaigns);
+        var contract_id = @json($contracts->pluck('id'));
+        console.log(contract, campaign, contract_id);
+    </script>
 </body>
+
 </html>

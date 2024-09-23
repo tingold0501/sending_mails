@@ -2,7 +2,7 @@ import blocks from "./blocks.js";
 import commands from "./command/index.js";
 import panels from "./panels.js";
 import headers from "./headers.js";
-import getAttrModel from "./command/getAttrModel.js";
+import getAttribute from "./command/getAttribute.js";
 const plugin = (editor, opts = {}) => {
     editor = grapesjs.init({
         height: "100%",
@@ -74,9 +74,8 @@ const plugin = (editor, opts = {}) => {
     panels(editor, config);
     // Load header
     headers(editor, config);
-
-    // Load getAttrModel
-    getAttrModel(editor, config);
+    // Load Get Atribute
+    getAttribute(editor, config);
 };
 export default plugin;
 

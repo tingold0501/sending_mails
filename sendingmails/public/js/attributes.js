@@ -1,0 +1,9 @@
+export const name = 'name';
+export const email = 'email';
+export const subject = 'subject';
+export const text = 'text';
+export const from_name = 'from_name';
+export const from_email = 'from_email';
+export const sendto = 'sendto';
+export const created_at = 'created_at';
+export const updated_at = 'updated_at';

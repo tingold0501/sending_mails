@@ -30,12 +30,6 @@ class CampaignController extends Controller
         $this->contracts = ContractController::get_contract_();
     }
 
-    public static function get_campaign_attribute_(){
-        $campaigns = Campaign::find(Auth::user()->id);
-        // $campaigns->getAttributes();
-        return $campaigns;
-    }
-
     public static function get_campaign_()
     {
         $campaigns = DB::table('campaigns')
