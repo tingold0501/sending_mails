@@ -1,4 +1,3 @@
-import { insertVariableAtCaret } from "../emailAttributes.js";
 
 export const dropdown = (options) => {
     return `
@@ -27,13 +26,14 @@ export const formSelect = (options) => {
 
 
 
-export function handleChangeSelect(selected, mouseX, mouseY) {
+export function handleChangeSelect(selectedHtml) {
     const select = document.getElementById("variableSelector");
     select.addEventListener("change", (event) => {
         const selectedValue = select.options[select.selectedIndex];
         const selector = selectedValue.value;
-         
+        const currentValue = selectedHtml.value;
+        selectedHtml = selectedValue.text.length;
         
-        console.log("Selected:", selector, selectedValue);
+        console.log("Selected:", selector, selectedHtml,currentValue);
     })
 }

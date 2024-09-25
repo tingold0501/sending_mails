@@ -34,6 +34,7 @@ export default (editor, plugin) => {
 
     editor.on("component:selected", (event) => {
         const selected = editor.getSelected();
+        const selectedHtml = selected.toHTML();
         if (!isKeydownBound) {
             document.addEventListener("keydown", function (event) {
                 if (event.key === "{") {
@@ -54,7 +55,7 @@ export default (editor, plugin) => {
                     if (variableSelector) {
                         console.log("Variable Selector Found");
                         // Gán sự kiện change cho dropdown
-                        handleChangeSelect(selected);
+                        handleChangeSelect(selectedHtml);
                     } else {
                         console.log("Variable Selector Not Found");
                     }
