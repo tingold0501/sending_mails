@@ -69,7 +69,7 @@ export default (editor, config) => {
 
                 xhr.onload = function () {
                     if (xhr.status >= 200 && xhr.status < 300) {
-                        const response = JSON.parse(xhr.responseText);
+                        const response = xhr.responseText;
                         console.log('Success:', response);
                         alert('Email sent successfully!');
                         editor.Modal.close(); 
