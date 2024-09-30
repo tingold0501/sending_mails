@@ -4,11 +4,11 @@ import {
     select2,
 } from "../components/dropdown.js"; // Giả định dropdown trả về HTML hợp lệ
 import { emailVariables } from "../emailAttributes.js";
-import handleChangeEmailAttr from "../options/handleChangeEmailAttr.js";
+
 export default (editor, plugin) => {
     let options = "";
     emailVariables.forEach((variable) => {
-        options += `<option  class="dropdown-item"  value="${variable.key}">${variable.key}</option>`;
+        options += `<option class="dropdown-item" value="${variable.key}">${variable.key}</option>`;
     });
 
     // Sử dụng hàm dropdown để tạo nội dung select2
@@ -24,43 +24,68 @@ export default (editor, plugin) => {
     let mouseX = 0;
     let mouseY = 0;
 
-    // Theo dõi vị trí con trỏ chuột
+    // Theo dõi vị trí con trỏ chuột để hiển thị dropdown tại vị trí này
     document.addEventListener("mousemove", (event) => {
         mouseX = event.clientX;
         mouseY = event.clientY;
     });
 
-    // Hàm chèn nội dung vào vị trí con trỏ
-
-    editor.on("component:selected", (event) => {
-        var selected = editor.getSelected();
+    // Khi một thành phần được chọn
+    editor.on("component:selected", (component) => {
+        const selected = editor.getSelected();
         if (selected) {
-            const oldValue = selected.view.el.textContent;
-            document.addEventListener("keydown", function (event) {
-                if (event.key === "{") {
-                    // Đặt vị trí của container chứa select2 tại vị trí con trỏ chuột
-                    container.style.left = `${mouseX}px`;
-                    container.style.top = `${mouseY}px`;
+            const el = selected.view.el;
+            document.addEventListener(
+                "keydown",
+                function (event) {
+                    if (event.key === "{") {
+                        // Đặt vị trí của container chứa select2 tại vị trí con trỏ chuột
+                        container.style.left = `${mouseX}px`;
+                        container.style.top = `${mouseY}px`;
 
-                    // Chèn nội dung select2 vào container
-                    container.innerHTML = select2Content;
+                        // Chèn nội dung select2 vào container
+                        container.innerHTML = select2Content;
 
-                    // Append container vào body
-                    document.body.appendChild(container);
+                        // Append container vào body
+                        document.body.appendChild(container);
 
-                    // Kiểm tra xem phần tử dropdown có được khởi tạo đúng không
-                    const variableSelector =
-                        document.getElementById("variableSelector");
-                    if (variableSelector) {
-                        console.log("Variable Selector Found");
                         // Gán sự kiện change cho dropdown
-                        handleChangeEmailAttr(selected,oldValue,mouseX,container);
-                    } else {
-                        console.log("Variable Selector Not Found");
+                        const variableSelector = document.getElementById("variableSelector");
+                        if (variableSelector) {
+                            console.log("Variable Selector Found");
+                            // Khi người dùng chọn một biến từ dropdown
+                            variableSelector.addEventListener("change", (event) => {
+                                const selectedValue = event.target.value; // Biến đã chọn
+
+                                // 1. Lấy nội dung hiện tại của thành phần
+                                let currentContent = el.textContent;
+
+                                // 2. Tìm vị trí của dấu `{` đầu tiên trong nội dung
+                                const firstIndex = currentContent.indexOf("{");
+
+                                // 3. Nếu tìm thấy dấu `{`, thay thế nó bằng biến đã chọn
+                                if (firstIndex !== -1) {
+                                    // Tạo nội dung mới bằng cách thay dấu `{` bằng biến đã chọn
+                                    const newContent =
+                                        currentContent.substring(0, firstIndex) +
+                                        selectedValue +
+                                        currentContent.substring(firstIndex + 1); // Bỏ qua dấu `{`
+
+                                    // 4. Cập nhật nội dung của thành phần
+                                    el.textContent = newContent;
+
+                                    console.log("Updated Content:", newContent);
+                                }
+
+                                // Loại bỏ dropdown sau khi chọn biến
+                                container.remove();
+                            });
+                        } else {
+                            console.log("Variable Selector Not Found");
+                        }
                     }
-                }
-            });
-            console.log(selected);
+                },
+            );
         }
     });
 

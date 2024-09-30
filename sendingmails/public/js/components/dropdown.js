@@ -13,7 +13,7 @@ export const dropdown = (options) => {
 };
 
 export const select2 = (options) => {
-    return `<select id ="variableSelector" class="js-example-basic-single form-control" name="variable">
+    return `<select id ="variableSelector"  class="js-example-basic-single form-control" name="variable">
     ${options}
 </select>`;
 };

@@ -24,5 +24,6 @@
         </li>
     </ul>
     @yield('Contract-Create')
+    @yield('Table-Contract')
 </div>
 @endsection
