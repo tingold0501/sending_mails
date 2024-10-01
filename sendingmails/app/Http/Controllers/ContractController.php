@@ -42,7 +42,7 @@ class ContractController extends Controller
     public function index(): View
     {
         $contracts = DB::table('contracts')->where('user_id', Auth::user()->id)->latest()->paginate(5);
-        return view('contract', ['contract_statues' => $this->contract_statues, 'contracts' => $contracts]);
+        return view('layouts.contract.table-contract', ['contract_statues' => $this->contract_statues, 'contracts' => $contracts]);
     }
 
     /**
