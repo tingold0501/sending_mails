@@ -15,12 +15,6 @@
             <tr>
                 <td>
                     <div class="d-flex align-items-center">
-                        {{-- <img
-                    src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-                    alt=""
-                    style="width: 45px; height: 45px"
-                    class="rounded-circle"
-                    /> --}}
                         <div class="ms-3">
                             <p class="fw-bold mb-1">{{ $item->first_name }}</p>
                             <p class="text-muted mb-0">{{ $item->last_name }}</p>
@@ -29,7 +23,6 @@
                 </td>
                 <td>
                     <p class="fw-normal mb-1">{{ $item->email }}</p>
-                    {{-- <p class="text-muted mb-0">{{ $item->text }}</p> --}}
                 </td>
                 <td>
                     @if ($item->active == 1)

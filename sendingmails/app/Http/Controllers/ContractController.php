@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContractRequest;
 use App\Http\Requests\UpdateContractRequest;
 use App\Models\Contract;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -20,13 +19,17 @@ class ContractController extends Controller
             return;
         }
         $this->contract_statues = ConTractstatusController::get_contract_status_();
+        $this->contracts = ContractController::get_contract_();
     }
 
-    public static function get_contract_attribute_() {
-        $contracts = Contract::find(Auth::user()->id);
-        $contracts->getAttributes();
-        return $contracts; 
+    public function get_v_segment() {
+        return view('layouts.contract.segment.segment-contract');
     }
+
+    public function get_v_segment_all_contracts() {
+        return view('layouts.contract.segment.segment-all-contract', ['contracts' => $this->contracts]);
+    }
+    
     public static function get_contract_(){
         $contracts = DB::table('contracts')->get();
         return $contracts;

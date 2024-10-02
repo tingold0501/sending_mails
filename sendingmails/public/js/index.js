@@ -11,8 +11,8 @@ const plugin = (editor, opts = {}) => {
         storageManager: false,
         container: "#gjs",
         fromElement: true,
-        // modal: {custom: true},
-
+        customSpots: { target: true },
+        canvas: { styles: ["https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"] },
         plugins: ["grapesjs-preset-webpage"],
         pluginsOpts: {
             "grapesjs-preset-webpage": {},

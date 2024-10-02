@@ -17,13 +17,34 @@
 
     <ul class="d-flex d-grid gap-3">
         <li class="cursor-pointer ">
-            <span class=''>Contract</span>
+            <a href="{{ route('contract') }}" class="text-decoration-none cursor-pointer">
+                <span class=''>Overview</span>
+            </a>
         </li>
         <li class="cursor-pointer">
-            <span class=''>Draft</span>
+            <a class="text-decoration-none cursor-pointer " href="{{ route('get_v_segment') }}">
+                <span class=' text-gray-400'>Segments</span>
+            </a>
+        </li>
+        <li class="cursor-pointer">
+            <span class=''>Lists</span>
+        </li>
+        <li class="cursor-pointer">
+            <span class=''>History</span>
+        </li>
+        <li class="cursor-pointer">
+            <span class=''>Unsubribed</span>
+        </li>
+        <li class="cursor-pointer">
+            <span class=''>Devices Details</span>
+        </li>
+        <li class="cursor-pointer">
+            <span class=''>Geography</span>
         </li>
     </ul>
     @yield('Contract-Create')
     @yield('Table-Contract')
+    @yield('Segment-Content')
+    @yield('Segment-All-Contract')
 </div>
 @endsection

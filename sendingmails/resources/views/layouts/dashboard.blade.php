@@ -5,12 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>SeoDash Free Bootstrap Admin Template by Adminmart</title>
+    <title>Môi Trường Á Châu - Dashboard</title>
     <link rel="shortcut icon" type="image/png" href="/dashboard/assets/images/logos/seodashlogo.png" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="/dashboard/assets/css/styles.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="/dashboard/assets/libs/jquery/dist/jquery.min.js"></script>
+
 </head>
 <script>
     $(document).ready(function() {
@@ -224,7 +228,6 @@
             @yield('CampaignContent')
         </div>
     </div>
-    <script src="/dashboard/assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="/dashboard/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/dashboard/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="/dashboard/assets/libs/simplebar/dist/simplebar.js"></script>
@@ -246,7 +249,6 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js" integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <script>
         $(document).ready(function() {
             $('.js-example-basic-multiple').select2();
