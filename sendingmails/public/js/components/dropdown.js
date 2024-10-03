@@ -1,4 +1,3 @@
-
 export const dropdown = (options) => {
     return `
     <div class="dropdown"  >
@@ -19,8 +18,19 @@ export const select2 = (options) => {
 };
 
 export const formSelect = (options) => {
-    return`<select id ="variableSelector" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+    return `<select id ="variableSelector" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
     ${options}
-</select>`
+</select>`;
 };
 
+export const dropdown2 = (a) => {
+    return ` <div id ="variableSelector" class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">${a}</a>
+  </div>
+</div>
+`;
+};

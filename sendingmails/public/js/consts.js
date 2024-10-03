@@ -12,4 +12,3 @@ export const urlApi = 'http://localhost/api/';
 
 export const url = 'http://localhost/';
 
-export const attribute = ['fist_name','last_name','email','subject'];

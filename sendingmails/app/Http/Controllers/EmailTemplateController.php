@@ -28,6 +28,10 @@ class EmailTemplateController extends Controller
         $this->contracts = ContractController::get_contract_();
     }
 
+    public static function send_mail_with_attribute(){
+        
+    }
+
     public function index()
     {
         return view('email-template',[ 'contracts' => $this->contracts, 'campaigns' => $this->campaigns]);

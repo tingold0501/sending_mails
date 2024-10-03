@@ -31,7 +31,7 @@ class ContractController extends Controller
     }
     
     public static function get_contract_(){
-        $contracts = DB::table('contracts')->get();
+        $contracts = DB::table('contracts')->where('user_id', Auth::user()->id)->get();
         return $contracts;
     }
     public function get_tables(){

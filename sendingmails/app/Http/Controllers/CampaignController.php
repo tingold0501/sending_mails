@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Cookie;
 
 class CampaignController extends Controller
 {
-    public $instance;
-    public $contracts;
+    private $instance;
+    private $contracts;
     public function __construct()
     {
         if (!Auth::check()) {

@@ -1,6 +1,5 @@
 import { cmdSend, url } from "../consts.js";
 
-
 export default (editor, config) => {
     editor.Commands.add(cmdSend, {
         run() {

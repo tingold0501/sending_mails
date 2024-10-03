@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\ContractStatus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ConTractstatusController extends Controller
 {
+    public function __construct(){
+        if(!Auth::check())return;
+    }
     public static function get_contract_status_(){
-        $contract_status = DB::table('contract_statues')->get();
+        $contract_status = DB::table('contract_statues')->where('user_id', Auth::user()->id)->get();
         return $contract_status;
     }
     public function get_contract_status(){
