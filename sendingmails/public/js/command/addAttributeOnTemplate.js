@@ -60,12 +60,12 @@ export default (editor, plugin) => {
                     (event) => {
                         const selectedValue = event.target.value;
 
-                        const variableArr= addVariable(selectedValue, variableArray);
+                        addVariable(selectedValue, variableArray);
                         const variableJSON = generateJSON(variableArray);
-                        console.log(variableArray);
-                        console.log(generateJSON(variableArray));
+                  
+                        localStorage.setItem("variables", variableJSON);
+                        console.log(variableJSON);
                         
-
                         var elText = el.textContent || "";
 
                         var newContent = replaceAt(
@@ -114,14 +114,13 @@ function addVariable(variable, variableArray) {
 }
 function generateJSON(variableArray) {
     const jsonObject = variableArray.reduce((acc, variable, index) => {
-        acc[`variable_${index + 1}`] = variable;
+        acc[`${index + 1}`] = variable;
         return acc;
     }, {});
-
     return JSON.stringify(jsonObject);
 }
 
-function sendAttribute(data) {
+export function sendAttribute(data) {
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {

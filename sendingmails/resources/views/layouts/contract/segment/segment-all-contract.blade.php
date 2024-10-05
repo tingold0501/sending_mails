@@ -4,7 +4,7 @@
         <thead class="bg-light">
             <tr>
                 <th>
-                    <i class="fa-solid fa-caret-down"></i>
+                    <i class="fa-solid fa-caret-down cursor-pointer" id="btnSelectAll"></i>
                 </th>
                 <th>Email</th>
                 <th>Status</th>
@@ -18,9 +18,9 @@
         </thead>
         <tbody>
             @foreach ($contracts as $item)
-                <tr>
+                <tr value = "{{ $item->id }}">
                     <td>
-                        <input class="form-check-input mt-0" type="checkbox" value=""
+                        <input class="form-check-input mt-0 " type="checkbox" id="checkbox" value=""
                             aria-label="Checkbox for following text input">
                     </td>
                     <td>
@@ -55,4 +55,7 @@
             @endforeach
         </tbody>
     </table>
+    <script>
+        var contracts = @json($contracts);
+    </script>
 @endsection

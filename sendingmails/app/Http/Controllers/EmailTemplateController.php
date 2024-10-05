@@ -16,25 +16,16 @@ use Illuminate\View\View as View;
 
 class EmailTemplateController extends Controller
 {
-    private $campaigns;
-    private $contracts;
-
+    private $sendMail;
     public function __construct()
     {
-        if (!Auth::check()) {
-            return;
-        } 
         $this->campaigns = CampaignController::get_campaign_();
-        $this->contracts = ContractController::get_contract_();
-    }
-
-    public static function send_mail_with_attribute(){
-        
+        $this->contract = ContractController::get_contract_();
     }
 
     public function index()
     {
-        return view('email-template',[ 'contracts' => $this->contracts, 'campaigns' => $this->campaigns]);
+        return view('email-template',[ 'contracts' => $this->contract, 'campaigns' => $this->campaigns]);
     }
 
     public static function get_data_campaign_id()
@@ -45,21 +36,13 @@ class EmailTemplateController extends Controller
             ->get();
         return $inner_join_campaign;
     }
-
-
-
     /**
      * Show the form for creating a new resource.
      */
     public function create() {}
-
-
-
     /**
      * Store a newly created resource in storage.
      */
-
-
     public function store(StoreEmailTemplateRequest $request)
     {
         $latest_campaign = CampaignController::get_latest_campaign();
@@ -71,17 +54,22 @@ class EmailTemplateController extends Controller
         $email_template->campaign_id = $latest_campaign->id;
         $email_template->created_at = now();
         $email_template->updated_at = now();
-        $mail_configuring_data = [
-            'content' => $latest_campaign->subject,
-            'css_text' => $request['css_text'],
-            'body' => $request['body'],
-        ];
-        $sendToData = json_decode($latest_campaign->sendto, true);
-        foreach ($sendToData as $key => $value) {
-            Mail::to($value)->send(new MailConfiguring($mail_configuring_data));
-        }
+
+        // $variables = json_decode($request['variables'], true);
+        // dd($variables);
+
+        $this->sendMail = SendMailController::send_mail($request, $latest_campaign);
         $email_template->save();
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('email-template', absolute: false));
+    }
+
+    function assignValuesToVariables($variables, $values) {
+        foreach ($variables as $key => $variable) {
+            if (isset($values[$key])) {
+                $variables[$key] = $values[$key];
+            }
+        }
+        return $variables;
     }
 
     /**

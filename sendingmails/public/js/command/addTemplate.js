@@ -1,9 +1,11 @@
-import { cmdSave, urlApi } from "../consts.js";
+import { cmdSave, url, urlApi } from "../consts.js";
 export default (editor, config) => {
     editor.Commands.add(cmdSave, {
         run() {
             var body = editor.getHtml();
             var css_text = editor.getCss();
+
+            var variables = localStorage.getItem("variables");
             const xml = new XMLHttpRequest();
             xml.onreadystatechange = function () {
                 if (xml.readyState == 4 && xml.status == 200) {
@@ -15,16 +17,24 @@ export default (editor, config) => {
                 }
             };
 
-            // Use FormData to properly format the HTML and CSS
             const formData = new FormData();
             formData.append("body", body);
             formData.append("css_text", css_text);
+            if (variables == "") {
+                formData.append("variables", "");
+            }
+            else {
+                formData.append("variables", variables);
+            }
+            xml.open("POST", url + "email-template-store");
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            xml.setRequestHeader("X-CSRF-TOKEN", csrfToken);
+console.log(variables);
 
-            xml.open("POST", urlApi + "email-template-store", true);
-            xml.send(formData); // Send the formData containing HTML and CSS
-            console.log(body, css_text);
+            xml.send(formData);
+            localStorage.removeItem("variables");
             
-            window.location.reload();
+            // window.location.reload();
         },
         stop: () => { },
     });

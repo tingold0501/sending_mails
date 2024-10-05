@@ -4,24 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEmailTemplateRequest;
 use App\Http\Requests\UpdateEmailTemplateRequest;
+use App\Mail\MailConfiguring;
 use App\Models\EmailTemplate;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class SendMailController extends Controller
 {
-    private $campaign;
-    private $emailTemplate;
-    private $user;
-    private $contract;
-    private $contractStatus;
-    public function __construct()
-    {
-        if(!Auth::check())return;
-        $this->user = Auth::user();
-        $this->campaign = CampaignController::get_campaign_();
-        $this->contract = ContractController::get_contract_();
-        $this->contractStatus = ConTractstatusController::get_contract_status_();
+    public static function send_mail(StoreEmailTemplateRequest $request,$latest_campaign ){
+        $mail_configuring_data = [
+            'content' => $latest_campaign->subject,
+            'css_text' => $request['css_text'],
+            'body' => $request['body'],
+        ];
+        $sendToData = json_decode($latest_campaign->sendto, true);
+        foreach ($sendToData as $key => $value) {
+            Mail::to($value)->send(new MailConfiguring($mail_configuring_data));
+        }
     }
+
     /**
      * Display a listing of the resource.
      */

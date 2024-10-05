@@ -13,9 +13,9 @@ Route::get('/get-csrf-token', function (Request $request) {
     return csrf_token();
 })->middleware('auth:sanctum');
 
-Route::controller(EmailTemplateController::class)->group(function () {
-    Route::post('/email-template-store', 'store')->name('email-template-store');
-})->middleware('auth:sanctum');
+// Route::controller(EmailTemplateController::class)->group(function () {
+//     Route::post('/email-template-store', 'store')->name('email-template-store');
+// })->middleware('auth:sanctum');
 
 
 

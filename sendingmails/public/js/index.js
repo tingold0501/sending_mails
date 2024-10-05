@@ -2,7 +2,7 @@ import blocks from "./blocks.js";
 import commands from "./command/index.js";
 import panels from "./panels.js";
 import headers from "./headers.js";
-import addAttrOnTemplate from "./events/addAttributeOnTemplate.js";
+import addAttrOnTemplate from "./command/addAttributeOnTemplate.js";
 const plugin = (editor, opts = {}) => {
     editor = grapesjs.init({
         height: "100%",
