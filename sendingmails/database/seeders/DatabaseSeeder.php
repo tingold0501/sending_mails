@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             ContractStatusSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
         ]);
     }
 }

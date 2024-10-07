@@ -21,11 +21,12 @@ class EmailTemplateController extends Controller
     {
         $this->campaigns = CampaignController::get_campaign_();
         $this->contract = ContractController::get_contract_();
+        $this->variable = VariableController::assignVariables();
     }
 
     public function index()
     {
-        return view('email-template',[ 'contracts' => $this->contract, 'campaigns' => $this->campaigns]);
+        return view('email-template',[ 'variables' => $this->variable,'contracts' => $this->contract, 'campaigns' => $this->campaigns]);
     }
 
     public static function get_data_campaign_id()
