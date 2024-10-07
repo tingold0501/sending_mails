@@ -158,10 +158,13 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script>
-        var contract = @json($contracts);
+        var contracts = @json($contracts);
         var campaign = @json($campaigns);
         var contract_id = @json($contracts->pluck('id'));
+        var variabless = @json($variabless);
         console.log(contract, campaign, contract_id);
+
+        
     </script>
 </body>
 

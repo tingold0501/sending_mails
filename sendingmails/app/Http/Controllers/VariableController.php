@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateVariableRequest;
 use App\Models\Variable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\View;
 
 class VariableController extends Controller
 {
@@ -16,15 +18,19 @@ class VariableController extends Controller
             abort(403);
         }
         $this->assignVariables();
+        $this->user = Auth::user();
     }
 
     public static function assignVariables(){
-        $variables = DB::table('variables')->get();
-        foreach ($variables as $variable) {
-            $key = $variable->key;
-            $value = $variable->value;
-            dd($key, $value);
-        }
+        $variabless = DB::table('variables')->get();
+        // foreach ($variables as $variable) {
+        //     if($variable->name == 'first_name' && $variable->name == 'last_name') {
+        //         $variable->value = $variable->value.' '.Auth::user()->name;
+        //     }
+        //     View::share('key', $variable->key);
+        //     echo $variable->key . ' ' . $variable->value . '<br>' ;
+        // }
+        return view('email-template', ['variabless' => $variabless]);
     }
 
     public static function get_variables_(){

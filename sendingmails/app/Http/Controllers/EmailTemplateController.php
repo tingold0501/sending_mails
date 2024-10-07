@@ -26,7 +26,7 @@ class EmailTemplateController extends Controller
 
     public function index()
     {
-        return view('email-template',[ 'variables' => $this->variable,'contracts' => $this->contract, 'campaigns' => $this->campaigns]);
+        return view('email-template', ['contracts' => $this->contract, 'campaigns' => $this->campaigns,'variabless' => $this->variable ]);
     }
 
     public static function get_data_campaign_id()
@@ -64,14 +64,7 @@ class EmailTemplateController extends Controller
         return redirect(route('email-template', absolute: false));
     }
 
-    function assignValuesToVariables($variables, $values) {
-        foreach ($variables as $key => $variable) {
-            if (isset($values[$key])) {
-                $variables[$key] = $values[$key];
-            }
-        }
-        return $variables;
-    }
+
 
     /**
      * Display the specified resource.

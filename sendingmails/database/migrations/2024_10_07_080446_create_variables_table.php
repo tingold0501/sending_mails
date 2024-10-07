@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('variables', function (Blueprint $table) {
             $table->id();
-            $table->string('key')->unique();
-            $table->string('value')->unique();
+            $table->string('name');
+            $table->string('key')->unique()->nullable();
+            $table->string('value')->unique()->nullable();
             $table->timestamps();
         });
     }

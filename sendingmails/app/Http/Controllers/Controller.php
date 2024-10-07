@@ -12,6 +12,8 @@ abstract class Controller
     protected $contract;
     protected $contractStatus;
     protected $variable;
+
+    
     // protected function __construct()
     // {
     //     if (!Auth::check()) {
