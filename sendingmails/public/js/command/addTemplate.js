@@ -5,12 +5,16 @@ export default (editor, config) => {
             var body = editor.getHtml();
             var css_text = editor.getCss();
             var variable_keys = localStorage.getItem("variable_keys");
-            // console.log(variable_keys);
+
+            var wrapper = editor.getWrapper();
+            console.log(body);
+            console.log(wrapper);
+            
+            
 
             const xml = new XMLHttpRequest();
             xml.onreadystatechange = function () {
                 if (xml.readyState == 4 && xml.status == 200) {
-                    // console.log(xml.responseText);
                     editor.Modal.close();
                 } else if (xml.readyState == 4 && xml.status == 400) {
                     console.error("Error:", xml.responseText);
@@ -21,8 +25,6 @@ export default (editor, config) => {
             formData.append("body", body);
             formData.append("css_text", css_text);
             formData.append("variable_keys", variable_keys);
-            console.log(variable_keys);
-            
 
             xml.open("POST", url + "email-template-store");
             const csrfToken = document

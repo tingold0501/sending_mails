@@ -162,7 +162,6 @@
     
         var inner_join_campaign = @json($inner_join_campaign);
         var variables = @json($variables);
-        // console.log(inner_join_campaign, variables);
        </script>
     
 </body>

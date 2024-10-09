@@ -4,7 +4,7 @@ export default (editor, plugin) => {
     const variableArray = [];
     let options = "";
     variables.forEach((variable) => {
-        options += `<option class="dropdown-item" key="${variable.key}" value="${variable.name}">${variable.placeholder}</option>`;
+        options += `<option class="dropdown-item" data-id="${variable.key}" value="${variable.name}">${variable.placeholder}</option>`;
     });
 
     const select2Content = select2(options);
@@ -25,6 +25,7 @@ export default (editor, plugin) => {
     editor.on("component:deselected", () => {
         container.remove();
     });
+
     $(document).ready(function () {
         $(".js-example-basic-multiple").select2();
     });
@@ -58,17 +59,19 @@ export default (editor, plugin) => {
                         const selectedValue = event.target.value;
                         var selectedOption =
                             event.target.options[event.target.selectedIndex];
-                        var selectedID = selectedOption.getAttribute("key");
+                        var selectedID = selectedOption.getAttribute("value");
+
+                        var selectedDataID = selectedOption.getAttribute("data-id");
+                        console.log(selectedDataID);
+                        
 
                         addVariable(selectedID, variableArray);
                         const variableJSON = generateJSON(variableArray);
-                        // console.log(variableArray);
 
                         localStorage.setItem(
                             "variable_keys",
                             JSON.stringify(variableArray)
                         );
-                        // console.log(variableJSON);
 
                         var elText = el.textContent || "";
 
@@ -78,13 +81,10 @@ export default (editor, plugin) => {
                             selectedValue
                         );
 
-                        console.log(newContent);
-
                         el.textContent = newContent;
                         selected.components().reset([newContent]);
                         container.remove();
 
-                        console.log(editor.getHtml());
                     },
                     { once: true }
                 );

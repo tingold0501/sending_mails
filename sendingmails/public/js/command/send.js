@@ -11,7 +11,6 @@ export default (editor, config) => {
             const xml = new XMLHttpRequest();
             xml.onreadystatechange = function () {
                 if (xml.readyState == 4 && xml.status == 200) {
-                    console.log(xml.responseText);
                     editor.Modal.close();
                 }
                 else if (xml.readyState == 4 && xml.status == 400) {

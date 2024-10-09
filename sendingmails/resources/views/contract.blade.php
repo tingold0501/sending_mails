@@ -52,7 +52,9 @@
             </a>
         </li>
         <li class="cursor-pointer">
+            <a href="{{ route('get_v_list_all_contracts') }}" class="text-decoration-none cursor-pointer {{ request()->routeIs('get_v_list_all_contracts') ? 'active' : '' }}">
             <span class=''>Lists</span>
+            </a>
         </li>
         <li class="cursor-pointer">
             <span class=''>History</span>
@@ -71,5 +73,7 @@
     @yield('Table-Contract')
     @yield('Segment-Content')
     @yield('Segment-All-Contract')
+    @yield('List-Contract')
+    @yield('Create-List-Contract')
 </div>
 @endsection

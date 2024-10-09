@@ -15,6 +15,7 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\EmailTemplateController;
 use App\Http\Controllers\ImageEmailTemplateController;
+use App\Http\Controllers\ListController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -76,6 +77,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/contract-create', 'get_contract_store')->name('get_contract_store');
         Route::get('/segment-contract', 'get_v_segment')->name('get_v_segment');
         Route::get('/segment-all-contract', 'get_v_segment_all_contracts')->name('get_v_segment_all_contracts');
+
         Route::post('/contract_store', 'store')->name('contract_store');
         Route::post('/contract_update', 'update')->name('contract_update');
     });
@@ -84,6 +86,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/email-template', 'index')->name('email-template');
         Route::post('/email-template-store', 'store')->name('email-template-store');
     });
+
 
     Route::controller(ImageEmailTemplateController::class)->group(function () {
         Route::post('/image-base64', 'imageBase64')->name('image-base64');
