@@ -87,6 +87,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/email-template-store', 'store')->name('email-template-store');
     });
 
+    Route::controller(ListController::class)->group(function () {
+        Route::get('/list', 'get_v_list_all_contracts')->name('get_v_list_all_contracts');
+        Route::get('/list-view', 'get_v_create_list_contracts')->name('get_v_create_list_contracts');
+        Route::post('/list-store', 'store')->name('list-store');
+    });
 
     Route::controller(ImageEmailTemplateController::class)->group(function () {
         Route::post('/image-base64', 'imageBase64')->name('image-base64');

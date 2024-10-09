@@ -8,6 +8,14 @@ use App\Models\ListM;
 
 class ListController extends Controller
 {
+   
+
+    public function get_v_list_all_contracts() {
+        return view('layouts.contract.list.list-contract');
+    }
+    public function get_v_create_list_contracts() {
+        return view('layouts.contract.list.create-list-contract');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -29,7 +37,7 @@ class ListController extends Controller
      */
     public function store(StoreListMRequest $request)
     {
-        //
+        
     }
 
     /**
