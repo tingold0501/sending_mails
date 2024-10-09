@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('active')->default(true);
             $table->longText('body');
             $table->longText('css_text');
+            $table->string('variable_keys')->nullable();
             $table->foreignId('campaign_id')->constrained();
             $table->timestamps();
         });

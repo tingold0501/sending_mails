@@ -22,11 +22,13 @@ class StoreEmailTemplateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'name' => 'required|string',
-            // 'content' => 'required|string',
-            'body' => 'required|string',
-            'css_text' => 'required|string',
-            // 'campaign_id' => 'required|integer',
+            'body' => ['required', 'string'],
+            'css_text' => ['required', 'string'],
+            'variable_keys[]' => ['string'],
         ];
+    }
+    public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
+    {
+        throw new \Illuminate\Validation\ValidationException($validator, response()->json($validator->errors(), 422));
     }
 }

@@ -17,6 +17,7 @@ class EmailTemplate extends Model
         'active',
         'body',
         'css_text',
+        'variable_keys',
         'campaign_id',
         'created_at',
         'updated_at',

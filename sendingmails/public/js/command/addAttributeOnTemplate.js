@@ -1,19 +1,13 @@
 import { select2 } from "../components/dropdown.js";
-import { emailVariables } from "../emailAttributes.js";
 
 export default (editor, plugin) => {
     const variableArray = [];
     let options = "";
-    emailVariables.forEach((variable) => {
-        options += `<option class="dropdown-item" value="${variable.value}">${variable.value}</option>`;
+    variables.forEach((variable) => {
+        options += `<option class="dropdown-item" key="${variable.key}" value="${variable.name}">${variable.placeholder}</option>`;
     });
 
-    let a = "";
-    emailVariables.forEach((variable) => {
-        a += `<option class="dropdown-item" value="${variable.value}">${variable.value}</option>`;
-    });
     const select2Content = select2(options);
-    // const select2Content = dropdown2(a);
 
     const container = document.createElement("div");
     container.id = "select-container";
@@ -30,6 +24,9 @@ export default (editor, plugin) => {
 
     editor.on("component:deselected", () => {
         container.remove();
+    });
+    $(document).ready(function () {
+        $(".js-example-basic-multiple").select2();
     });
 
     editor.on("component:selected", (component) => {
@@ -59,13 +56,20 @@ export default (editor, plugin) => {
                     "change",
                     (event) => {
                         const selectedValue = event.target.value;
+                        var selectedOption =
+                            event.target.options[event.target.selectedIndex];
+                        var selectedID = selectedOption.getAttribute("key");
 
-                        addVariable(selectedValue, variableArray);
+                        addVariable(selectedID, variableArray);
                         const variableJSON = generateJSON(variableArray);
-                  
-                        localStorage.setItem("variables", variableJSON);
-                        console.log(variableJSON);
-                        
+                        // console.log(variableArray);
+
+                        localStorage.setItem(
+                            "variable_keys",
+                            JSON.stringify(variableArray)
+                        );
+                        // console.log(variableJSON);
+
                         var elText = el.textContent || "";
 
                         var newContent = replaceAt(
@@ -118,20 +122,4 @@ function generateJSON(variableArray) {
         return acc;
     }, {});
     return JSON.stringify(jsonObject);
-}
-
-export function sendAttribute(data) {
-    const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.responseText);
-        }
-        else if (xhr.readyState === 4 && xhr.status === 422) {
-            console.log(xhr.responseText);
-        }
-        const formData = new FormData();
-        formData.append("variables", data);
-        xhr.open("POST", urlApi + "email-template-store", true);
-        xhr.send(formData);
-    }
 }

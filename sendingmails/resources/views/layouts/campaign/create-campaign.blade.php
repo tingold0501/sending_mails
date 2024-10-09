@@ -51,19 +51,19 @@
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
                             </div> --}}
-                            {{-- <x-primary-button class="btn btn-primary w-100 py-8 fs-4 mb-4">
+                            <x-primary-button class="btn btn-primary w-100 py-8 fs-4 mb-4">
                                 {{ __('Save') }}
-                            </x-primary-button> --}}
+                            </x-primary-button>
                         </form>
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-center">
                     <div class="d-flex align-items-center justify-content-center" style="width: 70%;">
                         <div class="card border-success mb-3 cursor-pointer" style="max-width: 18rem; margin-right: 50px;">
-                            <div class="card-header d-flex align-items-center">
-                                <img class="card-img-top"
-                                    src="https://i.pinimg.com/474x/86/05/cc/8605cc4fa3b97c0ac39e5b76a2eed757.jpg" alt="">
-                            </div>
+                                <div class="card-header d-flex align-items-center">
+                                    <img class="card-img-top"
+                                        src="https://i.pinimg.com/474x/86/05/cc/8605cc4fa3b97c0ac39e5b76a2eed757.jpg" alt="">
+                                </div>
                             <a href="{{route('email-template')}}">
                                 <div class="card-body text-success">
                                     <h5 class="card-title">Drag & Drop Email Template</h5>

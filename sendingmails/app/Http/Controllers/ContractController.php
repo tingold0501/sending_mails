@@ -12,14 +12,13 @@ use Illuminate\View\View;
 class ContractController extends Controller
 {
     private $contract_statues;
-    private $contracts;
     public function __construct()
     {
         if (!Auth::check()) {
             return;
         }
         $this->contract_statues = ConTractstatusController::get_contract_status_();
-        $this->contracts = ContractController::get_contract_();
+        $this->contract = ContractController::get_contract_();
     }
 
     public function get_v_segment() {
@@ -27,7 +26,7 @@ class ContractController extends Controller
     }
 
     public function get_v_segment_all_contracts() {
-        return view('layouts.contract.segment.segment-all-contract', ['contracts' => $this->contracts]);
+        return view('layouts.contract.segment.segment-all-contract', ['contracts' => $this->contract]);
     }
     
     public static function get_contract_(){

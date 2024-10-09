@@ -1,36 +1,7 @@
-export const dropdown = (options) => {
-    return `
-    <div class="dropdown"  >
-      <button id ="variableSelector"  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Email Attributes
-      </button>
-      <div   class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        ${options}
-      </div>
-    </div>
-    `;
-};
 
 export const select2 = (options) => {
-    return `<select id ="variableSelector"  class="js-example-basic-single form-control" name="variable">
+    return `<select id="variableSelector" class="js-example-basic-multiple form-control" name="variable_keys[]" multiple="multiple">
     ${options}
 </select>`;
 };
 
-export const formSelect = (options) => {
-    return `<select id ="variableSelector" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-    ${options}
-</select>`;
-};
-
-export const dropdown2 = (a) => {
-    return ` <div id ="variableSelector" class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">${a}</a>
-  </div>
-</div>
-`;
-};

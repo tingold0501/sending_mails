@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEmailTemplateRequest;
 use App\Http\Requests\StoreVariableRequest;
 use App\Http\Requests\UpdateVariableRequest;
 use App\Models\Variable;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -12,25 +14,21 @@ use Illuminate\Support\Facades\View;
 
 class VariableController extends Controller
 {
+
     private function __construct()
     {
         if (!Auth::check()) {
             abort(403);
         }
-        $this->assignVariables();
-        $this->user = Auth::user();
     }
 
-    public static function assignVariables(){
-        $variabless = DB::table('variables')->get();
-        // foreach ($variables as $variable) {
-        //     if($variable->name == 'first_name' && $variable->name == 'last_name') {
-        //         $variable->value = $variable->value.' '.Auth::user()->name;
-        //     }
-        //     View::share('key', $variable->key);
-        //     echo $variable->key . ' ' . $variable->value . '<br>' ;
-        // }
-        return view('email-template', ['variabless' => $variabless]);
+    public static function assignVariables($email_template){
+        $variable = new Variable();
+        $variable->email_template_id = $email_template->id;
+        if(isset($email_template->variable_keys)){
+            $variable->key = $email_template->variable_keys;
+        }
+        $variable->save();
     }
 
     public static function get_variables_(){

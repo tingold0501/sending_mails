@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCampaignRequest;
 use App\Http\Requests\StoreEmailTemplateRequest;
 use App\Http\Requests\UpdateEmailTemplateRequest;
-use App\Mail\MailConfiguring;
 use App\Models\EmailTemplate;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\View as FacadesView;
-use Illuminate\View\View as View;
 
 class EmailTemplateController extends Controller
 {
     private $sendMail;
+    private $inner_join_campaign;
+    // private $inner_join_variable;
     public function __construct()
     {
         $this->campaigns = CampaignController::get_campaign_();
         $this->contract = ContractController::get_contract_();
-        $this->variable = VariableController::assignVariables();
+        $this->variable = VariableController::get_variables_();
     }
 
     public function index()
     {
-        return view('email-template', ['contracts' => $this->contract, 'campaigns' => $this->campaigns,'variabless' => $this->variable ]);
+        $this->inner_join_campaign = DB::table('campaigns')
+            ->join('email_templates', 'campaigns.id', '=', 'email_templates.campaign_id')
+            ->join('users', 'campaigns.user_id', '=', 'users.id')
+            ->select('campaigns.*', 'email_templates.*', 'users.*')
+            ->get();
+        return view('email-template', ['inner_join_campaign' => $this->inner_join_campaign, 'variables' => $this->variable]);
     }
 
     public static function get_data_campaign_id()
@@ -52,14 +52,12 @@ class EmailTemplateController extends Controller
         $email_template->content = $latest_campaign->subject;
         $email_template->body = $request['body'];
         $email_template->css_text = $request['css_text'];
+        $email_template->variable_keys = $request['variable_keys'];
         $email_template->campaign_id = $latest_campaign->id;
         $email_template->created_at = now();
         $email_template->updated_at = now();
-
-        // $variables = json_decode($request['variables'], true);
-        // dd($variables);
-
-        $this->sendMail = SendMailController::send_mail($request, $latest_campaign);
+        
+        // $this->sendMail = SendMailController::send_mail($request, $latest_campaign);
         $email_template->save();
         return redirect(route('email-template', absolute: false));
     }

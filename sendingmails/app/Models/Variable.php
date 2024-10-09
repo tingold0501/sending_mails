@@ -10,5 +10,5 @@ class Variable extends Model
     use HasFactory;
 
     protected $table = 'variables';
-    protected $fillable = ['id', 'key', 'value','created_at','updated_at'];
+    protected $fillable = ['id', 'key','email_template_id', 'value','created_at','updated_at'];
 }

@@ -28,6 +28,7 @@ class CampaignController extends Controller
         }
         $this->instance = $this;
         $this->contracts = ContractController::get_contract_();
+        $this->campaigns = $this->get_campaign_();
     }
 
     public static function get_campaign_()
@@ -110,6 +111,7 @@ class CampaignController extends Controller
         return redirect(route('campaign', absolute: false));
     }
 
+    
     /**
      * Display the specified resource.
      */
