@@ -1,12 +1,12 @@
 @extends('contract')
-@section('Contract-Create')
+@section('Create-List-Contract')
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title fw-semibold mb-4">Contract Forms</h5>
                 <div class="card">
                     <div class="card-body">
-                        <form method="POST" action="{{ route('contract_store') }}">
+                        <form method="POST" action="{{ route('add_contract_to_list_with_id',$id) }}">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
@@ -32,7 +32,7 @@
                             <div class="mb-3">
                                 <label for="contract_statue_id" class="form-label">Contract Status</label>
                                 <select class="js-example-basic-single form-control" name="contract_statue_id">
-                                    @foreach ($contract_statues as $item)
+                                    @foreach ($contractStatus as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                     @endforeach
                                 </select>
@@ -40,12 +40,12 @@
                             </div>
                             <div class="mb-3">
                                 <label for="list_contract_id" class="form-label">List Contracts</label>
-                                <select class="js-example-basic-single form-control" name="list_contract_id">
-                                    @foreach ($listContract as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                    @endforeach
+                                
+                                <select disabled class="js-example-basic-single form-control" name="list_contract_id">
+                                        <option  value="{{ $id }}">{{ $name }}</option>
                                 </select>
-                                <div id="list_contract_idHelp" class="form-text">If you not chose list contract, it will be created with the first name.</div>
+                                <div id="list_contract_idHelp" class="form-text">If you not chose list contract, it will be
+                                    created with the first name.</div>
                                 <x-input-error :messages="$errors->get('list_contract_id')" class="mt-2" />
                             </div>
 

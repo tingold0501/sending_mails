@@ -19,6 +19,7 @@ class ContractController extends Controller
         }
         $this->contract_statues = ConTractstatusController::get_contract_status_();
         $this->contract = ContractController::get_contract_();
+        $this->listContract = ListController::get_list_contract_();
     }
 
     public function get_v_segment() {
@@ -40,13 +41,25 @@ class ContractController extends Controller
         $campaigns = CampaignController::get_campaign_();
         return view('components.table', ['contracts' => $contracts, 'campaigns' => $campaigns, 'contract_statues' => $this->contract_statues]);
     }
+    public function add_contract_to_list_with_id(StoreContractRequest $request,$id) {
+        $contract = new Contract();
+        $contract->email = $request['email'];
+        $contract->first_name = $request['first_name'];
+        $contract->last_name = $request['last_name'];
+        $contract->contract_statue_id = $request['contract_statue_id'];
+        $contract->list_contract_id = $id;
+        $contract->user_id = Auth::user()->id;
+        $contract->save();
+        return redirect()->intended(route('get_v_list_all_contracts', absolute: false));
+    }
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
         $contracts = DB::table('contracts')->where('user_id', Auth::user()->id)->latest()->paginate(5);
-        return view('layouts.contract.table-contract', ['contract_statues' => $this->contract_statues, 'contracts' => $contracts]);
+        $listContract = ListController::get_list_contract_();
+        return view('layouts.contract.table-contract', ['listContract' => $listContract,'contract_statues' => $this->contract_statues, 'contracts' => $contracts]);
     }
 
     /**
@@ -57,7 +70,7 @@ class ContractController extends Controller
         //
     }
     public function get_contract_store(){
-        return view('layouts.contract.create-contract', ['contract_statues' => $this->contract_statues]);
+        return view('layouts.contract.create-contract', ['contract_statues' => $this->contract_statues,'listContract' => $this->listContract]);
     }
     /**
      * Store a newly created resource in storage.
@@ -70,6 +83,7 @@ class ContractController extends Controller
         $contract->first_name = $request['first_name'];
         $contract->last_name = $request['last_name'];
         $contract->contract_statue_id = $request['contract_statue_id'];
+        $contract->list_contract_id = $request['list_contract_id'];
         $contract->user_id = Auth::user()->id;
         $contract->save();
         // return response()->json($contract);

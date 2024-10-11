@@ -12,4 +12,5 @@ abstract class Controller
     protected $contract;
     protected $contractStatus;
     protected $variable;
+    protected $listContract;
 }

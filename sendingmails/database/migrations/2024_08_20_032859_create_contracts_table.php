@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('active')->default(true);
             $table->foreignId('contract_statue_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('list_contract_id')->constrained()->nullable();
             $table->timestamps();
         });
     }

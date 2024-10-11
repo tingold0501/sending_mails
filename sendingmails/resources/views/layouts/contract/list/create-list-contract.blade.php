@@ -1,7 +1,7 @@
 @extends('contract')
 @section('Create-List-Contract')
 <div class="input-group input-group-lg bg-white]">
-    <form method="POST" action="{{ route('contract_store') }} " class="w-100">
+    <form method="POST" action="{{ route('list-store') }} " class="w-100">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Name List</label>

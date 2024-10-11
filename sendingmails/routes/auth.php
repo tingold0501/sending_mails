@@ -80,6 +80,8 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/contract_store', 'store')->name('contract_store');
         Route::post('/contract_update', 'update')->name('contract_update');
+        Route::post('/add-contract-to-list-with-id/{id}', 'add_contract_to_list_with_id')->name('add_contract_to_list_with_id');
+
     });
     
     Route::controller(EmailTemplateController::class)->group(function () {
@@ -90,6 +92,7 @@ Route::middleware('auth')->group(function () {
     Route::controller(ListController::class)->group(function () {
         Route::get('/list', 'get_v_list_all_contracts')->name('get_v_list_all_contracts');
         Route::get('/list-view', 'get_v_create_list_contracts')->name('get_v_create_list_contracts');
+        Route::get('/get-v-add-contract-to-list/{id}/name/{name}', 'get_v_add_contract_to_list')->name('get_v_add_contract_to_list');
         Route::post('/list-store', 'store')->name('list-store');
     });
 

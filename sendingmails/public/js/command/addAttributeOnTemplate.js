@@ -52,7 +52,6 @@ export default (editor, plugin) => {
 
                 const variableSelector =
                     document.getElementById("variableSelector");
-
                 variableSelector.addEventListener(
                     "change",
                     (event) => {
@@ -63,7 +62,6 @@ export default (editor, plugin) => {
 
                         var selectedDataID = selectedOption.getAttribute("data-id");
                         console.log(selectedDataID);
-                        
 
                         addVariable(selectedID, variableArray);
                         const variableJSON = generateJSON(variableArray);

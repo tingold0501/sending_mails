@@ -27,11 +27,13 @@ class StoreContractRequest extends FormRequest
             'first_name' => 'required|string', 
             'last_name' => 'required|string',
             'contract_statue_id' => 'required|integer|exists:contract_statues,id',
+            'list_contract_id' => 'integer|exists:list_contracts,id',
+
         ];
     }
 
     public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
     {
-        throw new \Illuminate\Validation\ValidationException($validator->errors(),422);
+        throw new \Illuminate\Validation\ValidationException($validator);
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ListM extends Model
 {
-    protected $table = 'lists';
-    protected $fillable = ['id','name','created_at','updated_at'];
+    protected $table = 'list_contracts';
+    protected $fillable = ['id','name','contract_id','created_at','updated_at'];
     use HasFactory;
 }
