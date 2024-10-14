@@ -22,6 +22,7 @@ class UpdateEmailTemplateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => 'required|integer|exists:email_templates,id',
             'body' => 'required|string',
             'css_text' => 'required|string',
         ];

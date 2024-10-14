@@ -81,7 +81,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/contract_store', 'store')->name('contract_store');
         Route::post('/contract_update', 'update')->name('contract_update');
         Route::post('/add-contract-to-list-with-id/{id}', 'add_contract_to_list_with_id')->name('add_contract_to_list_with_id');
-
     });
     
     Route::controller(EmailTemplateController::class)->group(function () {

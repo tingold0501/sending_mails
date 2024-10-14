@@ -26,11 +26,9 @@ class ContractController extends Controller
         return view('layouts.contract.segment.segment-contract');
     }
 
- 
     public function get_v_segment_all_contracts() {
         return view('layouts.contract.segment.segment-all-contract', ['contracts' => $this->contract]);
     }
-    
     
     public static function get_contract_(){
         $contracts = DB::table('contracts')->where('user_id', Auth::user()->id)->get();

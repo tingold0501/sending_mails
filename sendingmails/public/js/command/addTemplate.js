@@ -6,16 +6,11 @@ export default (editor, config) => {
             var css_text = editor.getCss();
             var variable_keys = localStorage.getItem("variable_keys");
 
-            var wrapper = editor.getWrapper();
-            console.log(body);
-            console.log(wrapper);
-            
-            
-
             const xml = new XMLHttpRequest();
             xml.onreadystatechange = function () {
                 if (xml.readyState == 4 && xml.status == 200) {
-                    editor.Modal.close();
+                    window.location.reload();
+                    localStorage.removeItem("variable_keys");
                 } else if (xml.readyState == 4 && xml.status == 400) {
                     console.error("Error:", xml.responseText);
                 }
@@ -33,9 +28,6 @@ export default (editor, config) => {
             xml.setRequestHeader("X-CSRF-TOKEN", csrfToken);
 
             xml.send(formData);
-            localStorage.removeItem("keys");
-
-            // window.location.reload();
         },
         stop: () => {},
     });

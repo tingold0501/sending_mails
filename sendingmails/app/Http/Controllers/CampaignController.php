@@ -7,15 +7,11 @@ use App\Mail\CampaignMail;
 use App\Models\Campaign;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\ContractController;
 use App\Http\Requests\StoreCampaignRequest;
-use App\Mail\MailConfiguring;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
 
 class CampaignController extends Controller
 {
@@ -108,7 +104,7 @@ class CampaignController extends Controller
         $campaign->created_at = now();
         $campaign->updated_at = now();
         $campaign->save();
-        return redirect(route('campaign', absolute: false));
+        return redirect(route('email-template', absolute: false));
     }
 
     

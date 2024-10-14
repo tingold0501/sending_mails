@@ -90,7 +90,18 @@ class EmailTemplateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateEmailTemplateRequest $request, EmailTemplate $emailTemplate) {}
+    public function update(UpdateEmailTemplateRequest $request, EmailTemplate $emailTemplate) 
+    {
+        $email_template = EmailTemplate::find($request->id);
+        $email_template->name = $request->name;
+        $email_template->content = $request->subject;
+        $email_template->body = $request->body;
+        $email_template->css_text = $request->css_text;
+        $email_template->variable_keys = $request->variable_keys;
+        $email_template->updated_at = now();
+        $email_template->save();
+        return redirect(route('email-template', absolute: false));
+    }
 
     /**
      * Remove the specified resource from storage.
