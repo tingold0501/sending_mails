@@ -8,9 +8,8 @@ export const cmdSave = 'canvas-save';
 export const cmdSend = 'canvas-send';
 export const cmdImageBase64 = 'image-base64';
 
-export const urlApi = 'http://localhost/api/';
-
 export const url = 'http://localhost/';
 
-// Button
+export const emailTemplateStore = 'email-template-store';
+
 

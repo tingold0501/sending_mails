@@ -31,6 +31,7 @@ export default (editor, plugin) => {
     });
 
     editor.on("component:selected", (component) => {
+       
         const selected = editor.getSelected();
         const el = selected?.view?.el;
 
@@ -60,7 +61,8 @@ export default (editor, plugin) => {
                             event.target.options[event.target.selectedIndex];
                         var selectedID = selectedOption.getAttribute("value");
 
-                        var selectedDataID = selectedOption.getAttribute("data-id");
+                        var selectedDataID =
+                            selectedOption.getAttribute("data-id");
 
                         addVariable(selectedID, variableArray);
 
@@ -81,7 +83,6 @@ export default (editor, plugin) => {
                         el.textContent = newContent;
                         selected.components().reset([newContent]);
                         container.remove();
-
                     },
                     { once: true }
                 );

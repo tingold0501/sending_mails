@@ -1,4 +1,4 @@
-import { cmdSave, url, urlApi } from "../consts.js";
+import { cmdSave, url } from "../consts.js";
 export default (editor, config) => {
     editor.Commands.add(cmdSave, {
         run() {
@@ -15,6 +15,7 @@ export default (editor, config) => {
                     console.error("Error:", xml.responseText);
                 }
             };
+            
 
             const formData = new FormData();
             formData.append("body", body);
