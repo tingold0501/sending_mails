@@ -4,9 +4,9 @@ export default (editor, plugin) => {
     const variableArray = [];
     let options = "";
     variables.forEach((variable) => {
-        options += `<option class="dropdown-item" data-id="${variable.key}" value="${variable.key}">${variable.placeholder}</option>`;
+        options += `<option class="dropdown-item" placeholder="${variable.placeholder}" data-key="${variable.key}" value="${variable.name}">${variable.name}</option>`;
     });
-
+    
     const select2Content = select2(options);
 
     const container = document.createElement("div");
@@ -59,27 +59,28 @@ export default (editor, plugin) => {
                         const selectedValue = event.target.value;
                         var selectedOption =
                             event.target.options[event.target.selectedIndex];
-                        var selectedID = selectedOption.getAttribute("value");
+                        var selectedName = selectedOption.getAttribute("value");
 
-                        var selectedDataID =
-                            selectedOption.getAttribute("data-id");
-
-                        addVariable(selectedID, variableArray);
+                        var selectedKey =
+                            selectedOption.getAttribute("data-key");
+                        
+                        var variablePlaceholder = selectedOption.getAttribute("placeholder");
+                        addVariable( selectedKey,selectedName,variablePlaceholder, variableArray);
+                        console.log(variableArray);
 
                         localStorage.setItem(
                             "variable_keys",
                             JSON.stringify(variableArray)
                         );
-
+                        
                         var elText = el.textContent || "";
 
                         var newContent = replaceAt(
                             elText,
                             caretPosition,
                             selectedValue,
-                            selectedDataID
+                            selectedKey
                         );
-
                         el.textContent = newContent;
                         selected.components().reset([newContent]);
                         container.remove();
@@ -111,8 +112,13 @@ function replaceAt(text, index, replacement) {
     return text.substring(0, index) + replacement + text.substring(index + 1);
 }
 
-function addVariable(variable, variableArray) {
-    variableArray.push(variable);
+function addVariable(variable, variableName,variablePlaceholder, variableArray) {
+    const variableObject = {
+        placeholder: variablePlaceholder,
+        name: variableName,  
+        key: variable         
+    };
+    variableArray.push(variableObject);  // Đẩy đối tượng này vào mảng
 }
 function generateJSON(variableArray) {
     const jsonObject = variableArray.reduce((acc, variable, index) => {

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\View;
 
 class VariableController extends Controller
 {
+    private $latest_email_template;
 
     private function __construct()
     {
@@ -22,18 +23,14 @@ class VariableController extends Controller
         }
     }
 
-    public static function assignVariables($email_template){
-        $variable = new Variable();
-        $variable->email_template_id = $email_template->id;
-        if(isset($email_template->variable_keys)){
-            $variable->key = $email_template->variable_keys;
-        }
-        $variable->save();
-    }
-
     public static function get_variables_(){
         $variables = DB::table('variables')->get();
         return $variables;
+    }
+    public static function assign_variables(){
+        $latest_email_template = EmailTemplateController::get_latest_email_template();
+        $latest_email_template->body;
+        return $latest_email_template->body;
     }
     /**
      * Display a listing of the resource.

@@ -11,6 +11,7 @@ class EmailTemplateController extends Controller
 {
     private $sendMail;
     private $inner_join_campaign;
+    private $latest_email_template;
     // private $inner_join_variable;
     public function __construct()
     {
@@ -37,6 +38,11 @@ class EmailTemplateController extends Controller
             ->get();
         return $inner_join_campaign;
     }
+
+    public static function get_latest_email_template(){
+        $latest_email_template = DB::table('email_templates')->latest()->first();
+        return $latest_email_template;
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -52,15 +58,16 @@ class EmailTemplateController extends Controller
         $email_template->content = $latest_campaign->subject;
         $email_template->body = $request['body'];
         $email_template->css_text = $request['css_text'];
-        $email_template->variable_keys = $request['variable_keys'];
+        $email_template->variable_keys = json_encode($request['variable_keys']);
         $email_template->campaign_id = $latest_campaign->id;
         $email_template->created_at = now();
         $email_template->updated_at = now();
         
-        // $this->sendMail = SendMailController::send_mail($request, $latest_campaign);
+        $this->sendMail = SendMailController::send_mail($request, $latest_campaign);
         $email_template->save();
         return redirect(route('email-template', absolute: false));
     }
+
 
 
 
@@ -85,8 +92,6 @@ class EmailTemplateController extends Controller
         EmailTemplate::where('active', 1)->update(['body' => $request->body, 'css_text' => $request->css_text]);
         return redirect(route('dashboard', absolute: false));
     }
-
-
     /**
      * Update the specified resource in storage.
      */

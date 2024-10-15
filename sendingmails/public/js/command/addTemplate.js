@@ -1,35 +1,33 @@
-import { cmdSave, url } from "../consts.js";
+import { cmdSave, url, timeout } from "../consts.js";
+import { sendXMLHttp } from "../events/sendXMLHttp.js";
 export default (editor, config) => {
-    console.log("Add template");
-    
     editor.Commands.add(cmdSave, {
         run() {
             var body = editor.getHtml();
             var css_text = editor.getCss();
-            var variable_keys = localStorage.getItem("variable_keys");
+            var variables = JSON.parse(
+                localStorage.getItem("variable_keys")
+            );
+            let arrayVariable = [];
+            variables.forEach((variable) => {
+                let regex = new RegExp(`${variable.placeholder}`);
+                regex = variable.name;
+                body = body.replace(regex, variable.key);
+            });
+            console.log(variables);
 
-            const xml = new XMLHttpRequest();
-            xml.onreadystatechange = function () {
-                if (xml.readyState == 4 && xml.status == 200) {
-                    window.location.replace('/user-dashboard');
-                    localStorage.removeItem("variable_keys");
-                } else if (xml.readyState == 4 && xml.status == 400) {
-                    console.error("Error:", xml.responseText);
-                }
-            };
+            variables.map((variable) => {
+                arrayVariable.push(variable.key);
+                return arrayVariable;
+            });
+            console.log(arrayVariable);
 
             const formData = new FormData();
             formData.append("body", body);
             formData.append("css_text", css_text);
-            formData.append("variable_keys", variable_keys);
+            formData.append("variable_keys", arrayVariable);
 
-            xml.open("POST", url + "email-template-store");
-            const csrfToken = document
-                .querySelector('meta[name="csrf-token"]')
-                .getAttribute("content");
-            xml.setRequestHeader("X-CSRF-TOKEN", csrfToken);
-
-            xml.send(formData);
+            sendXMLHttp("POST", url + "email-template-store", formData, "/user-dashboard");
         },
         stop: () => {},
     });

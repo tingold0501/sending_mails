@@ -12,4 +12,8 @@ export const url = 'http://localhost/';
 
 export const emailTemplateStore = 'email-template-store';
 
+export const timeout = 1000;
+
+
+
 
