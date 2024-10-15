@@ -3,14 +3,12 @@ import openImport from '../command/openImport.js';
 import addTemplate from './addTemplate.js';
 import backToCampaign from './backToCampaign.js';
 import send from './send.js';
-import beforeUnLoad from './beforeUnLoad.js';
 export default (editor, config) => {
     const { Commands } = editor;
     const txtConfirm = config.textCleanCanvas;
     openImport(editor, config);
     addTemplate(editor, config);
     backToCampaign(editor, config);
-    beforeUnLoad(editor, config);
     send(editor, config);
     Commands.add(cmdDeviceDesktop, {
         run: ed => ed.setDevice('Desktop'),

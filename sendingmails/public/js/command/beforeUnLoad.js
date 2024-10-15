@@ -1,53 +1,43 @@
-// // import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
-// import Swal from 'sweetalert2';
-// export function beforeUnLoad(editor, config){
-//     let isDirty = false; // Biến để kiểm tra xem có thay đổi nào không
+import { url } from "../consts.js";
+export function beforeUnLoad(editor, config) {
+    console.log("Before unload");
+    Swal.fire({
+        title: "Do you want to save the changes?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Save",
+        denyButtonText: `Don't save`,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var body = editor.getHtml();
+            var css_text = editor.getCss();
+            var variable_keys = localStorage.getItem("variable_keys");
+            const xml = new XMLHttpRequest();
+            xml.onreadystatechange = function () {
+                if (xml.readyState == 4 && xml.status == 200) {
+                    window.location.reload();
+                    localStorage.removeItem("variable_keys");
+                } else if (xml.readyState == 4 && xml.status == 400) {
+                    console.error("Error:", xml.responseText);
+                }
+            };
 
-//     // Đánh dấu editor là "dirty" (có thay đổi)
-//     editor.on("update", () => {
-//         console.log("Editor updated");
-//         isDirty = true; // Khi editor có thay đổi, đặt cờ thành true
-//     });
+            const formData = new FormData();
+            formData.append("body", body);
+            formData.append("css_text", css_text);
+            formData.append("variable_keys", variable_keys);
 
-//     window.addEventListener("beforeunload", (event) => {
-//         // Nếu không có thay đổi thì không cần hiển thị cảnh báo
-//         if (!isDirty) return;
+            xml.open("POST", url + "email-template-store");
+            const csrfToken = document
+                .querySelector('meta[name="csrf-token"]')
+                .getAttribute("content");
+            xml.setRequestHeader("X-CSRF-TOKEN", csrfToken);
 
-//         // Hiển thị cảnh báo chuẩn của trình duyệt (bắt buộc phải có)
-//         event.preventDefault();
-//         // event.returnValue = '';
-
-//         // Hiển thị SweetAlert để xác nhận
-//         Swal.fire({
-//             title: 'Bạn có muốn lưu thay đổi?',
-//             text: "Bạn có thay đổi chưa được lưu, bạn có chắc muốn thoát không?",
-//             icon: 'warning',
-//             showCancelButton: true,
-//             confirmButtonText: 'Thoát',
-//             cancelButtonText: 'Ở lại'
-//         }).then((result) => {
-//             if (result.isConfirmed) {
-//                 isDirty = false; // Cho phép thoát nếu người dùng xác nhận
-//                 window.removeEventListener("beforeunload", () => {}); // Bỏ sự kiện trước khi chuyển hướng
-//                 // window.location.href = '/your-destination'; // Đường dẫn trang muốn chuyển
-//             }
-//         });
-//     });
-// };
-import {sendXMLRequest} from "../events/sendXMLRequest.js";
-import {url,emailTemplateStore} from "../consts.js";
-export default (editor, config) => {
-    editor.on("update", () => {
-        console.log("Editor loaded");
-        window.addEventListener("beforeunload", (event) => {
-            event.preventDefault();
-            const message = window.confirm("Are you sure you want to leave this page?");
-            if (message) {
-                sendXMLRequest("POST",url + emailTemplateStore); 
-            }
-            else{
-                console.log("cancel");
-            }
-        });
+            xml.send(formData);
+            Swal.fire("Saved!", "", "success");
+            window.location.replace('/user-dashboard');
+        } else if (result.isDenied) {
+            Swal.fire("Changes are not saved", "", "info");
+        }
     });
 }

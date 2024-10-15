@@ -1,5 +1,7 @@
 import { cmdSave, url } from "../consts.js";
 export default (editor, config) => {
+    console.log("Add template");
+    
     editor.Commands.add(cmdSave, {
         run() {
             var body = editor.getHtml();
@@ -9,13 +11,12 @@ export default (editor, config) => {
             const xml = new XMLHttpRequest();
             xml.onreadystatechange = function () {
                 if (xml.readyState == 4 && xml.status == 200) {
-                    window.location.reload();
+                    window.location.replace('/user-dashboard');
                     localStorage.removeItem("variable_keys");
                 } else if (xml.readyState == 4 && xml.status == 400) {
                     console.error("Error:", xml.responseText);
                 }
             };
-            
 
             const formData = new FormData();
             formData.append("body", body);

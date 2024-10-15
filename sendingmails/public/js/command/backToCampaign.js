@@ -1,8 +1,11 @@
+import { beforeUnLoad } from "./beforeUnLoad.js";
+
 export default (editor, config) => {
     const back_to_campaign = 'back-to-campaign';
     editor.Commands.add(back_to_campaign, {
         run(){
-            window.location.href = '/campaign';
+            console.log("Back to campaign");
+            beforeUnLoad(editor, config);
         },
         stop: () => { },
     });

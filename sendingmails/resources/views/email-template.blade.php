@@ -163,30 +163,6 @@
         var inner_join_campaign = @json($inner_join_campaign);
         var variables = @json($variables);
     </script>
-      {{-- <script>
-        // Kiểm tra Swal có được tải đúng không
-        if (typeof Swal !== 'undefined') {
-          Swal.fire({
-            title: 'Hello world!',
-            text: 'This is an alert using SweetAlert2',
-            icon: 'success'
-          });
-        } else {
-          console.error('SweetAlert2 chưa được tải!');
-        }
-      </script> --}}
-    {{-- <script type="text/javascript">
-        $(document).ready(function() {
-            window.addEventListener('beforeunload', function(e) {
-                e.preventDefault();
-                Swal.fire({
-                title: "The Internet?",
-                text: "That thing is still around?",
-                icon: "question"
-              });
-            })
-        })
-    </script> --}}
 
 </body>
 
