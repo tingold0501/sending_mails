@@ -14,19 +14,26 @@ export function beforeUnLoad(editor, config) {
             var variables = JSON.parse(
                 localStorage.getItem("variable_keys")
             );
-            
+            let arrayVariableKeys = [];
             variables.forEach((variable) => {
                 let regex = new RegExp(`${variable.placeholder}`);
                 regex = variable.name;
                 body = body.replace(regex, variable.key);
             });
+            console.log(variables);
+
+            variables.map((variable) => {
+                arrayVariableKeys.push(variable.key);
+                return arrayVariableKeys;
+            });
+          
+            console.log(arrayVariableKeys);
 
             const formData = new FormData();
             formData.append("body", body);
             formData.append("css_text", css_text);
-            formData.append("variable_keys", variables);
-            console.log(variables);
-            
+            formData.append("variable_keys", arrayVariableKeys);
+
             sendXMLHttp("POST", url + "email-template-store", formData, "/user-dashboard");
         } else if (result.isDenied) {
             setTimeout(() => {

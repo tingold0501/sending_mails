@@ -27,6 +27,7 @@ class VariableSeeder extends Seeder
             ['placeholder' => '{inactive}','name' => 'inactive', 'key' => Hash::make('inactive'),'value' => 'inactive', 'created_at' => now(), 'updated_at' => now()],
             ['placeholder' => '{unsubscribed}','name' => 'unsubscribed', 'key' => Hash::make('unsubscribed'),'value' => 'unsubscribed', 'created_at' => now(), 'updated_at' => now()],
             ['placeholder' => '{complaint}','name' => 'complaint','key' => Hash::make('complaint'), 'value' => 'complaint','created_at' => now(), 'updated_at' => now()],
+        
         ]);
     }
 }

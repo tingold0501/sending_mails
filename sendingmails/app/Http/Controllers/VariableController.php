@@ -22,9 +22,24 @@ class VariableController extends Controller
         }
     }
 
+    public static function assign_variables_(StoreEmailTemplateRequest $request, $email_template) {
+        $template_latest = EmailTemplateController::get_latest_email_template();
+        $variable_data = VariableController::get_variables_();
+        foreach ($variable_data as $variable) {
+            $template_latest->variable_keys = str_replace($variable->key, $request[$variable->key], $template_latest->variable_keys);
+            // dd($template_latest->variable_keys);
+        }
+        $email_template->body = $template_latest->variable_keys;
+        // dd($email_template);
+    }
     public static function get_variables_(){
         $variables = DB::table('variables')->get();
         return $variables;
+    }
+
+    public static function get_latest_variable(){
+        $latest_variable = DB::table('variables')->latest()->first();
+        return $latest_variable;
     }
 
     /**
