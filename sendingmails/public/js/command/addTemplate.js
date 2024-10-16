@@ -8,7 +8,7 @@ export default (editor, config) => {
             var variables = JSON.parse(
                 localStorage.getItem("variable_keys")
             );
-            let arrayVariable = [];
+            let arrayVariableKeys = [];
             variables.forEach((variable) => {
                 let regex = new RegExp(`${variable.placeholder}`);
                 regex = variable.name;
@@ -17,15 +17,16 @@ export default (editor, config) => {
             console.log(variables);
 
             variables.map((variable) => {
-                arrayVariable.push(variable.key);
-                return arrayVariable;
+                arrayVariableKeys.push(variable.key);
+                return arrayVariableKeys;
             });
-            console.log(arrayVariable);
+          
+            console.log(arrayVariableKeys);
 
             const formData = new FormData();
             formData.append("body", body);
             formData.append("css_text", css_text);
-            formData.append("variable_keys", arrayVariable);
+            formData.append("variable_keys", arrayVariableKeys);
 
             sendXMLHttp("POST", url + "email-template-store", formData, "/user-dashboard");
         },

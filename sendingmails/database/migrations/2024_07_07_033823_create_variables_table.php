@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('placeholder');
             $table->string('key')->unique()->nullable();
             $table->string('value')->unique()->nullable();
-            // $table->foreignId('email_template_id')->constrained()->default(1);
             $table->timestamps();
         });
     }

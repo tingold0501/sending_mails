@@ -24,7 +24,7 @@ class StoreEmailTemplateRequest extends FormRequest
         return [
             'body' => ['required', 'string'],
             'css_text' => ['required', 'string'],
-            'variable_keys[]' => ['string'],
+            'variable_keys[]' => ['string','array'],
         ];
     }
     public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->longText('css_text');
             $table->string('variable_keys')->nullable();
             $table->foreignId('campaign_id')->constrained();
+            // $table->foreignId('variable_id')->nullable()->constrained();
+            // $table->foreign('variable_keys')->references('key')->on('variables');
             $table->timestamps();
         });
     }

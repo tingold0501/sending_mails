@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\View;
 
 class VariableController extends Controller
 {
-    private $latest_email_template;
-
+    private $inner_join_email_template;
     private function __construct()
     {
         if (!Auth::check()) {
@@ -27,11 +26,7 @@ class VariableController extends Controller
         $variables = DB::table('variables')->get();
         return $variables;
     }
-    public static function assign_variables(){
-        $latest_email_template = EmailTemplateController::get_latest_email_template();
-        $latest_email_template->body;
-        return $latest_email_template->body;
-    }
+
     /**
      * Display a listing of the resource.
      */

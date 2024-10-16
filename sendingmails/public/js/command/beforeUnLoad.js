@@ -27,7 +27,6 @@ export function beforeUnLoad(editor, config) {
             formData.append("variable_keys", variables);
             console.log(variables);
             
-
             sendXMLHttp("POST", url + "email-template-store", formData, "/user-dashboard");
         } else if (result.isDenied) {
             setTimeout(() => {

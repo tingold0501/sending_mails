@@ -21,6 +21,7 @@ class SendMailController extends Controller
             Mail::to($value)->send(new MailConfiguring($mail_configuring_data));
         }
     }
+    
 
     /**
      * Display a listing of the resource.

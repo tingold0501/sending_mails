@@ -5,7 +5,7 @@ export function sendXMLHttp(method,url, formData,page) {
         if (xml.readyState == 4 && xml.status == 200) {
             console.log("Success:", xml.responseText);
             setTimeout(() => {
-                // window.location.replace(page);
+                window.location.replace(page);
             }, timeout);
         } else if (xml.readyState == 4 && xml.status == 400) {
             console.error("Error:", xml.responseText);

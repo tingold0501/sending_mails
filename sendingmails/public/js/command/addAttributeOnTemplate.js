@@ -4,7 +4,7 @@ export default (editor, plugin) => {
     const variableArray = [];
     let options = "";
     variables.forEach((variable) => {
-        options += `<option class="dropdown-item" placeholder="${variable.placeholder}" data-key="${variable.key}" value="${variable.name}">${variable.name}</option>`;
+        options += `<option class="dropdown-item" id="${variable.id}" placeholder="${variable.placeholder}" data-key="${variable.key}" value="${variable.name}">${variable.name}</option>`;
     });
     
     const select2Content = select2(options);
@@ -57,15 +57,14 @@ export default (editor, plugin) => {
                     "change",
                     (event) => {
                         const selectedValue = event.target.value;
-                        var selectedOption =
-                            event.target.options[event.target.selectedIndex];
-                        var selectedName = selectedOption.getAttribute("value");
+                        var selectedOption = event.target.options[event.target.selectedIndex];
 
-                        var selectedKey =
-                            selectedOption.getAttribute("data-key");
-                        
+                        var selectedId = selectedOption.getAttribute("id");
+                        var selectedName = selectedOption.getAttribute("value");
+                        var selectedKey = selectedOption.getAttribute("data-key");
                         var variablePlaceholder = selectedOption.getAttribute("placeholder");
-                        addVariable( selectedKey,selectedName,variablePlaceholder, variableArray);
+
+                        addVariable(selectedId, selectedKey,selectedName,variablePlaceholder, variableArray);
                         console.log(variableArray);
 
                         localStorage.setItem(
@@ -112,8 +111,9 @@ function replaceAt(text, index, replacement) {
     return text.substring(0, index) + replacement + text.substring(index + 1);
 }
 
-function addVariable(variable, variableName,variablePlaceholder, variableArray) {
+function addVariable(selectedId,variable, variableName,variablePlaceholder, variableArray) {
     const variableObject = {
+        id: selectedId,
         placeholder: variablePlaceholder,
         name: variableName,  
         key: variable         
