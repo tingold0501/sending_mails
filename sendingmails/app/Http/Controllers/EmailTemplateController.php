@@ -65,7 +65,7 @@ class EmailTemplateController extends Controller
         $email_template->created_at = now();
         $email_template->updated_at = now();
         $email_template->save();
-        $variable_keys = VariableController::assign_variables_($request, $email_template);
+        // $variable_keys = VariableController::assign_variables_($request, $email_template);
         $this->sendMail = SendMailController::send_mail($request, $latest_campaign);
         return redirect(route('email-template', absolute: false));
     }
